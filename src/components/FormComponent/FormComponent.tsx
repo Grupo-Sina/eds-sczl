@@ -1,17 +1,62 @@
+'use client'
+
+import { Button, Input } from "@nextui-org/react";
+import React, { FormEvent, useMemo, useState } from "react";
+
 export default function FormComponent() {
+  const [ userName, setUserName ] = useState<string>("");
+  const [ userSurName, setUserSurName ] = useState<string>('');
+  const [ cellphone, setCellphone ] = useState<string>("");
+
+
+  const handleSubmit = (e: FormEvent<HTMLFormControlsCollection>) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className="z-20 p-[48px] rounded-[16px] bg-[#0f1768] text-[#fff] w-[40%]">
+    <form className="z-20 p-[48px] rounded-[16px]  bg-[#0F1768] text-[#fff] w-[40%] shadow-xl">
       <p>Jogada de Mestre</p>
-      <h1>
-        PREENCHA OS DADOS ABAIXO E <span>VOTE!</span>
+      <h1 className="text-lg #00E275">
+        PREENCHA OS DADOS ABAIXO E{" "}
+        <span className="text-[#00E275] font-bold">VOTE!</span>
       </h1>
       <div className="flex flex-col">
-        <label>Nome*:</label>
-        <input type="text" />
-        <label>Sobrenome*:</label>
-        <input type="text" />
-        <label>Celular*:</label>
-        <input type="text" />
+        <Input
+          size="sm"
+          type="text"
+          label="Nome"
+          value={userName}
+          isRequired
+          labelPlacement="outside"
+          onValueChange={setUserName}
+          color="danger"
+          classNames={{
+            label: '',
+          }}    
+          className="mb-4"
+        />
+        <Input
+          size="sm"
+          type="text"
+          label="Sobrenome"
+          value={userSurName}
+          isRequired
+          labelPlacement="outside"
+          onValueChange={setUserSurName}
+          color="danger"
+          className="mb-4"
+        />
+        <Input
+          size="sm"
+          type="text"
+          label="Celular"
+          value={cellphone}
+          isRequired
+          labelPlacement="outside"
+          color="danger"
+          onValueChange={setCellphone}
+          // className=""
+        />
       </div>
       <label htmlFor="team">Nome do time*:</label>
       <br />
@@ -26,13 +71,27 @@ export default function FormComponent() {
       <br />
       <input type="radio" id="teamd" name="team" value="Time D" />
       <label htmlFor="team4">Time D</label>
-      <button>VOTAR</button>
+      <Button
+        type="submit"
+        radius="full"
+        size="sm"
+        className="bg-[#00E46F] text-[#003B9C] text-[16px] w-full font-heading font-[800] py-[12px]"
+      >
+        VOTAR
+      </Button>
       <p>*cada usuário só pode votar uma vez por dia</p>
       <hr />
       <div>
         <h2>Confere como está o ranking até agora!</h2>
-        <button>VER RANKING</button>
+        <Button
+          radius="full"
+          size="sm"
+          variant="bordered"
+          className="bg-[#0F1768] text-[#00E46F] text-[16px] border-[#00E46F] font-heading font-[800]"
+        >
+          VER RANKING
+        </Button>
       </div>
-    </div>
+    </form>
   );
 }
