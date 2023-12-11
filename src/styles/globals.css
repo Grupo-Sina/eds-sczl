@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "HeadindProTrial";
+  src: url("../fonts/Heading-Pro-Book-trial.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HeadingProTrial-Bold";
+  src: url("../fonts/Heading-Pro-Bold-trial.ttf") format("truetype");
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }

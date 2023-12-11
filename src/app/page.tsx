@@ -2,8 +2,10 @@ import Home from '@/pages/Home/Home'
 
 export default function page() {
   return (
-    <main className='overflow-hidden'>
+    <main>
       <Home />
     </main>
   )
 }
+
+// overflow-hidden <main className="overflow-hidden"

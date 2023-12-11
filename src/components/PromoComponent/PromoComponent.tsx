@@ -1,8 +1,8 @@
-import Image from "next/image";
-import timea from "../../../public/timea.png";
-import timeb from "../../../public/timeb.png";
-import timec from "../../../public/timec.png";
-import timed from '../../../public/timed.png';
+import Image from 'next/image'
+import timea from '../../../public/timea.png'
+import timeb from '../../../public/timeb.png'
+import timec from '../../../public/timec.png'
+import timed from '../../../public/timed.png'
 
 export default function PromoComponent() {
   return (
@@ -28,5 +28,5 @@ export default function PromoComponent() {
         <Image src={timed} alt="timed" />
       </div>
     </div>
-  );
+  )
 }
