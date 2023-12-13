@@ -3,13 +3,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "HeadindProTrial";
+  font-family: "HeadingProTrial";
   src: url("../fonts/Heading-Pro-Book-trial.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "HeadingProTrial-Bold";
   src: url("../fonts/Heading-Pro-Bold-trial.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "HeadingProTrial-Thin";
+  src: url('../fonts/Heading-Pro-Thin-trial.ttf') format("truetype");
 }
 
 body {
