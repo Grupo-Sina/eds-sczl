@@ -20,13 +20,14 @@ export default function Header() {
   return (
     <header className="h-[94px] bg-[#0F1768] flex justify-around items-center z-10">
       <Image src={escudozl} alt="escudo zona leste" width={38} height={45} />
-      <Image src={edsnavarzealogo} alt="header logo eds na varzea" />
+      <Image src={edsnavarzealogo} alt="header logo eds na varzea" className="ml-40"/>
       <div className="space-x-4">
         <Button
           radius="full"
           size="md"
-          className="bg-[#0F1768] border-solid border-[#00E46F] text-[#00E46F]"
+          className="bg-[#0F1768] border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
           variant="bordered"
+          style={{ fontFamily: "Heading Pro Trial" }}
         >
           CADASTRE-SE
         </Button>
@@ -34,7 +35,8 @@ export default function Header() {
           onPress={onOpen}
           radius="full"
           size="md"
-          className="bg-[#00E46F] text-[#003B9C]"
+          className="bg-[#00E46F] text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5"
+          style={{ fontFamily: "Heading Pro Trial" }}
         >
           LOGIN
         </Button>

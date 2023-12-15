@@ -9,6 +9,7 @@ import gradienteffectleft from '../../public/gradienteffectleft.png';
 import edsvectorleft from '../../public/edsvectorleft.png';
 import edsvectorright from '../../public/edsvectorright.png';
 import PromoComponent from "./components/PromoComponent/PromoComponent";
+import VerificationCode from "./components/VerificationCode/VerificationCode";
 
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
       <Image
         src={shirtgradienteffect}
         alt="shirtgradienteffect"
-        className="absolute top-0 right-0 overflow-hidden h-screen object-cover"
+        className="absolute top-0 right-0 overflow-hidden h-screen w-screen object-cover"
       />
       <Image
         src={gradienteffectleft}
@@ -38,6 +39,7 @@ export default function Home() {
       <div className="flex w-screen justify-evenly">
         <PromoComponent />
         <FormComponent />
+        {/* <VerificationCode /> */}
       </div>
       <Footer />
     </div>

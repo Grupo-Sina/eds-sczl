@@ -57,9 +57,9 @@ export default function FormComponent() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <form className="z-20 p-[48px] rounded-[16px]  bg-[#0F1768] text-[#fff] max-w-[650px] h-auto shadow-xl">
+    <form className="z-20 p-[28px] my-8 rounded-[16px]  bg-[#0F1768] text-[#fff] max-w-[650px] h-auto shadow-xl">
       <p>Bilhete da Sorte</p>
-      <h1 className="#00E275 text-[28px] font-bold leading-8">
+      <h1 className="#00E275 text-[24px] font-bold leading-8">
         CADASTRE-SE E VOTE!
       </h1>
       <div className="flex flex-col">
@@ -180,7 +180,7 @@ export default function FormComponent() {
         type="submit"
         radius="full"
         size="sm"
-        className="bg-[#00E46F] text-[#003B9C] text-[16px] w-full font-HeadingProTrial font-[800] py-[12px] tracking-tighter"
+        className="bg-[#00E46F] text-[#003B9C] text-[16px] w-full font-heading font-[800] py-[12px]"
       >
         CONCLUIR CADASTRO
       </Button>
@@ -192,7 +192,7 @@ export default function FormComponent() {
       </p>
 
       <hr style={{ borderTop: "1px solid #FFFFFF33" }} />
-      <div className="flex justify-between mt-6">
+      <div className="flex justify-between mt-4">
         <div className="flex items-center space-x-4">
           <h2 className="text-xl font-bold">Já é cadastrado?</h2>
           <Button
@@ -200,9 +200,9 @@ export default function FormComponent() {
             radius="full"
             size="sm"
             variant="bordered"
-            className="bg-[#0F1768] text-[#00E46F] text-[16px] border-[#00E46F] font-HeadingProTrial font-[800] tracking-tighter py-3 px-8"
+            className="bg-[#0F1768] text-[#00E46F] text-[16px] border-[#00E46F] font-heading font-[800] py-3 px-8"
           >
-            LOGIN
+            FAZER LOGIN
           </Button>
           <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="max-w-[716px] p-[48px] bg-[#0F1768] text-white">
           <ModalContent>
@@ -213,11 +213,11 @@ export default function FormComponent() {
                 <ModalBody>
                   <Input labelPlacement='outside' label='Usuário' isRequired />
                   <Input labelPlacement='outside' label='Senha' isRequired />
-                  <Button radius="full" isDisabled className="bg-[#00E46F] font-heading mt-3">LOGIN</Button>
+                  <Button radius="full" isDisabled className="bg-[#00E46F] font-heading font-bold text-[16px] mt-3">LOGIN</Button>
                   <hr style={{ borderTop: "1px solid #FFFFFF33", marginTop: "1rem", marginBottom: "1rem" }}/>
                   <div className="flex items-center space-x-4">
                     <p className="text-[20px] font-semibold">Esqueceu a senha?</p>
-                    <Button radius="full" variant="bordered" className="font-heading bg-transparent border-[#00E46F] text-[#00E46F]  px-8">REDEFINIR SENHA</Button>
+                    <Button radius="full" variant="bordered" className="font-heading bg-transparent border-[#00E46F] text-[16px] text-[#00E46F] font-bold py-3 px-8">REDEFINIR SENHA</Button>
                   </div>
                 </ModalBody>
               </>
