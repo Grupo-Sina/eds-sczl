@@ -40,7 +40,7 @@ export default function Vote() {
         alt="shirtgradienteffect"
         className="absolute right-0 bottom-0"
       />
-      <div className="flex items-center justify-evenly space-x-8">
+      <div className="flex items-center justify-evenly space-x-6">
         {confirmedVote ? (
           <SuccessVoteComponent />
         ) : (

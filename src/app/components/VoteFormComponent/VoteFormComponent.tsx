@@ -132,7 +132,7 @@ export default function VoteFormComponent() {
             {(onClose) => (
               <>
                 <p className="ml-5">Bilhete da Sorte</p>
-                <ModalHeader>REGRAS GERAIS</ModalHeader>
+                <ModalHeader className="text-3xl font-bold">REGRAS GERAIS</ModalHeader>
                 <ModalBody>
                   <ul className="list-disc">
                     <li>
