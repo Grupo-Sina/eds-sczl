@@ -1,7 +1,7 @@
 export default function VotePromoComponent() {
 
   return (
-    <div className="z-20 max-w-[935px] p-4 w-[800px]">
+    <div className="z-20 max-w-[935px] p-4 w-[610px] 2xl:w-[800px]">
       <h1 className="">
         <span
           className="font-heading text-white text-7xl font-bold 2xl:text-[101px] 2xl:leading-[109px]" 
@@ -179,122 +179,122 @@ export default function VotePromoComponent() {
           A
         </span>
         <span
-          className="font-heading text-white font-normal text-[80px] leading-[80px]"
+          className="font-heading text-white font-normal text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           {" "}
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           S
         </span>
         <span
-          className="font-heading text-white font-black text-[80px] leading-[80px]"
+          className="font-heading text-white font-black text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           U
         </span>
         <span
-          className="font-heading text-white font-normal text-[80px] leading-[80px]"
+          className="font-heading text-white font-normal text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           P
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           E
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           R
         </span>
         <span
-          className="font-heading text-white font-extrabold text-[80px] leading-[80px]"
+          className="font-heading text-white font-extrabold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           {" "}
         </span>
         <span
-          className="font-heading text-white font-semibold text-[80px] leading-[80px]"
+          className="font-heading text-white font-semibold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           C
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           O
         </span>
         <span
-          className="font-heading text-white font-semibold text-[80px] leading-[80px]"
+          className="font-heading text-white font-semibold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           P
         </span>
         <span
-          className="font-heading text-white font-semibold text-[80px] leading-[80px]"
+          className="font-heading text-white font-semibold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           A
         </span>
         <span
-          className="font-heading text-white font-extrabold text-[80px] leading-[80px]"
+          className="font-heading text-white font-extrabold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           {" "}
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           Z
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           O
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           N
         </span>
         <span
-          className="font-heading text-white font-semibold text-[80px] leading-[80px]"
+          className="font-heading text-white font-semibold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           A
         </span>
         <span
-          className="font-heading text-white font-extrabold text-[80px] leading-[80px]"
+          className="font-heading text-white font-extrabold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           {" "}
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           L
         </span>
         <span
-          className="font-heading text-white font-semibold text-[80px] leading-[80px]"
+          className="font-heading text-white font-semibold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           E
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           S
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           T
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           E
         </span>
         <span
-          className="font-heading text-white font-semibold text-[80px] leading-[80px]"
+          className="font-heading text-white font-semibold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           ?
         </span>
         <span
-          className="font-heading text-white font-bold text-[80px] leading-[80px]"
+          className="font-heading text-white font-bold text-6xl 2xl:text-[80px] 2xl:leading-[80px]"
         >
           !
         </span>
