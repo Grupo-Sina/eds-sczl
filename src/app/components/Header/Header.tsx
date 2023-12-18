@@ -9,6 +9,14 @@ import {
   Button,
   useDisclosure,
   Input,
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
 } from "@nextui-org/react";
 import Image from "next/image";
 import edsnavarzealogo from "../../../../public/edsnavarzealogo.png";
@@ -21,6 +29,7 @@ export default function Header() {
   const [password, setPassword] = useState<string>("");
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -46,14 +55,41 @@ export default function Header() {
   };
 
   return (
-    <header className="h-[94px] bg-[#0F1768] flex justify-around items-center z-10">
-      <Image src={escudozl} alt="escudo zona leste" width={38} height={45} />
-      <Image
-        src={edsnavarzealogo}
-        alt="header logo eds na varzea"
-        className="ml-40"
+    <Navbar
+      maxWidth="full"
+      onMenuOpenChange={setIsMenuOpen}
+      className="h-[94px] bg-[#0F1768]"
+      classNames={{
+        wrapper: "justify-around",
+      }}
+    >
+      <NavbarMenuToggle
+        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        className="md:hidden bg-transparent text-white absolute left-10"
       />
-      <div className="space-x-4">
+
+      <NavbarMenu className="bg-[#1F3694] w-[50%]">
+        <NavbarMenuItem className="mt-10">
+          <Link className="cursor-pointer text-xl font-extrabold text-white">LOGIN</Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link className="cursor-pointer text-xl font-extrabold text-white">CADASTRE-SE</Link>
+        </NavbarMenuItem>
+      </NavbarMenu>
+
+      <Image
+        src={escudozl}
+        alt="escudo zona leste"
+        width={38}
+        height={45}
+        className="hidden md:block"
+      />
+
+      <div className="absolute md:relative md:flex md:items-center md:justify-center">
+        <Image src={edsnavarzealogo} alt="header logo eds na varzea" />
+      </div>
+
+      <div className="space-x-4 hidden md:flex">
         <Button
           radius="full"
           size="md"
@@ -152,6 +188,6 @@ export default function Header() {
           </ModalContent>
         </Modal>
       </div>
-    </header>
+    </Navbar>
   );
 }

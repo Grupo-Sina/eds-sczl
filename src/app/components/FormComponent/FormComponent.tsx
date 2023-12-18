@@ -88,7 +88,7 @@ export default function FormComponent() {
       className="z-20 my-8 p-[28px] rounded-[16px]  bg-[#0F1768] text-[#fff] max-w-[650px] h-auto shadow-xl"
     >
       <p className="text-[16px] font-medium leading-[19px]">Bilhete da Sorte</p>
-      <h1 className="#00E275 text-[22px] font-bold leading-8 mt-2 2xl:text-[28px] 2xl:leading-[33px]">
+      <h1 className="#00E275 text-[22px] font-bold leading-8 mt-2 desktop:text-[28px] desktop:leading-[33px]">
         CADASTRE-SE E VOTE!
       </h1>
       <div className="flex flex-col">

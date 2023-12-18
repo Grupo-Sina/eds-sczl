@@ -14,73 +14,73 @@ export default function PromoComponent() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <div className="z-20 max-w-[600px] 2xl:max-w-[935px]">
+    <div className="z-20 max-w-[600px] desktop:max-w-[935px]">
       <h1>
-        <span className="text-white font-bold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-bold font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           B
         </span>
-        <span className="text-white font-light font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-light font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           I
         </span>
-        <span className="text-white font-extrabold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-extrabold font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           L
         </span>
-        <span className="text-white font-black font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-black font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           H
         </span>
-        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           E
         </span>
-        <span className="text-white font-bold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-bold font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           T
         </span>
-        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           E
         </span>
-        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           {" "}
         </span>
-        <span className="text-white font-bold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-bold font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           D
         </span>
-        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           A
         </span>
-        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           {" "}
         </span>
-        <span className="text-[#00E275] font-bold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-[#00E275] font-bold font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           S
         </span>
-        <span className="text-[#00E275] font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-[#00E275] font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           O
         </span>
-        <span className="text-[#00E275] font-extrabold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-[#00E275] font-extrabold font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           R
         </span>
-        <span className="text-[#00E275] font-extrabold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-[#00E275] font-extrabold font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           T
         </span>
-        <span className="text-[#00E275] font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-[#00E275] font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           E
         </span>
-        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
           !
         </span>
       </h1>
-      <p className="text-white text-xl font-light mt-6 2xl:font-normal 2xl:text-[32px] 2xl:leading-[48px]">
+      <p className="text-white text-xl font-light mt-6 desktop:font-normal desktop:text-[32px] desktop:leading-[48px]">
         A Super Copa Zona Leste e a Esportes da Sorte estarão dando uma
         inscrição <span className="text-[#00E275] font-bold">SEM TAXA</span>{" "}
         para o time mais votado!
       </p>
 
-      <p className="text-white text-xl font-light mt-6 2xl:font-normal 2xl:text-[32px] 2xl:leading-[48px]">
+      <p className="text-white text-xl font-light mt-6 desktop:font-normal desktop:text-[32px] desktop:leading-[48px]">
         E como aqui a parada é diferenciada, a equipe também indicará uma
         instituição de caridade para receber o valor de{" "}
         <span className="text-[#00E275] font-bold">R$10 mil.</span>{" "}
       </p>
 
-      <p className="text-white text-xl font-light mt-6 2xl:font-normal 2xl:text-[32px] 2xl:leading-[48px]">
+      <p className="text-white text-xl font-light mt-6 desktop:font-normal desktop:text-[32px] desktop:leading-[48px]">
         Mostre que a torcida é pesada e ajude seu time a conquistar o lugar na
         Super Copa Zona Leste!{" "}
         <span className="font-semibold">Vote agora!</span>
@@ -89,7 +89,7 @@ export default function PromoComponent() {
         <Button
           onPress={onOpen}
           radius="full"
-          className="bg-[#00E46F] font-heading text-[#003B9C] text-[16px] font-extrabold leading-5 text-center py-3 px-8 2xl:text-[24px] 2xl:font-extrabold 2xl:leading-[29px] 2xl:py-6 2xl:px-11"
+          className="bg-[#00E46F] font-heading text-[#003B9C] text-[16px] font-extrabold leading-5 text-center py-3 px-8 desktop:text-[24px] desktop:font-extrabold desktop:leading-[29px] desktop:py-6 desktop:px-11"
         >
           VER REGRAS
         </Button>
