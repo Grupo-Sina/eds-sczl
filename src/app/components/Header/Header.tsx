@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState } from 'react'
 import {
   Modal,
   ModalContent,
@@ -9,41 +9,41 @@ import {
   Button,
   useDisclosure,
   Input,
-} from "@nextui-org/react";
-import Image from "next/image";
-import edsnavarzealogo from "../../../../public/edsnavarzealogo.png";
-import escudozl from "../../../../public/escudozl.png";
-import { EyeSlashFilledIcon } from "../EyeSlashFilledIcon/EyeSlashFilledIcon";
-import { EyeFilledIcon } from "../EyeFilledIcon/EyeFilledIcon";
+} from '@nextui-org/react'
+import Image from 'next/image'
+import edsnavarzealogo from '../../../../public/edsnavarzealogo.png'
+import escudozl from '../../../../public/escudozl.png'
+import { EyeSlashFilledIcon } from '../EyeSlashFilledIcon/EyeSlashFilledIcon'
+import { EyeFilledIcon } from '../EyeFilledIcon/EyeFilledIcon'
 
 export default function Header() {
-  const [userName, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [userName, setUsername] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [isVisible, setIsVisible] = useState<boolean>(false)
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true)
 
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const toggleVisibility = () => setIsVisible(!isVisible)
 
   const enableButton = () => {
-    setIsButtonDisabled(!(password.length > 5 && userName.length >= 3));
-  };
+    setIsButtonDisabled(!(password.length > 5 && userName.length >= 3))
+  }
 
   const handlePasswordChange = (value: string) => {
-    setPassword(value);
-    enableButton();
-  };
+    setPassword(value)
+    enableButton()
+  }
 
   const handleUsernameChange = (value: string) => {
-    setUsername(value);
-    enableButton();
-  };
+    setUsername(value)
+    enableButton()
+  }
 
   const handleSubmitLoginForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("login efetuado");
-  };
+    e.preventDefault()
+    console.log('login efetuado')
+  }
 
   return (
     <header className="h-[94px] bg-[#0F1768] flex justify-around items-center z-10">
@@ -103,7 +103,7 @@ export default function Header() {
                       isRequired
                       value={password}
                       onValueChange={handlePasswordChange}
-                      type={isVisible ? "text" : "password"}
+                      type={isVisible ? 'text' : 'password'}
                       className="mb-5"
                       endContent={
                         <button
@@ -128,9 +128,9 @@ export default function Header() {
                     </Button>
                     <hr
                       style={{
-                        borderTop: "1px solid #FFFFFF33",
-                        marginTop: "1rem",
-                        marginBottom: "1rem",
+                        borderTop: '1px solid #FFFFFF33',
+                        marginTop: '1rem',
+                        marginBottom: '1rem',
                       }}
                     />
                     <div className="flex items-center space-x-4">
@@ -153,5 +153,5 @@ export default function Header() {
         </Modal>
       </div>
     </header>
-  );
+  )
 }
