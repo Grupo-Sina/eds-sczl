@@ -14,192 +14,73 @@ export default function PromoComponent() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <div className="z-20 max-w-[600px] p-4 pt-24 pl-14">
+    <div className="z-20 max-w-[600px] 2xl:max-w-[935px]">
       <h1>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "700",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-bold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           B
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "300",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-light font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           I
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "800",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-extrabold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           L
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "900",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-black font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           H
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "400",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           E
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "bold",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-bold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           T
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "400",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           E
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "normal",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           {" "}
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "bold",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-bold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           D
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "bold",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           A
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "normal",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           {" "}
         </span>
-        <span
-          style={{
-            color: "#00E275",
-            fontWeight: "700",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-[#00E275] font-bold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           S
         </span>
-        <span
-          style={{
-            color: "#00E275",
-            fontWeight: "400",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-[#00E275] font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           O
         </span>
-        <span
-          style={{
-            color: "#00E275",
-            fontWeight: "800",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-[#00E275] font-extrabold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           R
         </span>
-        <span
-          style={{
-            color: "#00E275",
-            fontWeight: "800",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-[#00E275] font-extrabold font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           T
         </span>
-        <span
-          style={{
-            color: "#00E275",
-            fontWeight: "normal",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-[#00E275] font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           E
         </span>
-        <span
-          style={{
-            color: "#FFF",
-            fontWeight: "normal",
-            fontSize: "68px",
-            fontFamily: "Heading Pro Trial",
-          }}
-        >
+        <span className="text-white font-normal font-heading text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           !
         </span>
       </h1>
-      <p className="text-white text-xl font-light">
+      <p className="text-white text-xl font-light mt-6 2xl:font-normal 2xl:text-[32px] 2xl:leading-[48px]">
         A Super Copa Zona Leste e a Esportes da Sorte estarão dando uma
         inscrição <span className="text-[#00E275] font-bold">SEM TAXA</span>{" "}
         para o time mais votado!
       </p>
-      <br />
-      <p className="text-white text-xl font-light">
+
+      <p className="text-white text-xl font-light mt-6 2xl:font-normal 2xl:text-[32px] 2xl:leading-[48px]">
         E como aqui a parada é diferenciada, a equipe também indicará uma
         instituição de caridade para receber o valor de{" "}
         <span className="text-[#00E275] font-bold">R$10 mil.</span>{" "}
       </p>
-      <br />
-      <p className="text-white text-xl font-light">
+
+      <p className="text-white text-xl font-light mt-6 2xl:font-normal 2xl:text-[32px] 2xl:leading-[48px]">
         Mostre que a torcida é pesada e ajude seu time a conquistar o lugar na
         Super Copa Zona Leste!{" "}
         <span className="font-semibold">Vote agora!</span>
@@ -208,7 +89,7 @@ export default function PromoComponent() {
         <Button
           onPress={onOpen}
           radius="full"
-          className="bg-[#00E46F] font-heading text-[#003B9C] text-[16px] font-extrabold leading-5 text-center py-3 px-8"
+          className="bg-[#00E46F] font-heading text-[#003B9C] text-[16px] font-extrabold leading-5 text-center py-3 px-8 2xl:text-[24px] 2xl:font-extrabold 2xl:leading-[29px] 2xl:py-6 2xl:px-11"
         >
           VER REGRAS
         </Button>

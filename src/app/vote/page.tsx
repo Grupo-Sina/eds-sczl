@@ -11,6 +11,7 @@ import edsvectorright from "../../../public/edsvectorright.png";
 import VoteFormComponent from "../components/VoteFormComponent/VoteFormComponent";
 import VotePromoComponent from "../components/VotePromoComponent/VotePromoComponent";
 import { useAppContext } from "../context/AppContext";
+import SuccessVoteComponent from "../components/SuccessVoteComponent/SucessVoteComponent";
 
 export default function Vote() {
 
@@ -41,7 +42,7 @@ export default function Vote() {
       />
       <div className="flex items-center justify-evenly space-x-8">
         {confirmedVote ? (
-          <h1>voto confirmado carai</h1>
+          <SuccessVoteComponent />
         ) : (
           <VotePromoComponent />
         )}

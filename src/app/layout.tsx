@@ -23,7 +23,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         <title>EDS - Super Copa Zona Leste</title>
         <meta name="description" content={"Esportes da Sorte, EDS, Super Copa Zona Leste" || ""} />
       </Head>
-      <body>
+      <body className="overflow-x-hidden">
         <AppContextProvider>
           <Providers>{children}</Providers>
         </AppContextProvider>

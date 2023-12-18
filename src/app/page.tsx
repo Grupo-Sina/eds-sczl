@@ -34,9 +34,9 @@ export default function Home() {
       <Image
         src={edsvectorright}
         alt="shirtgradienteffect"
-        className="absolute right-0 bottom-0"
+        className="absolute right-0 bottom-0 overflow-hidden"
       />
-      <div className="flex w-screen justify-evenly">
+      <div className="flex w-screen justify-evenly items-center">
         <PromoComponent />
         <FormComponent />
         {/* <VerificationCode /> */}

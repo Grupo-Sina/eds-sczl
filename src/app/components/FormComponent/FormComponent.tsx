@@ -1,10 +1,12 @@
 "use client";
 
-import React, { FormEvent, useMemo, useState } from "react";
+import React, { FormEvent, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 import phone from "../../../../public/phone.png";
-import escudozl from '../../../../public/escudozl.png';
+import escudozl from "../../../../public/escudozl.png";
+import eyefilledicon from "../../../../public/eyefilledicon.svg";
+import eyeslashfilledicon from "../../../../public/eyeslashfilledicon.svg";
 
 import {
   Modal,
@@ -15,6 +17,8 @@ import {
   useDisclosure,
   Input,
 } from "@nextui-org/react";
+import { EyeSlashFilledIcon } from "../EyeSlashFilledIcon/EyeSlashFilledIcon";
+import { EyeFilledIcon } from "../EyeFilledIcon/EyeFilledIcon";
 
 export default function FormComponent() {
   const [name, setName] = useState<string>("");
@@ -22,170 +26,185 @@ export default function FormComponent() {
   const [cellphone, setCellphone] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [isNameFocused, setIsNameFocused] = useState<boolean>(false);
-  const [isCellphoneFocused, setIsCellphoneFocused] = useState<boolean>(false);
-  const [isUserNameFocused, setIsUserNameFocused] = useState<boolean>(false);
-  const [isPasswordFocused, setIsPasswordFocused] = useState<boolean>(false);
-  const [isConfirmPasswordFocused, setIsConfirmPasswordFocused] =
-    useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isConfirmedVisible, setIsConfirmeVisible] = useState<boolean>(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [isModalPassVisibile, setIsModalPassVisible] = useState<boolean>(false);
+
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const userNameInputRef = useRef<HTMLInputElement>(null);
+  const cellphoneInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
+
+  const enableButton = () => {
+    setIsButtonDisabled(!(password.length > 5 && userName.length >= 3));
+  };
+
+  const handlePasswordChange = (value: string) => {
+    setPassword(value);
+    enableButton();
+  };
+
+  const handleUsernameChange = (value: string) => {
+    setUserName(value);
+    enableButton();
+  };
+
+  const focusInput = (inputRef: React.RefObject<HTMLInputElement>) => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormControlsCollection>) => {
     e.preventDefault();
-  };
 
-  const nameLabelStyle: React.CSSProperties = {
-    color: isNameFocused || name ? "#CCFFFFFF" : "#858C94",
-  };
-
-  const cellphoneLabelStyle: React.CSSProperties = {
-    color: isCellphoneFocused || cellphone ? "#CCFFFFFF" : "#858C94",
-  };
-
-  const userNameLabelStyle: React.CSSProperties = {
-    color: isUserNameFocused || userName ? "#CCFFFFFF" : "#858C94",
-  };
-
-  const passwordLabelStyle: React.CSSProperties = {
-    color: isPasswordFocused || password ? "#CCFFFFFF" : "#858C94",
-  };
-
-  const confirmPasswordLabelStyle: React.CSSProperties = {
-    color:
-      isConfirmPasswordFocused || confirmPassword ? "#CCFFFFFF" : "#858C94",
+    if (!name || !userName || !cellphone || !password || !confirmPassword) {
+      if (!name) {
+        focusInput(nameInputRef);
+      } else if (!userName) {
+        focusInput(userNameInputRef);
+      } else if (!cellphone) {
+        focusInput(cellphoneInputRef);
+      } else if (!password) {
+        focusInput(passwordInputRef);
+      } else if (!confirmPassword) {
+        focusInput(confirmPasswordInputRef);
+      }
+    }
   };
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+  const toggleVisibility = () => setIsVisible(!isVisible);
+  const toggleConfirmedVisibility = () =>
+    setIsConfirmeVisible(!isConfirmedVisible);
+  const toggleModalPassVisibility = () => setIsModalPassVisible(!isModalPassVisibile);
+
   return (
-    <form className="z-20 p-[28px] my-8 rounded-[16px]  bg-[#0F1768] text-[#fff] max-w-[650px] h-auto shadow-xl">
-      <p>Bilhete da Sorte</p>
-      <h1 className="#00E275 text-[24px] font-bold leading-8">
+    <form
+      onSubmit={() => handleSubmit}
+      className="z-20 my-8 p-[28px] rounded-[16px]  bg-[#0F1768] text-[#fff] max-w-[650px] h-auto shadow-xl"
+    >
+      <p className="text-[16px] font-medium leading-[19px]">Bilhete da Sorte</p>
+      <h1 className="#00E275 text-[22px] font-bold leading-8 mt-2 2xl:text-[28px] 2xl:leading-[33px]">
         CADASTRE-SE E VOTE!
       </h1>
       <div className="flex flex-col">
+        <label htmlFor="name" className="text-[#CCFFFFFF] text-sm mb-1 mt-2">
+          Nome completo <span className="text-[#DA1414]">*</span>
+        </label>
         <Input
-          onFocus={() => setIsNameFocused(true)}
-          onBlur={() => setIsNameFocused(false)}
           size="sm"
           type="text"
-          label={<label style={nameLabelStyle}>Nome completo</label>}
           value={name}
           isRequired
           labelPlacement="outside"
           onValueChange={setName}
-          classNames={{
-            label: "text-[#858C94]",
-            input: [
-              "bg-transparent",
-              "text-[#000]",
-              "placeholder:text-default-700/50",
-              "focus:ring-[#CCFFFFFF]",
-              "focus:border-[#CCFFFFFF]",
-            ],
-          }}
-          className="mb-4"
+          ref={nameInputRef}
         />
+        <label
+          htmlFor="cellphone"
+          className="text-[#CCFFFFFF] text-sm mb-1 mt-2"
+        >
+          Celular <span className="text-[#DA1414]">*</span>
+        </label>
         <Input
-          onFocus={() => setIsCellphoneFocused(true)}
-          onBlur={() => setIsCellphoneFocused(false)}
           size="sm"
           type="text"
-          label={<label style={cellphoneLabelStyle}>Celular</label>}
+          placeholder="(DDD) 99999-9999"
           value={cellphone}
           isRequired
           labelPlacement="outside"
           onValueChange={setCellphone}
-          classNames={{
-            label: "text-[#858C94]",
-            input: [
-              "bg-transparent",
-              "text-[#000]",
-              "placeholder:text-default-700/50",
-              "focus:ring-[#CCFFFFFF]",
-              "focus:border-[#CCFFFFFF]",
-            ],
-          }}
-          className="mb-4"
+          startContent={<Image src={phone} alt="phone" />}
+          className="placeholder-[#858C94]"
+          ref={cellphoneInputRef}
         />
+        <label
+          htmlFor="userName"
+          className="text-[#CCFFFFFF] text-sm mb-1 mt-2"
+        >
+          Usuário <span className="text-[#DA1414]">*</span>
+        </label>
         <Input
-          onFocus={() => setIsUserNameFocused(true)}
-          onBlur={() => setIsUserNameFocused(false)}
           size="sm"
           type="text"
-          label={<label style={userNameLabelStyle}>Usuário</label>}
           value={userName}
           isRequired
           labelPlacement="outside"
           onValueChange={setUserName}
-          classNames={{
-            label: "text-[#858C94]",
-            input: [
-              "bg-transparent",
-              "text-[#000]",
-              "placeholder:text-default-700/50",
-              "focus:ring-[#CCFFFFFF]",
-              "focus:border-[#CCFFFFFF]",
-            ],
-          }}
-          className="mb-4"
+          ref={userNameInputRef}
         />
+        <label
+          htmlFor="password"
+          className="text-[#CCFFFFFF] text-sm mb-1 mt-2"
+        >
+          Senha <span className="text-[#DA1414]">*</span>
+        </label>
         <Input
-          onFocus={() => setIsPasswordFocused(true)}
-          onBlur={() => setIsPasswordFocused(false)}
           size="sm"
-          type="text"
-          label={<label style={passwordLabelStyle}>Senha</label>}
+          type={isVisible ? "text" : "password"}
           value={password}
           isRequired
           labelPlacement="outside"
           onValueChange={setPassword}
-          classNames={{
-            label: "text-[#858C94]",
-            input: [
-              "bg-transparent",
-              "text-[#000]",
-              "placeholder:text-default-700/50",
-              "focus:ring-[#CCFFFFFF]",
-              "focus:border-[#CCFFFFFF]",
-            ],
-          }}
-          className="mb-4"
-        />
-        <Input
-          onFocus={() => setIsConfirmPasswordFocused(true)}
-          onBlur={() => setIsConfirmPasswordFocused(false)}
-          size="sm"
-          type="text"
-          label={
-            <label style={confirmPasswordLabelStyle}>Confirmar senha</label>
+          ref={passwordInputRef}
+          endContent={
+            <button
+              className="bg-transparent focus:outline-none"
+              type="button"
+              onClick={toggleVisibility}
+            >
+              {isVisible ? (
+                <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+              ) : (
+                <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+              )}
+            </button>
           }
+        />
+        <label
+          htmlFor="confirmPassword"
+          className="text-[#CCFFFFFF] text-sm mb-1 mt-2"
+        >
+          Confirmar senha <span className="text-[#DA1414]">*</span>
+        </label>
+        <Input
+          size="sm"
+          type={isConfirmedVisible ? "text" : "password"}
           value={confirmPassword}
           isRequired
           labelPlacement="outside"
           onValueChange={setConfirmPassword}
-          classNames={{
-            label: "text-[#858C94]",
-            input: [
-              "bg-transparent",
-              "text-[#000]",
-              "placeholder:text-default-700/50",
-              "focus:ring-[#CCFFFFFF]",
-              "focus:border-[#CCFFFFFF]",
-            ],
-          }}
-          className="mb-4"
+          className="mb-6"
+          ref={confirmPasswordInputRef}
+          endContent={
+            <button
+              className="bg-transparent focus:outline-none"
+              type="button"
+              onClick={toggleConfirmedVisibility}
+            >
+              {isConfirmedVisible ? (
+                <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+              ) : (
+                <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+              )}
+            </button>
+          }
         />
       </div>
       <Button
         type="submit"
         radius="full"
         size="sm"
-        className="bg-[#00E46F] text-[#003B9C] text-[16px] w-full font-heading font-[800] py-[12px]"
+        className="bg-[#00E46F] text-[#003B9C] text-[16px] w-full font-heading font-extrabold py-[12px]"
       >
         CONCLUIR CADASTRO
       </Button>
 
-      <p className="my-4">
+      <p className="my-4 text-[14px]">
         * Ao realizar o cadastro, você concorda que a Super Copa Zona Leste e
         Esportes da Sorte utilizem seus dados para envio de SMS e e-mails sobre
         promoções e novidades.
@@ -204,28 +223,84 @@ export default function FormComponent() {
           >
             FAZER LOGIN
           </Button>
-          <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="max-w-[716px] p-[48px] bg-[#0F1768] text-white">
-          <ModalContent>
-            { (onClose) => (
-              <>
-                <p className="ml-6">Bilhete da Sorte</p>
-                <ModalHeader className="text-[28px]">FAÇA LOGIN E VOTE!</ModalHeader>
-                <ModalBody>
-                  <Input labelPlacement='outside' label='Usuário' isRequired />
-                  <Input labelPlacement='outside' label='Senha' isRequired />
-                  <Button radius="full" isDisabled className="bg-[#00E46F] font-heading font-bold text-[16px] mt-3">LOGIN</Button>
-                  <hr style={{ borderTop: "1px solid #FFFFFF33", marginTop: "1rem", marginBottom: "1rem" }}/>
-                  <div className="flex items-center space-x-4">
-                    <p className="text-[20px] font-semibold">Esqueceu a senha?</p>
-                    <Button radius="full" variant="bordered" className="font-heading bg-transparent border-[#00E46F] text-[16px] text-[#00E46F] font-bold py-3 px-8">REDEFINIR SENHA</Button>
-                  </div>
-                </ModalBody>
-              </>
-            ) }
-          </ModalContent>
-        </Modal>
+          <Modal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            className="max-w-[716px] p-[48px] bg-[#0F1768] text-white"
+          >
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <p className="ml-6">Bilhete da Sorte</p>
+                  <ModalHeader className="text-[28px]">
+                    FAÇA LOGIN E VOTE!
+                  </ModalHeader>
+                  <ModalBody>
+                    <label htmlFor="userName">
+                      Usuário <span className="text-[#DA1414]">*</span>
+                    </label>
+                    <Input
+                      labelPlacement="outside"
+                      isRequired
+                      value={userName}
+                      onValueChange={handleUsernameChange}
+                    />
+                    <label htmlFor="userName">
+                      Senha <span className="text-[#DA1414]">*</span>
+                    </label>
+                    <Input
+                      labelPlacement="outside"
+                      isRequired
+                      value={password}
+                      onValueChange={handlePasswordChange}
+                      type={ isModalPassVisibile ? "text" : "password" }
+                      endContent={
+                        <button
+                          className="bg-transparent focus:outline-none"
+                          type="button"
+                          onClick={toggleModalPassVisibility}
+                        >
+                          {isModalPassVisibile ? (
+                            <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                          ) : (
+                            <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+                          )}
+                        </button>
+                      }
+                    />
+                    <Button
+                      radius="full"
+                      isDisabled={isButtonDisabled}
+                      className="bg-[#00E46F] font-heading text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5 mt-3 w-full"
+                    >
+                      LOGIN
+                    </Button>
+                    <hr
+                      style={{
+                        borderTop: "1px solid #FFFFFF33",
+                        marginTop: "1rem",
+                        marginBottom: "1rem",
+                      }}
+                    />
+                    <div className="flex items-center space-x-4">
+                      <p className="text-[20px] font-semibold">
+                        Esqueceu a senha?
+                      </p>
+                      <Button
+                        radius="full"
+                        variant="bordered"
+                        className="font-heading bg-transparent border-[#00E46F] text-[16px] text-[#00E46F] font-bold py-3 px-8"
+                      >
+                        REDEFINIR SENHA
+                      </Button>
+                    </div>
+                  </ModalBody>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
         </div>
-        <Image src={escudozl} alt="escudozl" width={31} height={36}/>
+        <Image src={escudozl} alt="escudozl" width={31} height={36} />
       </div>
     </form>
   );
