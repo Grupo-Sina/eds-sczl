@@ -15,6 +15,7 @@ import successicon from "../../../../public/succesicon.svg";
 import Image from "next/image";
 import { BoundingBox } from "framer-motion";
 import { useAppContext } from "@/app/context/AppContext";
+import React from "react";
 
 export default function VoteFormComponent() {
   const [teamName, setTeamName] = useState<string>("");

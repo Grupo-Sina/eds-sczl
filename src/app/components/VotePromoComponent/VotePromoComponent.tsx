@@ -1,5 +1,6 @@
 import Image from "next/image";
 import escudozl from "../../../../public/escudozl.png";
+import React from "react";
 
 export default function VotePromoComponent() {
   return (

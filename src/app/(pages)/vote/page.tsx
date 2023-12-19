@@ -4,6 +4,7 @@ import VoteFormComponent from "@/app/components/VoteFormComponent/VoteFormCompon
 import VotePromoComponent from "@/app/components/VotePromoComponent/VotePromoComponent";
 import { useAppContext } from "@/app/context/AppContext";
 import useWindowSize from "@/app/utils/useWindowHook";
+import React from "react";
 
 export default function CreateVote() {
   const { confirmedVote } = useAppContext();
