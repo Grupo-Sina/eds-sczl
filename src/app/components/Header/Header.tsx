@@ -40,7 +40,10 @@ export default function Header() {
           className="bg-[#1F3694] w-full"
         >
           <NavbarMenuItem className="mt-10">
-            <Link className="cursor-pointer text-xl font-extrabold text-white">
+            <Link
+              className="cursor-pointer text-xl font-extrabold text-white"
+              onClick={() => handleSignOut()}
+            >
               SAIR
             </Link>
           </NavbarMenuItem>
