@@ -1,26 +1,26 @@
-"use client";
+'use client'
 
-import { Providers } from "./providers";
-import "./globals.css";
-import Head from "next/head";
-import React, { ReactNode } from "react";
-import { AppContextProvider } from "./context/AppContext";
-import { AuthContextProvider } from "./context/AuthContext";
-import PrivateRoute from "./routes/private-router";
-import { usePathname } from "next/navigation";
-import { APP_PUBLIC_ROUTES } from "./routes/public-routes";
+import { Providers } from './providers'
+import './globals.css'
+import Head from 'next/head'
+import React, { ReactNode } from 'react'
+import { AppContextProvider } from './context/AppContext'
+import { AuthContextProvider } from './context/AuthContext'
 
-// export const metadata: Metadata = {
-//   title: "EDS - Super Copa Zona Leste",
-//   description: "Esportes da Sorte, EDS, Super Copa Zona Leste",
-// };
-
+import { usePathname } from 'next/navigation'
+import { APP_PUBLIC_ROUTES } from './routes/public-routes'
+import { Slide, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import dynamic from 'next/dynamic'
+const PrivateRoute = dynamic(() => import('./routes/private-router'), {
+  ssr: false,
+})
 interface RootLayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <html lang="pt-br">
@@ -28,13 +28,24 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         <title>EDS - Super Copa Zona Leste</title>
         <meta
           name="description"
-          content={"Esportes da Sorte, EDS, Super Copa Zona Leste" || ""}
+          content={'Esportes da Sorte, EDS, Super Copa Zona Leste' || ''}
         />
       </Head>
       <body className="overflow-x-hidden">
         <AppContextProvider>
           <AuthContextProvider>
             <Providers>
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar
+                closeOnClick
+                rtl={false}
+                draggable
+                pauseOnHover
+                transition={Slide}
+                theme={'colored'}
+              />
               {pathname && (
                 <>
                   {APP_PUBLIC_ROUTES.includes(pathname) ? (
@@ -49,7 +60,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         </AppContextProvider>
       </body>
     </html>
-  );
-};
+  )
+}
 
-export default RootLayout;
+export default RootLayout

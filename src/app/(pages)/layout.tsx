@@ -1,15 +1,15 @@
-import Header from "@/app/components/Header/Header";
-import Footer from "@/app/components/Footer/Footer";
+import Header from '@/app/components/Header/Header'
+import Footer from '@/app/components/Footer/Footer'
 
-import Image from "next/image";
+import Image from 'next/image'
 
-import shirtgradienteffect from "../../../public/shirtgradienteffect.png";
-import gradienteffectleft from "../../../public/gradienteffectleft.png";
-import edsvectorleft from "../../../public/edsvectorleft.png";
-import edsvectorright from "../../../public/edsvectorright.png";
+import shirtgradienteffect from '../../../public/shirtgradienteffect.png'
+import gradienteffectleft from '../../../public/gradienteffectleft.png'
+import edsvectorleft from '../../../public/edsvectorleft.png'
+import edsvectorright from '../../../public/edsvectorright.png'
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function Home({ children }: LayoutProps) {
@@ -41,5 +41,5 @@ export default function Home({ children }: LayoutProps) {
       </div>
       <Footer />
     </div>
-  );
+  )
 }

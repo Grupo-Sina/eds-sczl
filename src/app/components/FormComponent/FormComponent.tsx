@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import React, { FormEvent, useMemo, useRef, useState } from "react";
-import Image from "next/image";
-
-import phone from "../../../../public/phone.png";
-import escudozl from "../../../../public/escudozl.png";
-import eyefilledicon from "../../../../public/eyefilledicon.svg";
-import eyeslashfilledicon from "../../../../public/eyeslashfilledicon.svg";
+import React, { useState } from 'react'
+import Image from 'next/image'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { toast } from 'react-toastify'
+import escudozl from '../../../../public/escudozl.png'
+import { registerUser } from '../../api/user'
 
 import {
   Modal,
@@ -16,191 +16,95 @@ import {
   Button,
   useDisclosure,
   Input,
-} from "@nextui-org/react";
-import { EyeSlashFilledIcon } from "../EyeSlashFilledIcon/EyeSlashFilledIcon";
-import { EyeFilledIcon } from "../EyeFilledIcon/EyeFilledIcon";
+} from '@nextui-org/react'
+import { EyeSlashFilledIcon } from '../EyeSlashFilledIcon/EyeSlashFilledIcon'
+import { EyeFilledIcon } from '../EyeFilledIcon/EyeFilledIcon'
+import { inputList, schemaRegisterUser } from '@/app/schemas/register'
+import { InputComponent } from '../InputComponent/Input'
+import { useAppContext } from '@/app/context/AppContext'
+import { useAuthContext } from '@/app/context/AuthContext'
 
 export default function FormComponent() {
-  const [name, setName] = useState<string>("");
-  const [userName, setUserName] = useState<string>("");
-  const [cellphone, setCellphone] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [isConfirmedVisible, setIsConfirmeVisible] = useState<boolean>(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
-  const [isModalPassVisibile, setIsModalPassVisible] = useState<boolean>(false);
+  const { setShouldShowVerificationCode } = useAppContext()
+  const { setPhoneSendVerificationCode, setUserIdVerificationCode } =
+    useAuthContext()
+  const [loading, setLoading] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors, isDirty, isValid },
+  } = useForm<RegisterUserProps>({
+    resolver: yupResolver(schemaRegisterUser),
+    mode: 'onChange',
+  })
 
-  const nameInputRef = useRef<HTMLInputElement>(null);
-  const userNameInputRef = useRef<HTMLInputElement>(null);
-  const cellphoneInputRef = useRef<HTMLInputElement>(null);
-  const passwordInputRef = useRef<HTMLInputElement>(null);
-  const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
+  const [isModalPassVisibile, setIsModalPassVisible] = useState<boolean>(false)
 
-  const enableButton = () => {
-    setIsButtonDisabled(!(password.length > 5 && userName.length >= 3));
-  };
+  const handleRegister = async (data: RegisterUserProps) => {
+    setLoading(true)
+    const clearNumber = data.phone.replace(/\D/g, '')
+    const formatPhoneNumber = clearNumber.startsWith('55')
+      ? clearNumber
+      : `55${clearNumber}`
 
-  const handlePasswordChange = (value: string) => {
-    setPassword(value);
-    enableButton();
-  };
+    data.phone = formatPhoneNumber
+    const res = await registerUser(data)
 
-  const handleUsernameChange = (value: string) => {
-    setUserName(value);
-    enableButton();
-  };
-
-  const focusInput = (inputRef: React.RefObject<HTMLInputElement>) => {
-    if (inputRef.current) {
-      inputRef.current.focus();
+    if (res?.data) {
+      setUserIdVerificationCode(res.data.userId)
+      setPhoneSendVerificationCode(formatPhoneNumber)
+      setShouldShowVerificationCode(true)
+    } else if (res?.error) {
+      toast.error(res?.error)
     }
-  };
+    setLoading(false)
+  }
 
-  const handleSubmit = (e: FormEvent<HTMLFormControlsCollection>) => {
-    e.preventDefault();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-    if (!name || !userName || !cellphone || !password || !confirmPassword) {
-      if (!name) {
-        focusInput(nameInputRef);
-      } else if (!userName) {
-        focusInput(userNameInputRef);
-      } else if (!cellphone) {
-        focusInput(cellphoneInputRef);
-      } else if (!password) {
-        focusInput(passwordInputRef);
-      } else if (!confirmPassword) {
-        focusInput(confirmPasswordInputRef);
-      }
-    }
-  };
-
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-  const toggleVisibility = () => setIsVisible(!isVisible);
-  const toggleConfirmedVisibility = () =>
-    setIsConfirmeVisible(!isConfirmedVisible);
   const toggleModalPassVisibility = () =>
-    setIsModalPassVisible(!isModalPassVisibile);
+    setIsModalPassVisible(!isModalPassVisibile)
+
+  function generateMask(value: string) {
+    if (value === 'phone') {
+      return '(99)99999-9999'
+    }
+    return undefined
+  }
 
   return (
     <form
-      onSubmit={() => handleSubmit}
-      className="z-20 my-8 p-[28px] rounded-[16px] w-[90%] bg-[#0F1768] text-[#fff] md:max-w-[650px] h-auto shadow-xl"
+      onSubmit={handleSubmit(handleRegister)}
+      method="post"
+      className="z-20 my-8 p-[28px] rounded-[16px]  bg-[#0F1768] text-[#fff] max-w-[650px] h-auto shadow-xl"
     >
       <p className="text-[16px] font-medium leading-[19px]">Bilhete da Sorte</p>
       <h1 className="#00E275 text-[22px] font-bold leading-8 mt-2 desktop:text-[28px] desktop:leading-[33px]">
         CADASTRE-SE E VOTE!
       </h1>
       <div className="flex flex-col">
-        <label htmlFor="name" className="text-[#CCFFFFFF] text-sm mb-1 mt-2">
-          Nome completo <span className="text-[#DA1414]">*</span>
-        </label>
-        <Input
-          size="sm"
-          type="text"
-          value={name}
-          isRequired
-          labelPlacement="outside"
-          onValueChange={setName}
-          ref={nameInputRef}
-        />
-        <label
-          htmlFor="cellphone"
-          className="text-[#CCFFFFFF] text-sm mb-1 mt-2"
-        >
-          Celular <span className="text-[#DA1414]">*</span>
-        </label>
-        <Input
-          size="sm"
-          type="text"
-          placeholder="(DDD) 99999-9999"
-          value={cellphone}
-          isRequired
-          labelPlacement="outside"
-          onValueChange={setCellphone}
-          startContent={<Image src={phone} alt="phone" />}
-          className="placeholder-[#858C94]"
-          ref={cellphoneInputRef}
-        />
-        <label
-          htmlFor="userName"
-          className="text-[#CCFFFFFF] text-sm mb-1 mt-2"
-        >
-          Usuário <span className="text-[#DA1414]">*</span>
-        </label>
-        <Input
-          size="sm"
-          type="text"
-          value={userName}
-          isRequired
-          labelPlacement="outside"
-          onValueChange={setUserName}
-          ref={userNameInputRef}
-        />
-        <label
-          htmlFor="password"
-          className="text-[#CCFFFFFF] text-sm mb-1 mt-2"
-        >
-          Senha <span className="text-[#DA1414]">*</span>
-        </label>
-        <Input
-          size="sm"
-          type={isVisible ? "text" : "password"}
-          value={password}
-          isRequired
-          labelPlacement="outside"
-          onValueChange={setPassword}
-          ref={passwordInputRef}
-          endContent={
-            <button
-              className="bg-transparent focus:outline-none"
-              type="button"
-              onClick={toggleVisibility}
-            >
-              {isVisible ? (
-                <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-              ) : (
-                <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-              )}
-            </button>
-          }
-        />
-        <label
-          htmlFor="confirmPassword"
-          className="text-[#CCFFFFFF] text-sm mb-1 mt-2"
-        >
-          Confirmar senha <span className="text-[#DA1414]">*</span>
-        </label>
-        <Input
-          size="sm"
-          type={isConfirmedVisible ? "text" : "password"}
-          value={confirmPassword}
-          isRequired
-          labelPlacement="outside"
-          onValueChange={setConfirmPassword}
-          className="mb-6"
-          ref={confirmPasswordInputRef}
-          endContent={
-            <button
-              className="bg-transparent focus:outline-none"
-              type="button"
-              onClick={toggleConfirmedVisibility}
-            >
-              {isConfirmedVisible ? (
-                <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-              ) : (
-                <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-              )}
-            </button>
-          }
-        />
+        {inputList.map((item, index) => (
+          <InputComponent
+            key={index}
+            errors={errors}
+            name={item.name}
+            title={item.title}
+            type={item.type}
+            isRequired={item.isRequired}
+            register={register}
+            control={control}
+            mask={generateMask(item.name)}
+          />
+        ))}
       </div>
       <Button
+        disabled={!isDirty || !isValid || loading}
         type="submit"
         radius="full"
         size="sm"
-        className="bg-[#00E46F] text-[#003B9C] text-[16px] w-full font-heading font-extrabold py-[12px]"
+        className={`bg-[#00E46F] disabled:opacity-50
+         mt-6 text-[#003B9C] text-[16px] w-full font-heading font-extrabold py-[12px]`}
       >
         CONCLUIR CADASTRO
       </Button>
@@ -211,7 +115,7 @@ export default function FormComponent() {
         promoções e novidades.
       </p>
 
-      <hr style={{ borderTop: "1px solid #FFFFFF33" }} />
+      <hr style={{ borderTop: '1px solid #FFFFFF33' }} />
       <div className="flex justify-between mt-4">
         <div className="w-full md:w-[350px] text-left flex flex-col md:flex-row items-center md:space-x-4">
           <h2 className="text-xl font-bold w-full">Já é cadastrado?</h2>
@@ -224,7 +128,7 @@ export default function FormComponent() {
           >
             FAZER LOGIN
           </Button>
-          <Modal
+          {/* <Modal
             scrollBehavior="outside"
             isOpen={isOpen}
             onOpenChange={onOpenChange}
@@ -255,7 +159,7 @@ export default function FormComponent() {
                       isRequired
                       value={password}
                       onValueChange={handlePasswordChange}
-                      type={isModalPassVisibile ? "text" : "password"}
+                      type={isModalPassVisibile ? 'text' : 'password'}
                       endContent={
                         <button
                           className="bg-transparent focus:outline-none"
@@ -279,9 +183,9 @@ export default function FormComponent() {
                     </Button>
                     <hr
                       style={{
-                        borderTop: "1px solid #FFFFFF33",
-                        marginTop: "1rem",
-                        marginBottom: "1rem",
+                        borderTop: '1px solid #FFFFFF33',
+                        marginTop: '1rem',
+                        marginBottom: '1rem',
                       }}
                     />
                     <div className="flex items-center space-x-4">
@@ -300,7 +204,7 @@ export default function FormComponent() {
                 </>
               )}
             </ModalContent>
-          </Modal>
+          </Modal> */}
         </div>
         <Image
           src={escudozl}
@@ -311,5 +215,5 @@ export default function FormComponent() {
         />
       </div>
     </form>
-  );
+  )
 }
