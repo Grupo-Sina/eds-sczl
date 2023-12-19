@@ -1,1 +1,1 @@
-export const APP_PUBLIC_ROUTES = ['/register']
+export const APP_PUBLIC_ROUTES = ["/register"];

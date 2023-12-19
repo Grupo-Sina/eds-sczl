@@ -53,14 +53,14 @@ export default function Header() {
     e.preventDefault();
     console.log("login efetuado");
   };
-
+  // bg-[#0F1768]
   return (
     <Navbar
       maxWidth="full"
       onMenuOpenChange={setIsMenuOpen}
       className="h-[94px] bg-[#0F1768]"
       classNames={{
-        wrapper: "justify-around",
+        wrapper: "justify-between lg:mx-[90px]",
       }}
     >
       <NavbarMenuToggle
@@ -92,7 +92,7 @@ export default function Header() {
         className="hidden md:block"
       />
 
-      <div className="absolute md:relative md:flex md:items-center md:justify-center">
+      <div className="absolute left-[30%] md:left-0 md:relative md:flex md:items-center md:justify-center">
         <Image src={edsnavarzealogo} alt="header logo eds na varzea" />
       </div>
 

@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import React, { FormEvent, useMemo, useRef, useState } from 'react'
-import Image from 'next/image'
+import React, { FormEvent, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 
-import phone from '../../../../public/phone.png'
-import escudozl from '../../../../public/escudozl.png'
-import eyefilledicon from '../../../../public/eyefilledicon.svg'
-import eyeslashfilledicon from '../../../../public/eyeslashfilledicon.svg'
+import phone from "../../../../public/phone.png";
+import escudozl from "../../../../public/escudozl.png";
+import eyefilledicon from "../../../../public/eyefilledicon.svg";
+import eyeslashfilledicon from "../../../../public/eyeslashfilledicon.svg";
 
 import {
   Modal,
@@ -16,72 +16,72 @@ import {
   Button,
   useDisclosure,
   Input,
-} from '@nextui-org/react'
-import { EyeSlashFilledIcon } from '../EyeSlashFilledIcon/EyeSlashFilledIcon'
-import { EyeFilledIcon } from '../EyeFilledIcon/EyeFilledIcon'
+} from "@nextui-org/react";
+import { EyeSlashFilledIcon } from "../EyeSlashFilledIcon/EyeSlashFilledIcon";
+import { EyeFilledIcon } from "../EyeFilledIcon/EyeFilledIcon";
 
 export default function FormComponent() {
-  const [name, setName] = useState<string>('')
-  const [userName, setUserName] = useState<string>('')
-  const [cellphone, setCellphone] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-  const [confirmPassword, setConfirmPassword] = useState<string>('')
-  const [isVisible, setIsVisible] = useState<boolean>(false)
-  const [isConfirmedVisible, setIsConfirmeVisible] = useState<boolean>(false)
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true)
-  const [isModalPassVisibile, setIsModalPassVisible] = useState<boolean>(false)
+  const [name, setName] = useState<string>("");
+  const [userName, setUserName] = useState<string>("");
+  const [cellphone, setCellphone] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isConfirmedVisible, setIsConfirmeVisible] = useState<boolean>(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [isModalPassVisibile, setIsModalPassVisible] = useState<boolean>(false);
 
-  const nameInputRef = useRef<HTMLInputElement>(null)
-  const userNameInputRef = useRef<HTMLInputElement>(null)
-  const cellphoneInputRef = useRef<HTMLInputElement>(null)
-  const passwordInputRef = useRef<HTMLInputElement>(null)
-  const confirmPasswordInputRef = useRef<HTMLInputElement>(null)
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const userNameInputRef = useRef<HTMLInputElement>(null);
+  const cellphoneInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
 
   const enableButton = () => {
-    setIsButtonDisabled(!(password.length > 5 && userName.length >= 3))
-  }
+    setIsButtonDisabled(!(password.length > 5 && userName.length >= 3));
+  };
 
   const handlePasswordChange = (value: string) => {
-    setPassword(value)
-    enableButton()
-  }
+    setPassword(value);
+    enableButton();
+  };
 
   const handleUsernameChange = (value: string) => {
-    setUserName(value)
-    enableButton()
-  }
+    setUserName(value);
+    enableButton();
+  };
 
   const focusInput = (inputRef: React.RefObject<HTMLInputElement>) => {
     if (inputRef.current) {
-      inputRef.current.focus()
+      inputRef.current.focus();
     }
-  }
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormControlsCollection>) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!name || !userName || !cellphone || !password || !confirmPassword) {
       if (!name) {
-        focusInput(nameInputRef)
+        focusInput(nameInputRef);
       } else if (!userName) {
-        focusInput(userNameInputRef)
+        focusInput(userNameInputRef);
       } else if (!cellphone) {
-        focusInput(cellphoneInputRef)
+        focusInput(cellphoneInputRef);
       } else if (!password) {
-        focusInput(passwordInputRef)
+        focusInput(passwordInputRef);
       } else if (!confirmPassword) {
-        focusInput(confirmPasswordInputRef)
+        focusInput(confirmPasswordInputRef);
       }
     }
-  }
+  };
 
-  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const toggleVisibility = () => setIsVisible(!isVisible)
+  const toggleVisibility = () => setIsVisible(!isVisible);
   const toggleConfirmedVisibility = () =>
-    setIsConfirmeVisible(!isConfirmedVisible)
+    setIsConfirmeVisible(!isConfirmedVisible);
   const toggleModalPassVisibility = () =>
-    setIsModalPassVisible(!isModalPassVisibile)
+    setIsModalPassVisible(!isModalPassVisibile);
 
   return (
     <form
@@ -146,7 +146,7 @@ export default function FormComponent() {
         </label>
         <Input
           size="sm"
-          type={isVisible ? 'text' : 'password'}
+          type={isVisible ? "text" : "password"}
           value={password}
           isRequired
           labelPlacement="outside"
@@ -174,7 +174,7 @@ export default function FormComponent() {
         </label>
         <Input
           size="sm"
-          type={isConfirmedVisible ? 'text' : 'password'}
+          type={isConfirmedVisible ? "text" : "password"}
           value={confirmPassword}
           isRequired
           labelPlacement="outside"
@@ -211,7 +211,7 @@ export default function FormComponent() {
         promoções e novidades.
       </p>
 
-      <hr style={{ borderTop: '1px solid #FFFFFF33' }} />
+      <hr style={{ borderTop: "1px solid #FFFFFF33" }} />
       <div className="flex justify-between mt-4">
         <div className="w-full md:w-[350px] text-left flex flex-col md:flex-row items-center md:space-x-4">
           <h2 className="text-xl font-bold w-full">Já é cadastrado?</h2>
@@ -225,19 +225,19 @@ export default function FormComponent() {
             FAZER LOGIN
           </Button>
           <Modal
-            scrollBehavior='outside'
+            scrollBehavior="outside"
             isOpen={isOpen}
             onOpenChange={onOpenChange}
             className="md:max-w-[716px] p-[48px] bg-[#0F1768] text-white"
           >
-            <ModalContent>
+            <ModalContent className="w-[90%]">
               {(onClose) => (
                 <>
                   <p className="ml-6">Bilhete da Sorte</p>
                   <ModalHeader className="text-[28px]">
                     FAÇA LOGIN E VOTE!
                   </ModalHeader>
-                  <ModalBody>
+                  <ModalBody className="p-[24px]">
                     <label htmlFor="userName">
                       Usuário <span className="text-[#DA1414]">*</span>
                     </label>
@@ -255,7 +255,7 @@ export default function FormComponent() {
                       isRequired
                       value={password}
                       onValueChange={handlePasswordChange}
-                      type={isModalPassVisibile ? 'text' : 'password'}
+                      type={isModalPassVisibile ? "text" : "password"}
                       endContent={
                         <button
                           className="bg-transparent focus:outline-none"
@@ -279,9 +279,9 @@ export default function FormComponent() {
                     </Button>
                     <hr
                       style={{
-                        borderTop: '1px solid #FFFFFF33',
-                        marginTop: '1rem',
-                        marginBottom: '1rem',
+                        borderTop: "1px solid #FFFFFF33",
+                        marginTop: "1rem",
+                        marginBottom: "1rem",
                       }}
                     />
                     <div className="flex items-center space-x-4">
@@ -302,8 +302,14 @@ export default function FormComponent() {
             </ModalContent>
           </Modal>
         </div>
-        <Image src={escudozl} alt="escudozl" width={31} height={36} className='hidden md:flex'/>
+        <Image
+          src={escudozl}
+          alt="escudozl"
+          width={31}
+          height={36}
+          className="hidden md:flex"
+        />
       </div>
     </form>
-  )
+  );
 }
