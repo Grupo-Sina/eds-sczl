@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react'
+import React, { SVGProps } from "react";
 export const EyeSlashFilledIcon: React.FC<SVGProps<SVGSVGElement>> = (
   props,
 ) => (
@@ -33,4 +33,4 @@ export const EyeSlashFilledIcon: React.FC<SVGProps<SVGSVGElement>> = (
       fill="currentColor"
     />
   </svg>
-)
+);

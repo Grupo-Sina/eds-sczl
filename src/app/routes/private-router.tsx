@@ -1,25 +1,25 @@
-import { useRouter } from 'next/navigation'
-import { ReactNode, useEffect } from 'react'
-import { useAuthContext } from '../context/AuthContext'
+import { useRouter } from "next/navigation";
+import { ReactNode, useEffect } from "react";
+import { useAuthContext } from "../context/AuthContext";
 
 type PrivateRouteProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
-  const router = useRouter()
-  const { isAuthenticaded } = useAuthContext()
+  const router = useRouter();
+  const { isAuthenticaded } = useAuthContext();
 
   useEffect(() => {
     if (!isAuthenticaded) {
-      router.push('/register')
+      router.push("/register");
     }
-  }, [isAuthenticaded, router])
+  }, [isAuthenticaded, router]);
   if (!isAuthenticaded) {
-    return null
+    return null;
   }
 
-  return <>{children}</>
-}
+  return <>{children}</>;
+};
 
-export default PrivateRoute
+export default PrivateRoute;
