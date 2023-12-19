@@ -72,7 +72,7 @@ export default function VerificationCode() {
   }, [timer]);
 
   return (
-    <form className="p-12 bg-[#0F1768] z-20 rounded-2xl text-white flex-col h-auto">
+    <form className="w-[90%] my-4 md:max-w-[500px] p-12 bg-[#0F1768] z-20 rounded-2xl text-white flex-col h-auto">
       <p className="text-[16px] font-medium leading-5 mb-4">Bilhete da Sorte</p>
       <h1 className="text-[28px] font-bold leading-8">CÓDIGO DE VERIFICAÇÃO</h1>
       <p className="my-6">
@@ -167,8 +167,8 @@ export default function VerificationCode() {
         CONFIRMAR CÓDIGO
       </Button>
       <hr className="mt-6 mb-6" />
-      <div className="flex items-center justify-between">
-        <div className="flex">
+      <div className="flex flex-col items-center justify-between space-y-2">
+        <div className="w-full flex flex-col md:flex-row space-y-2">
           <h2 className="text-[20px] font-bold w-[200px]">
             Problemas ao receber o código?
           </h2>

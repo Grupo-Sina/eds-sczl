@@ -68,7 +68,10 @@ export default function Header() {
         className="md:hidden bg-transparent text-white absolute left-10"
       />
 
-      <NavbarMenu className="bg-[#1F3694] w-[50%]">
+      <NavbarMenu
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.40)" }}
+        className="bg-[#1F3694] w-full"
+      >
         <NavbarMenuItem className="mt-10">
           <Link className="cursor-pointer text-xl font-extrabold text-white">
             LOGIN
