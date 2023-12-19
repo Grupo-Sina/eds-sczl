@@ -19,9 +19,15 @@ import { useAppContext } from "@/app/context/AppContext";
 export default function VoteFormComponent() {
   const [teamName, setTeamName] = useState<string>("");
   const [isTeamFocused, setIsTeamFocused] = useState<boolean>(false);
-  const [isVoteButtonDisabled, setIsVoteButtonDisabled] = useState<boolean>(false);
+  const [isVoteButtonDisabled, setIsVoteButtonDisabled] =
+    useState<boolean>(false);
 
-  const { confirmedVote, isFormSubmitted, setConfirmedVote, setIsFormSubmitted } = useAppContext();
+  const {
+    confirmedVote,
+    isFormSubmitted,
+    setConfirmedVote,
+    setIsFormSubmitted,
+  } = useAppContext();
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -132,7 +138,9 @@ export default function VoteFormComponent() {
             {(onClose) => (
               <>
                 <p className="ml-5">Bilhete da Sorte</p>
-                <ModalHeader className="text-3xl font-bold">REGRAS GERAIS</ModalHeader>
+                <ModalHeader className="text-3xl font-bold">
+                  REGRAS GERAIS
+                </ModalHeader>
                 <ModalBody>
                   <ul className="list-disc">
                     <li>

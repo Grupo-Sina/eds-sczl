@@ -1,8 +1,8 @@
 import Image from "next/image";
-import edsfooterlogo from '../../../../public/edsfooterlogo.png';
-import twitterlogo from '../../../../public/twitterlogo.png';
-import youtubelogo from '../../../../public/youtubelogo.png';
-import instalogo from '../../../../public/instalogo.png';
+import edsfooterlogo from "../../../../public/edsfooterlogo.png";
+import twitterlogo from "../../../../public/twitterlogo.png";
+import youtubelogo from "../../../../public/youtubelogo.png";
+import instalogo from "../../../../public/instalogo.png";
 
 export default function Footer() {
   return (

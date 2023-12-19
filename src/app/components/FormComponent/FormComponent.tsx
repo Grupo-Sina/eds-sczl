@@ -80,7 +80,8 @@ export default function FormComponent() {
   const toggleVisibility = () => setIsVisible(!isVisible);
   const toggleConfirmedVisibility = () =>
     setIsConfirmeVisible(!isConfirmedVisible);
-  const toggleModalPassVisibility = () => setIsModalPassVisible(!isModalPassVisibile);
+  const toggleModalPassVisibility = () =>
+    setIsModalPassVisible(!isModalPassVisibile);
 
   return (
     <form
@@ -253,7 +254,7 @@ export default function FormComponent() {
                       isRequired
                       value={password}
                       onValueChange={handlePasswordChange}
-                      type={ isModalPassVisibile ? "text" : "password" }
+                      type={isModalPassVisibile ? "text" : "password"}
                       endContent={
                         <button
                           className="bg-transparent focus:outline-none"

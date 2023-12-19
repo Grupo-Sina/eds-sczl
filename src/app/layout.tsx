@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import type { Metadata } from "next";
 import { Providers } from "./providers";
@@ -21,7 +21,10 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     <html lang="pt-br">
       <Head>
         <title>EDS - Super Copa Zona Leste</title>
-        <meta name="description" content={"Esportes da Sorte, EDS, Super Copa Zona Leste" || ""} />
+        <meta
+          name="description"
+          content={"Esportes da Sorte, EDS, Super Copa Zona Leste" || ""}
+        />
       </Head>
       <body className="overflow-x-hidden">
         <AppContextProvider>

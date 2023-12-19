@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        "desktop": "1920px",
+        desktop: "1920px",
       },
       fontFamily: {
         heading: ["Heading Pro Trial", "sans-serif"],

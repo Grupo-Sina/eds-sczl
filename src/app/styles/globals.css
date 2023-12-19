@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: "HeadingProTrial-Thin";
-  src: url('../fonts/Heading-Pro-Thin-trial.ttf') format("truetype");
+  src: url("../fonts/Heading-Pro-Thin-trial.ttf") format("truetype");
 }
 
 body {

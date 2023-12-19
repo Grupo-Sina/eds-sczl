@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Header from "../components/Header/Header";
 import Image from "next/image";
@@ -14,7 +14,6 @@ import { useAppContext } from "../context/AppContext";
 import SuccessVoteComponent from "../components/SuccessVoteComponent/SucessVoteComponent";
 
 export default function Vote() {
-
   const { confirmedVote } = useAppContext();
 
   return (
@@ -41,11 +40,7 @@ export default function Vote() {
         className="absolute right-0 bottom-0"
       />
       <div className="flex items-center justify-evenly space-x-6">
-        {confirmedVote ? (
-          <SuccessVoteComponent />
-        ) : (
-          <VotePromoComponent />
-        )}
+        {confirmedVote ? <SuccessVoteComponent /> : <VotePromoComponent />}
         <VoteFormComponent />
       </div>
       <Footer />

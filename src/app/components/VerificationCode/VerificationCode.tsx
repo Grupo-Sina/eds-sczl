@@ -14,7 +14,6 @@ export default function VerificationCode() {
   const [timer, setTimer] = useState<number>(0);
   const [areInputsDisabled, setAreInputsDisabled] = useState<boolean>(false);
 
-
   const areAllInputsFilled = () => {
     return (
       firstNumber !== "" &&
@@ -46,7 +45,7 @@ export default function VerificationCode() {
           clearInterval(intervalId);
           setAreInputsDisabled(false);
           setIsButtonDisabled(!areAllInputsFilled());
-          return 0; 
+          return 0;
         }
         return prevTime - 1;
       });
@@ -71,7 +70,6 @@ export default function VerificationCode() {
       setIsButtonDisabled(!areAllInputsFilled());
     }
   }, [timer]);
-  
 
   return (
     <form className="p-12 bg-[#0F1768] z-20 rounded-2xl text-white flex-col h-auto">

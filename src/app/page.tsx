@@ -5,12 +5,11 @@ import Footer from "@/app/components/Footer/Footer";
 import Image from "next/image";
 
 import shirtgradienteffect from "../../public/shirtgradienteffect.png";
-import gradienteffectleft from '../../public/gradienteffectleft.png';
-import edsvectorleft from '../../public/edsvectorleft.png';
-import edsvectorright from '../../public/edsvectorright.png';
+import gradienteffectleft from "../../public/gradienteffectleft.png";
+import edsvectorleft from "../../public/edsvectorleft.png";
+import edsvectorright from "../../public/edsvectorright.png";
 import PromoComponent from "./components/PromoComponent/PromoComponent";
 import VerificationCode from "./components/VerificationCode/VerificationCode";
-
 
 export default function Home() {
   return (

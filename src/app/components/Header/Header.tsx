@@ -70,10 +70,14 @@ export default function Header() {
 
       <NavbarMenu className="bg-[#1F3694] w-[50%]">
         <NavbarMenuItem className="mt-10">
-          <Link className="cursor-pointer text-xl font-extrabold text-white">LOGIN</Link>
+          <Link className="cursor-pointer text-xl font-extrabold text-white">
+            LOGIN
+          </Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
-          <Link className="cursor-pointer text-xl font-extrabold text-white">CADASTRE-SE</Link>
+          <Link className="cursor-pointer text-xl font-extrabold text-white">
+            CADASTRE-SE
+          </Link>
         </NavbarMenuItem>
       </NavbarMenu>
 

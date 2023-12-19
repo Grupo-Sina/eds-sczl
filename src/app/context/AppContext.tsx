@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode, useState } from 'react';
+import React, { createContext, useContext, ReactNode, useState } from "react";
 
 type AppContextType = {
   isFormSubmitted: boolean;
@@ -9,7 +9,9 @@ type AppContextType = {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [isFormSubmitted, setIsFormSubmitted] = useState<boolean>(false);
   const [confirmedVote, setConfirmedVote] = useState<boolean>(false);
 
@@ -20,13 +22,17 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
     setConfirmedVote,
   };
 
-  return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
+  );
 };
 
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (!context) {
-    throw new Error('useAppContext deve ser usado dentro de um AppContextProvider');
+    throw new Error(
+      "useAppContext deve ser usado dentro de um AppContextProvider",
+    );
   }
   return context;
 };

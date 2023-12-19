@@ -68,7 +68,7 @@ export default function SuccessVoteComponent() {
           O
         </span>
         <span className="text-white font-normal font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
-        {" "}
+          {" "}
         </span>
         <span className="text-white font-semibold font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
           R
@@ -98,7 +98,7 @@ export default function SuccessVoteComponent() {
           O
         </span>
         <span className="text-white font-normal font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
-        {" "}
+          {" "}
         </span>
         <span className="text-white font-normal font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
           D
@@ -107,7 +107,7 @@ export default function SuccessVoteComponent() {
           A
         </span>
         <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
-          { " " } 
+          {" "}
         </span>
         <span className="text-[#00E275] font-black font-heading text-8xl desktop:text-[150px] desktop:leading-[108px]">
           P
@@ -134,7 +134,7 @@ export default function SuccessVoteComponent() {
           A
         </span>
         <span className="text-[#00E275] font-normal font-heading text-8xl desktop:text-[150px] desktop:leading-[108px]">
-          { " " }
+          {" "}
         </span>
         <span className="text-[#00E275] font-bold font-heading text-8xl desktop:text-[150px] desktop:leading-[108px]">
           F
@@ -152,7 +152,12 @@ export default function SuccessVoteComponent() {
           !
         </span>
       </h1>
-      <Button radius="full" className="bg-[#00E46F] font-heading text-[#003B9C] text-[16px] mt-4 desktop:mt-8 font-extrabold leading-5 text-center py-3 px-8 desktop:text-[24px] desktop:font-extrabold desktop:leading-[29px] desktop:py-6 desktop:px-11">PÁGINA PRINCIPAL</Button>
+      <Button
+        radius="full"
+        className="bg-[#00E46F] font-heading text-[#003B9C] text-[16px] mt-4 desktop:mt-8 font-extrabold leading-5 text-center py-3 px-8 desktop:text-[24px] desktop:font-extrabold desktop:leading-[29px] desktop:py-6 desktop:px-11"
+      >
+        PÁGINA PRINCIPAL
+      </Button>
     </div>
   );
 }

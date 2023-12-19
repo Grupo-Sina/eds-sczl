@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { useDisclosure } from "@nextui-org/react";
 import {
+  useDisclosure,
   Modal,
   ModalContent,
   ModalHeader,
