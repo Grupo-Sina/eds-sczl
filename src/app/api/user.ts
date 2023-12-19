@@ -10,6 +10,21 @@ type ResendCodeProps = {
   userId: string
 }
 
+export const login = async (data: LoginProps) => {
+  try {
+    const res = await api.post(`/sessions`, data)
+    return { data: res.data }
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      return {
+        error: err?.response?.data.message
+          ? err?.response?.data.message
+          : 'Erro desconhecido, tente novamente mais tarde.',
+      }
+    }
+  }
+}
+
 export const registerUser = async (data: RegisterUserProps) => {
   try {
     const res = await api.post(`/accounts`, data)

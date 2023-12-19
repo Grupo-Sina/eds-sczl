@@ -5,3 +5,8 @@ declare interface RegisterUserProps {
   password: string
   confirmPassword: string
 }
+
+declare interface LoginProps {
+  userName: string
+  password: string
+}
