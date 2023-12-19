@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { phoneRegExp } from '../util/phoneRegex'
+import { phoneRegExp } from '../utils/phoneRegex'
 
 export const schemaRegisterUser = yup
   .object({
