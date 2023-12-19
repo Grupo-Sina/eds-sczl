@@ -2,13 +2,7 @@
 
 import React, { useState } from 'react'
 import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
   Button,
-  useDisclosure,
-  Input,
   Navbar,
   NavbarMenuToggle,
   NavbarMenu,
@@ -48,11 +42,15 @@ export default function Header() {
     enableButton()
   }
 
-  // const handleSubmitLoginForm = (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault()
-  //   console.log('login efetuado')
-  // }
-  // bg-[#0F1768]
+
+import { useAuthContext } from '@/app/context/AuthContext'
+import { useAppContext } from '@/app/context/AppContext'
+
+export default function Header() {
+  const { onOpenChangeModalLogin } = useAppContext()
+  const { handleSignOut, isAuthenticaded } = useAuthContext()
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
   return (
     <Navbar
       maxWidth="full"
@@ -73,7 +71,10 @@ export default function Header() {
           className="bg-[#1F3694] w-full"
         >
           <NavbarMenuItem className="mt-10">
-            <Link className="cursor-pointer text-xl font-extrabold text-white">
+            <Link
+              className="cursor-pointer text-xl font-extrabold text-white"
+              onClick={() => handleSignOut()}
+            >
               SAIR
             </Link>
           </NavbarMenuItem>
@@ -84,7 +85,10 @@ export default function Header() {
           className="bg-[#1F3694] w-full"
         >
           <NavbarMenuItem className="mt-10">
-            <Link className="cursor-pointer text-xl font-extrabold text-white">
+            <Link
+              className="cursor-pointer text-xl font-extrabold text-white"
+              onClick={() => onOpenChangeModalLogin()}
+            >
               LOGIN
             </Link>
           </NavbarMenuItem>
@@ -134,13 +138,14 @@ export default function Header() {
           </Button>
           <Button
             type="submit"
-            onPress={onOpen}
+            onClick={() => onOpenChangeModalLogin()}
             radius="full"
             size="md"
             className="bg-[#00E46F] font-heading text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5"
           >
             LOGIN
           </Button>
+
           <Modal
             isOpen={isOpen}
             onOpenChange={onOpenChange}
