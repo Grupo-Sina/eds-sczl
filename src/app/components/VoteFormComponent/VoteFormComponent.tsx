@@ -13,7 +13,7 @@ import {
 import { useState } from 'react'
 import successicon from '../../../../public/succesicon.svg'
 import Image from 'next/image'
-import { BoundingBox } from 'framer-motion'
+// import { BoundingBox } from 'framer-motion'
 import { useAppContext } from '@/app/context/AppContext'
 
 export default function VoteFormComponent() {
@@ -135,7 +135,7 @@ export default function VoteFormComponent() {
           }}
         >
           <ModalContent>
-            {(onClose) => (
+            {() => (
               <>
                 <p className="ml-5">Bilhete da Sorte</p>
                 <ModalHeader className="text-3xl font-bold">

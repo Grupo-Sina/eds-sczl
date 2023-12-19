@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import React, { FormEvent, useState } from "react";
+import React, { useState } from 'react'
 import {
   Modal,
   ModalContent,
@@ -14,44 +14,44 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Link,
-} from "@nextui-org/react";
-import Image from "next/image";
-import edsnavarzealogo from "../../../../public/edsnavarzealogo.png";
-import escudozl from "../../../../public/escudozl.png";
-import { EyeSlashFilledIcon } from "../EyeSlashFilledIcon/EyeSlashFilledIcon";
-import { EyeFilledIcon } from "../EyeFilledIcon/EyeFilledIcon";
-import { useAuthContext } from "@/app/context/AuthContext";
+} from '@nextui-org/react'
+import Image from 'next/image'
+import edsnavarzealogo from '../../../../public/edsnavarzealogo.png'
+import escudozl from '../../../../public/escudozl.png'
+import { EyeSlashFilledIcon } from '../EyeSlashFilledIcon/EyeSlashFilledIcon'
+import { EyeFilledIcon } from '../EyeFilledIcon/EyeFilledIcon'
+import { useAuthContext } from '@/app/context/AuthContext'
 
 export default function Header() {
-  const { handleSignOut, isAuthenticaded } = useAuthContext();
-  const [userName, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const { handleSignOut, isAuthenticaded } = useAuthContext()
+  const [userName, setUsername] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [isVisible, setIsVisible] = useState<boolean>(false)
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true)
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const toggleVisibility = () => setIsVisible(!isVisible)
 
   const enableButton = () => {
-    setIsButtonDisabled(!(password.length > 5 && userName.length >= 3));
-  };
+    setIsButtonDisabled(!(password.length > 5 && userName.length >= 3))
+  }
 
   const handlePasswordChange = (value: string) => {
-    setPassword(value);
-    enableButton();
-  };
+    setPassword(value)
+    enableButton()
+  }
 
   const handleUsernameChange = (value: string) => {
-    setUsername(value);
-    enableButton();
-  };
+    setUsername(value)
+    enableButton()
+  }
 
-  const handleSubmitLoginForm = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("login efetuado");
-  };
+  // const handleSubmitLoginForm = (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault()
+  //   console.log('login efetuado')
+  // }
   // bg-[#0F1768]
   return (
     <Navbar
@@ -59,17 +59,17 @@ export default function Header() {
       onMenuOpenChange={setIsMenuOpen}
       className="h-[94px] bg-[#0F1768] relative flex justify-evenly space-x-4 md:space-x-0"
       classNames={{
-        wrapper: "justify-between lg:mx-[90px]",
+        wrapper: 'justify-between lg:mx-[90px]',
       }}
     >
       <NavbarMenuToggle
-        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         className="md:hidden bg-transparent text-white mx-2"
       />
 
       {isAuthenticaded ? (
         <NavbarMenu
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.40)" }}
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.40)' }}
           className="bg-[#1F3694] w-full"
         >
           <NavbarMenuItem className="mt-10">
@@ -80,7 +80,7 @@ export default function Header() {
         </NavbarMenu>
       ) : (
         <NavbarMenu
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.40)" }}
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.40)' }}
           className="bg-[#1F3694] w-full"
         >
           <NavbarMenuItem className="mt-10">
@@ -147,7 +147,7 @@ export default function Header() {
             className="max-w-[716px] p-[48px] bg-[#0F1768] text-white gap-3"
           >
             <ModalContent>
-              {(onClose) => (
+              {() => (
                 <>
                   <p className="ml-6">Bilhete da Sorte</p>
                   <ModalHeader className="text-[28px]">
@@ -173,7 +173,7 @@ export default function Header() {
                         isRequired
                         value={password}
                         onValueChange={handlePasswordChange}
-                        type={isVisible ? "text" : "password"}
+                        type={isVisible ? 'text' : 'password'}
                         className="mb-5"
                         endContent={
                           <button
@@ -198,9 +198,9 @@ export default function Header() {
                       </Button>
                       <hr
                         style={{
-                          borderTop: "1px solid #FFFFFF33",
-                          marginTop: "1rem",
-                          marginBottom: "1rem",
+                          borderTop: '1px solid #FFFFFF33',
+                          marginTop: '1rem',
+                          marginBottom: '1rem',
                         }}
                       />
                       <div className="flex items-center space-x-4">
@@ -224,5 +224,5 @@ export default function Header() {
         </div>
       )}
     </Navbar>
-  );
+  )
 }

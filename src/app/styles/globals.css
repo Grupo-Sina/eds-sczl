@@ -3,18 +3,35 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "HeadingProTrial";
-  src: url("../fonts/Heading-Pro-Book-trial.ttf") format("truetype");
+  font-family: "Heading Pro Trial";
+  src: url("../../../public/fonts/Heading-Pro-Book-trial.ttf")
+    format("truetype");
 }
 
 @font-face {
-  font-family: "HeadingProTrial-Bold";
-  src: url("../fonts/Heading-Pro-Bold-trial.ttf") format("truetype");
+  font-family: "Heading Pro Trial Bold";
+  src: url("../../../public/fonts/Heading-Pro-Bold-trial.ttf")
+    format("truetype");
 }
 
 @font-face {
-  font-family: "HeadingProTrial-Thin";
-  src: url("../fonts/Heading-Pro-Thin-trial.ttf") format("truetype");
+  font-family: "Heading Pro Trial Thin";
+  src: url("../../../public/fonts/Heading-Pro-Thin-trial.ttf")
+    format("truetype");
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
 body {
@@ -22,4 +39,15 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.character-input {
+  border-radius: 12px;
 }

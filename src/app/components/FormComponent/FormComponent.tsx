@@ -9,16 +9,16 @@ import escudozl from '../../../../public/escudozl.png'
 import { registerUser } from '../../api/user'
 
 import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
+  // Modal,
+  // ModalContent,
+  // ModalHeader,
+  // ModalBody,
   Button,
   useDisclosure,
-  Input,
+  // Input,
 } from '@nextui-org/react'
-import { EyeSlashFilledIcon } from '../EyeSlashFilledIcon/EyeSlashFilledIcon'
-import { EyeFilledIcon } from '../EyeFilledIcon/EyeFilledIcon'
+// import { EyeSlashFilledIcon } from '../EyeSlashFilledIcon/EyeSlashFilledIcon'
+// import { EyeFilledIcon } from '../EyeFilledIcon/EyeFilledIcon'
 import { inputList, schemaRegisterUser } from '@/app/schemas/register'
 import { InputComponent } from '../InputComponent/Input'
 import { useAppContext } from '@/app/context/AppContext'
@@ -39,7 +39,7 @@ export default function FormComponent() {
     mode: 'onChange',
   })
 
-  const [isModalPassVisibile, setIsModalPassVisible] = useState<boolean>(false)
+  // const [isModalPassVisibile, setIsModalPassVisible] = useState<boolean>(false)
 
   const handleRegister = async (data: RegisterUserProps) => {
     setLoading(true)
@@ -61,10 +61,10 @@ export default function FormComponent() {
     setLoading(false)
   }
 
-  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const { onOpen } = useDisclosure()
 
-  const toggleModalPassVisibility = () =>
-    setIsModalPassVisible(!isModalPassVisibile)
+  // const toggleModalPassVisibility = () =>
+  //   setIsModalPassVisible(!isModalPassVisibile)
 
   function generateMask(value: string) {
     if (value === 'phone') {
