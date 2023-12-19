@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button } from '@nextui-org/react'
 
 export default function SuccessVoteComponent() {
   return (
@@ -20,13 +20,13 @@ export default function SuccessVoteComponent() {
           A
         </span>
         <span className="text-white font-normal font-heading text-7xl desktop:text-[106px] desktop:leading-[106px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-white font-bold font-heading text-7xl desktop:text-[106px] desktop:leading-[106px]">
           É
         </span>
         <span className="text-white font-normal font-heading text-7xl desktop:text-[106px] desktop:leading-[106px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-white font-semibold font-heading text-7xl desktop:text-[106px] desktop:leading-[106px]">
           S
@@ -35,7 +35,7 @@ export default function SuccessVoteComponent() {
           Ó
         </span>
         <span className="text-white font-semibold font-heading text-7xl desktop:text-[106px] desktop:leading-[106px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-white font- font-heading text-7xl desktop:text-[106px] desktop:leading-[106px]">
           A
@@ -62,13 +62,13 @@ export default function SuccessVoteComponent() {
           R
         </span>
         <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-white font-black font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
           O
         </span>
         <span className="text-white font-normal font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-white font-semibold font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
           R
@@ -98,7 +98,7 @@ export default function SuccessVoteComponent() {
           O
         </span>
         <span className="text-white font-normal font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-white font-normal font-heading text-8xl desktop:text-[145px] desktop:leading-[108px]">
           D
@@ -107,7 +107,7 @@ export default function SuccessVoteComponent() {
           A
         </span>
         <span className="text-white font-normal font-heading text-7xl desktop:text-[110px] desktop:leading-[108px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[#00E275] font-black font-heading text-8xl desktop:text-[150px] desktop:leading-[108px]">
           P
@@ -134,7 +134,7 @@ export default function SuccessVoteComponent() {
           A
         </span>
         <span className="text-[#00E275] font-normal font-heading text-8xl desktop:text-[150px] desktop:leading-[108px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[#00E275] font-bold font-heading text-8xl desktop:text-[150px] desktop:leading-[108px]">
           F
@@ -159,5 +159,5 @@ export default function SuccessVoteComponent() {
         PÁGINA PRINCIPAL
       </Button>
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import escudozl from "../../../../public/escudozl.png";
+import Image from 'next/image'
+import escudozl from '../../../../public/escudozl.png'
 
 export default function VotePromoComponent() {
   return (
@@ -27,7 +27,7 @@ export default function VotePromoComponent() {
           L
         </span>
         <span className="text-[55px] font-heading text-white font-normal sm:text-7xl desktop:text-[101px] desktop:leading-[109px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[55px] font-heading text-white font-semibold sm:text-7xl desktop:text-[101px] desktop:leading-[109px]">
           T
@@ -42,7 +42,7 @@ export default function VotePromoComponent() {
           E
         </span>
         <span className="text-[55px] font-heading text-white font-normal sm:text-7xl desktop:text-[101px] desktop:leading-[109px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[55px] font-heading text-[#00E275] font-normal sm:text-7xl desktop:text-[101px] desktop:leading-[109px]">
           N
@@ -54,7 +54,7 @@ export default function VotePromoComponent() {
           O
         </span>
         <span className="text-[55px] font-heading text-[#00E275] font-extrabold sm:text-7xl desktop:text-[101px] desktop:leading-[109px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[55px] font-heading text-[#00E275] font-bold sm:text-7xl desktop:text-[101px] desktop:leading-[109px]">
           P
@@ -69,7 +69,7 @@ export default function VotePromoComponent() {
           E
         </span>
         <span className="text-[55px] font-heading text-[#00E275] font-normal sm:text-7xl desktop:text-[101px] desktop:leading-[109px]">
-          {" "}
+          {' '}
         </span>
       </h1>
       <h1 className="text-center p-1 md:p-0">
@@ -89,7 +89,7 @@ export default function VotePromoComponent() {
           R
         </span>
         <span className="text-[64px] font-heading text-white font-normal sm:text-8xl desktop:text-[118px] desktop:leading-[118px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[64px] font-heading text-white font-bold sm:text-8xl desktop:text-[118px] desktop:leading-[118px]">
           D
@@ -98,7 +98,7 @@ export default function VotePromoComponent() {
           E
         </span>
         <span className="text-[64px] font-heading text-white font-medium sm:text-8xl desktop:text-[118px] desktop:leading-[118px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[64px] font-heading text-white font-bold sm:text-8xl desktop:text-[118px] desktop:leading-[118px]">
           F
@@ -113,7 +113,7 @@ export default function VotePromoComponent() {
           A
         </span>
         <span className="text-[64px] font-heading text-white font-normal sm:text-8xl desktop:text-[118px] desktop:leading-[118px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[64px] font-heading text-white font-semibold sm:text-8xl desktop:text-[118px] desktop:leading-[118px]">
           D
@@ -122,7 +122,7 @@ export default function VotePromoComponent() {
           A
         </span>
         <span className="text-[64px] font-heading text-white font-normal sm:text-6xl desktop:text-[80px] desktop:leading-[80px]">
-          {" "}
+          {' '}
         </span>
       </h1>
       <h1 className="text-center py-3">
@@ -142,7 +142,7 @@ export default function VotePromoComponent() {
           R
         </span>
         <span className="text-[44px] font-heading text-white font-extrabold sm:text-6xl desktop:text-[80px] desktop:leading-[80px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[44px] font-heading text-white font-semibold sm:text-6xl desktop:text-[80px] desktop:leading-[80px]">
           C
@@ -157,7 +157,7 @@ export default function VotePromoComponent() {
           A
         </span>
         <span className="text-[44px] font-heading text-white font-extrabold sm:text-6xl desktop:text-[80px] desktop:leading-[80px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[44px] font-heading text-white font-bold sm:text-6xl desktop:text-[80px] desktop:leading-[80px]">
           Z
@@ -172,7 +172,7 @@ export default function VotePromoComponent() {
           A
         </span>
         <span className="text-[44px] font-heading text-white font-extrabold sm:text-6xl desktop:text-[80px] desktop:leading-[80px]">
-          {" "}
+          {' '}
         </span>
         <span className="text-[44px] font-heading text-white font-bold sm:text-6xl desktop:text-[80px] desktop:leading-[80px]">
           L
@@ -197,5 +197,5 @@ export default function VotePromoComponent() {
         </span>
       </h1>
     </div>
-  );
+  )
 }
