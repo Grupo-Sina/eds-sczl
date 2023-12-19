@@ -9,6 +9,7 @@ import escudozl from '../../../../public/escudozl.png'
 import { registerUser } from '../../api/user'
 
 import { Button } from '@nextui-org/react'
+
 import { inputList, schemaRegisterUser } from '@/app/schemas/register'
 import { InputComponent } from '../InputComponent/Input'
 import { useAppContext } from '@/app/context/AppContext'
@@ -49,6 +50,9 @@ export default function FormComponent() {
     }
     setLoading(false)
   }
+
+  const { onOpen } = useDisclosure()
+
 
   function generateMask(value: string) {
     if (value === 'phone') {

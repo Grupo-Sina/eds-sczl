@@ -1,12 +1,15 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import '@/app/styles/globals.css'
-// import { AppContextProvider } from '@/app/context/AppContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <title>EDS - Super Copa Zona Leste</title>
+        <meta
+          name="description"
+          content="Descrição específica da sua página aqui."
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

@@ -114,7 +114,7 @@ export default function PromoComponent() {
           }}
         >
           <ModalContent>
-            {(onClose) => (
+            {() => (
               <>
                 <p className="ml-5">Bilhete da Sorte</p>
                 <ModalHeader>REGRAS GERAIS</ModalHeader>

@@ -1,7 +1,7 @@
 'use client'
 
 import { Providers } from './providers'
-import './globals.css'
+import '@/app/styles/globals.css'
 import Head from 'next/head'
 import React, { ReactNode } from 'react'
 import { AppContextProvider } from './context/AppContext'
@@ -17,19 +17,22 @@ const PrivateRoute = dynamic(() => import('./routes/private-router'), {
 })
 interface RootLayoutProps {
   children: ReactNode
+  title?: string
+  description?: string
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+const RootLayout: React.FC<RootLayoutProps> = ({
+  children,
+  title = 'EDS - Super Copa Zona Leste',
+  description = 'Esportes da Sorte, EDS, Super Copa Zona Leste',
+}) => {
   const pathname = usePathname()
 
   return (
     <html lang="pt-br">
       <Head>
-        <title>EDS - Super Copa Zona Leste</title>
-        <meta
-          name="description"
-          content={'Esportes da Sorte, EDS, Super Copa Zona Leste' || ''}
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
       </Head>
       <body className="overflow-x-hidden">
         <AppContextProvider>
