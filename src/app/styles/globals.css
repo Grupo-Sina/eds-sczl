@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "HeadingProTrial";
+  font-family: "Heading Pro Trial";
   src: url("../../../public/fonts/Heading-Pro-Book-trial.ttf")
     format("truetype");
 }
