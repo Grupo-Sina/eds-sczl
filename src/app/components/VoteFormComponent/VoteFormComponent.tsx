@@ -15,12 +15,28 @@ import successicon from '../../../../public/succesicon.svg'
 import Image from 'next/image'
 // import { BoundingBox } from 'framer-motion'
 import { useAppContext } from '@/app/context/AppContext'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { schemaVote } from '@/app/schemas/vote'
+import { addDays, format } from 'date-fns'
+import { requestVote } from '@/app/api/vote'
+import { toast } from 'react-toastify'
 
 export default function VoteFormComponent() {
-  const [teamName, setTeamName] = useState<string>('')
   const [isTeamFocused, setIsTeamFocused] = useState<boolean>(false)
   const [isVoteButtonDisabled, setIsVoteButtonDisabled] =
     useState<boolean>(false)
+
+  const [loading, setLoading] = useState(false)
+  const {
+    register,
+    handleSubmit,
+
+    formState: { isDirty, isValid },
+  } = useForm<VoteProps>({
+    resolver: yupResolver(schemaVote),
+    mode: 'onChange',
+  })
 
   const {
     confirmedVote,
@@ -31,27 +47,35 @@ export default function VoteFormComponent() {
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-  const handleTeamNameInput = () => {
-    return teamName.length <= 2
-  }
-
-  const handleVoteButtonClick = (e: React.FormEvent) => {
-    e.preventDefault()
-
-    if (isFormSubmitted) {
-      return
-    }
-    setIsVoteButtonDisabled(true)
-    setConfirmedVote(true)
-    setIsFormSubmitted(true)
-  }
-
   const teamLabelStyle: React.CSSProperties = {
-    color: isTeamFocused || teamName ? '#CCFFFFFF' : '#858C94',
+    color: isTeamFocused ? '#CCFFFFFF' : '#858C94',
+  }
+
+  const handleVote = async (data: VoteProps) => {
+    setLoading(true)
+    const res = await requestVote(data)
+
+    if (res?.data) {
+      setIsVoteButtonDisabled(true)
+      setConfirmedVote(true)
+      setIsFormSubmitted(true)
+    } else if (res?.error) {
+      toast.error(res?.error)
+    }
+    setLoading(false)
+  }
+
+  function dataAvailable() {
+    const tomorrow = addDays(new Date(), 1)
+    const formatted = format(tomorrow, 'dd/MM/yyyy')
+    return formatted
   }
 
   return (
-    <form className="w-[90%] mb-8 md:mb-0 md:w-[650px] bg-[#0F1768] rounded-2xl p-12 text-white z-20">
+    <form
+      onSubmit={handleSubmit(handleVote)}
+      className="w-[90%] mb-8 md:mb-0 md:w-[650px] bg-[#0F1768] rounded-2xl p-12 text-white z-20"
+    >
       <p className="text-[16px] font-medium leading-5 mb-4">Bilhete da Sorte</p>
       {confirmedVote ? (
         <div className="flex space-x-2 mb-8">
@@ -69,14 +93,13 @@ export default function VoteFormComponent() {
       <Input
         isDisabled={isFormSubmitted}
         onFocus={() => setIsTeamFocused(true)}
-        onBlur={() => setIsTeamFocused(false)}
         type="text"
-        value={teamName}
-        onValueChange={setTeamName}
         label={<label style={teamLabelStyle}>Nome do time</label>}
         isRequired
         labelPlacement="outside"
         className="mt-8"
+        {...register('name')}
+        onBlur={() => setIsTeamFocused(false)}
         classNames={{
           label: 'text-[#858C94]',
           input: [
@@ -99,8 +122,7 @@ export default function VoteFormComponent() {
       <Button
         type="submit"
         radius="full"
-        isDisabled={isVoteButtonDisabled || handleTeamNameInput()}
-        onClick={handleVoteButtonClick}
+        isDisabled={!isDirty || !isValid || loading || isVoteButtonDisabled}
         className="bg-[#00E46F] font-headingBold text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5 w-full my-4"
       >
         VOTAR
@@ -110,7 +132,7 @@ export default function VoteFormComponent() {
         {confirmedVote ? (
           <h2 className="text-[16px] font-semibold leading-6">
             Próximo voto disponível em{' '}
-            <span className="text-[#00E46F]">14/12/2023 às 00:00.</span>
+            <span className="text-[#00E46F]">{`${dataAvailable()} às 00:00`}</span>
           </h2>
         ) : (
           <h2 className="text-[16px] font-semibold leading-6">

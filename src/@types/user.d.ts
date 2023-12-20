@@ -10,3 +10,7 @@ declare interface LoginProps {
   userName: string
   password: string
 }
+
+declare interface VoteProps {
+  name: string
+}
