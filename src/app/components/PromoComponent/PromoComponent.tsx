@@ -27,49 +27,49 @@ export default function PromoComponent() {
         />
       </div>
       <h1 className="text-center mt-8 md:text-left">
-        <span className="text-[56px] leading-[55px] text-white font-bold font-heading md:md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-bold font-headingBold md:md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           B
         </span>
-        <span className="text-[56px] leading-[55px] text-white font-light font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-extralight font-headingExtraLight md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           I
         </span>
-        <span className="text-[56px] leading-[55px] text-white font-extrabold font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-extrabold font-headingExtraBold md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           L
         </span>
-        <span className="text-[56px] leading-[55px] text-white font-black font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-black font-headingHeavy md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           H
         </span>
-        <span className="text-[56px] leading-[55px] text-white font-normal font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-normal font-headingLight md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           E
         </span>
-        <span className="text-[56px] leading-[55px] text-white font-bold font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-bold font-headingBold md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           T
         </span>
-        <span className="text-[56px] leading-[55px] text-white font-normal font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-normal font-headingLight md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           E
         </span>
         <span className="text-[56px] leading-[55px] text-white font-normal font-heading md:text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           {' '}
         </span>
-        <span className="text-[56px] leading-[55px] text-white font-bold font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-bold font-headingBold md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           D
         </span>
-        <span className="text-[56px] leading-[55px] text-white font-normal font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-white font-normal font-headingHeavy md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           A
         </span>
         <span className="text-[56px] leading-[55px] text-white font-normal font-heading md:text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
           {' '}
         </span>
-        <span className="text-[56px] leading-[55px] text-[#00E275] font-bold font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-[#00E275] font-bold font-headingBold md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           S
         </span>
         <span className="text-[56px] leading-[55px] text-[#00E275] font-normal font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           O
         </span>
-        <span className="text-[56px] leading-[55px] text-[#00E275] font-extrabold font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-[#00E275] font-extrabold font-headingBold md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           R
         </span>
-        <span className="text-[56px] leading-[55px] text-[#00E275] font-extrabold font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
+        <span className="text-[56px] leading-[55px] text-[#00E275] font-extrabold font-headingExtraBold md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           T
         </span>
         <span className="text-[56px] leading-[55px] text-[#00E275] font-normal font-heading md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
@@ -100,7 +100,7 @@ export default function PromoComponent() {
         <Button
           onPress={onOpen}
           radius="full"
-          className="w-full md:w-[165px] bg-[#00E46F] font-heading text-[#003B9C] text-[16px] font-extrabold leading-5 text-center py-3 px-8 desktop:text-[24px] desktop:font-extrabold desktop:leading-[29px] desktop:py-6 desktop:px-11"
+          className="w-full md:w-[165px] bg-[#00E46F] font-headingBold text-[#003B9C] text-[16px] font-extrabold leading-5 text-center py-3 px-8 desktop:text-[24px] desktop:font-extrabold desktop:leading-[29px] desktop:py-6 desktop:px-11"
         >
           VER REGRAS
         </Button>

@@ -93,7 +93,7 @@ export default function ModalLogin({ isOpen, onOpenChange }: ModalLoginProps) {
                   type="submit"
                   disabled={!isDirty || !isValid || loading}
                   radius="full"
-                  className="disabled:opacity-50 bg-[#00E46F] font-heading text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5 mt-3 w-full"
+                  className="disabled:opacity-50 bg-[#00E46F] font-headingBold text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5 mt-3 w-full"
                 >
                   LOGIN
                 </Button>
@@ -111,7 +111,7 @@ export default function ModalLogin({ isOpen, onOpenChange }: ModalLoginProps) {
                 <Button
                   radius="full"
                   variant="bordered"
-                  className="font-heading bg-transparent border-[#00E46F] text-[16px] text-[#00E46F] font-bold py-3 px-8"
+                  className="font-headingBold bg-transparent border-[#00E46F] text-[16px] text-[#00E46F] font-bold py-3 px-8"
                 >
                   REDEFINIR SENHA
                 </Button>

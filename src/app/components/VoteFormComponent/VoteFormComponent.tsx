@@ -101,7 +101,7 @@ export default function VoteFormComponent() {
         radius="full"
         isDisabled={isVoteButtonDisabled || handleTeamNameInput()}
         onClick={handleVoteButtonClick}
-        className="bg-[#00E46F] font-heading text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5 w-full my-4"
+        className="bg-[#00E46F] font-headingBold text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5 w-full my-4"
       >
         VOTAR
       </Button>
@@ -122,7 +122,7 @@ export default function VoteFormComponent() {
           onPress={onOpen}
           radius="full"
           variant="bordered"
-          className="bg-[#0F1768] font-heading border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
+          className="bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
         >
           VER REGRAS
         </Button>

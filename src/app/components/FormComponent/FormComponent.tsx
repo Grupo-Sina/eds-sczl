@@ -89,7 +89,7 @@ export default function FormComponent() {
         radius="full"
         size="sm"
         className={`bg-[#00E46F] disabled:opacity-50
-         mt-6 text-[#003B9C] text-[16px] w-full font-heading font-extrabold py-[12px]`}
+         mt-6 text-[#003B9C] text-[16px] w-full font-headingBold font-extrabold py-[12px]`}
       >
         CONCLUIR CADASTRO
       </Button>
@@ -110,7 +110,7 @@ export default function FormComponent() {
             radius="full"
             size="sm"
             variant="bordered"
-            className="w-full mt-2 md:mt-0 md:w-[165px] bg-[#0F1768] text-[#00E46F] text-[16px] border-[#00E46F] font-heading font-[800] py-3 px-14"
+            className="font-headingBold w-full mt-2 md:mt-0 md:w-[165px] bg-[#0F1768] text-[#00E46F] text-[16px] border-[#00E46F] font-[800] py-3 px-14"
           >
             FAZER LOGIN
           </Button>
