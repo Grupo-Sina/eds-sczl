@@ -6,7 +6,7 @@ import instalogo from '../../../../public/instalogo.png'
 
 export default function Footer() {
   return (
-    <footer className="h-auto min-h-[140px] w-full bg-[#0F1768] flex flex-col flex-wrap md:flex-row items-center justify-evenly z-10">
+    <footer className="py-3 px-8 md:min-h-[140px] w-full bg-[#0F1768] flex flex-col flex-wrap md:flex-row items-center justify-evenly z-10">
       <Image src={edsfooterlogo} alt="esd footer logo" />
 
       <p className="text-[#fff]">@2023 Copyright - Esportedasorte</p>
