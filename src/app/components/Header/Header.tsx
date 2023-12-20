@@ -42,7 +42,7 @@ export default function Header() {
         >
           <NavbarMenuItem className="mt-10">
             <Link
-              className="cursor-pointer text-xl font-extrabold text-white"
+              className="font-headingBold cursor-pointer text-xl font-extrabold text-white"
               onClick={() => handleSignOut()}
             >
               SAIR
@@ -89,7 +89,7 @@ export default function Header() {
           <Button
             radius="full"
             size="md"
-            className="hidden md:flex bg-[#0F1768] font-heading border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
+            className="hidden md:flex bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
             variant="bordered"
             onClick={() => handleSignOut()}
           >
@@ -101,7 +101,7 @@ export default function Header() {
           <Button
             radius="full"
             size="md"
-            className="bg-[#0F1768] font-heading border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
+            className="bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
             variant="bordered"
           >
             CADASTRE-SE
@@ -111,7 +111,7 @@ export default function Header() {
             onClick={() => onOpenChangeModalLogin()}
             radius="full"
             size="md"
-            className="bg-[#00E46F] font-heading text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5"
+            className="bg-[#00E46F] font-headingBold text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5"
           >
             LOGIN
           </Button>

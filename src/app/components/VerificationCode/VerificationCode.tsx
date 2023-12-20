@@ -152,7 +152,7 @@ export default function VerificationCode() {
             startTimer()
           }
         }}
-        className="w-full disabled:opacity-50 bg-[#00E46F] font-heading text-[16px] text-[#003B9C] font-extrabold leading-5"
+        className="w-full disabled:opacity-50 bg-[#00E46F] font-headingBold text-[16px] text-[#003B9C] font-extrabold leading-5"
       >
         CONFIRMAR CÓDIGO
       </Button>
@@ -169,7 +169,7 @@ export default function VerificationCode() {
             variant="bordered"
             className={`${
               areInputsDisabled && 'disabled:opacity-50'
-            } bg-[#0F1768] font-heading border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8`}
+            } bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8`}
           >
             REENVIAR CÓDIGO
           </Button>
