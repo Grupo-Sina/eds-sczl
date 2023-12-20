@@ -51,9 +51,6 @@ export default function FormComponent() {
     setLoading(false)
   }
 
-  const { onOpen } = useDisclosure()
-
-
   function generateMask(value: string) {
     if (value === 'phone') {
       return '(99)99999-9999'
