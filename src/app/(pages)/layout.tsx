@@ -7,6 +7,7 @@ import shirtgradienteffect from '../../../public/shirtgradienteffect.png'
 import gradienteffectleft from '../../../public/gradienteffectleft.png'
 import edsvectorleft from '../../../public/edsvectorleft.png'
 import edsvectorright from '../../../public/edsvectorright.png'
+import { Metadata } from 'next'
 
 interface LayoutProps {
   children: React.ReactNode
