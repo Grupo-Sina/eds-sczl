@@ -1,5 +1,4 @@
 'use client'
-import SEO from '@/app/components/SEO'
 import SuccessVoteComponent from '@/app/components/SuccessVoteComponent/SucessVoteComponent'
 import VoteFormComponent from '@/app/components/VoteFormComponent/VoteFormComponent'
 import VotePromoComponent from '@/app/components/VotePromoComponent/VotePromoComponent'
@@ -14,7 +13,6 @@ export default function CreateVote() {
 
   return (
     <div className="z-20 w-full items-center flex flex-col md:flex-row md:justify-around">
-      <SEO title="Vote" />
       {isMobile ? (
         <VotePromoComponent />
       ) : confirmedVote ? (
