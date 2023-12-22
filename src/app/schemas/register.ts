@@ -30,6 +30,14 @@ export const inputList = [
     name: 'phone',
     type: 'text',
     isRequired: true,
+    placeholder: '(DDD) 99999-9999',
+  },
+  {
+    title: 'Email',
+    name: 'email',
+    type: 'text',
+    isRequired: false,
+    placeholder: 'Preenchimento não obrigatório',
   },
   {
     title: 'Usuário',
@@ -48,11 +56,5 @@ export const inputList = [
     name: 'confirmPassword',
     type: 'password',
     isRequired: true,
-  },
-  {
-    title: 'Email',
-    name: 'email',
-    type: 'text',
-    isRequired: false,
   },
 ]

@@ -32,6 +32,7 @@ export default function FormComponent() {
   })
 
   const handleRegister = async (data: RegisterUserProps) => {
+    console.log(data)
     const clearNumber = data.phone.replace(/\D/g, '')
     const formatPhoneNumber = clearNumber.startsWith('55')
       ? clearNumber
@@ -79,6 +80,7 @@ export default function FormComponent() {
             register={register}
             control={control}
             mask={generateMask(item.name)}
+            placeholder={item.placeholder}
           />
         ))}
       </div>
