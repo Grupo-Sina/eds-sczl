@@ -26,7 +26,7 @@ export default function FormComponent() {
     control,
     formState: { errors, isDirty, isValid },
   } = useForm<RegisterUserProps>({
-    resolver: yupResolver(schemaRegisterUser) as any,
+    resolver: yupResolver(schemaRegisterUser),
     mode: 'onChange',
     shouldFocusError: false,
   })

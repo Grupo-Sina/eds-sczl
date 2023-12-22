@@ -13,7 +13,7 @@ export const schemaRegisterUser = yup
     confirmPassword: yup
       .string()
       .required('A confirmação de senha é obrigatória.')
-      .oneOf([yup.ref('password'), null], 'As senhas não coincidem.'),
+      .oneOf([yup.ref('password')], 'As senhas não coincidem.'),
     email: yup.string().email('Insira um e-mail válido.'),
   })
   .required()
