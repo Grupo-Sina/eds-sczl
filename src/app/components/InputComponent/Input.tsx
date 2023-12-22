@@ -1,5 +1,7 @@
 import { Input } from '@nextui-org/react'
 import { useState } from 'react'
+import Image from 'next/image'
+import phone from '../../../../public/phone.png'
 import {
   UseFormRegister,
   FieldErrorsImpl,
@@ -54,6 +56,9 @@ export function InputComponent({
                 isInvalid={!!error}
                 color={error ? 'danger' : undefined}
                 variant={error ? 'bordered' : undefined}
+                startContent={
+                  name === 'phone' && <Image src={phone} alt="phone" />
+                }
               />
             </InputMask>
           )}

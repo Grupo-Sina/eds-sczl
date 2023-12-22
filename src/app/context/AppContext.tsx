@@ -1,6 +1,8 @@
 import { useDisclosure } from '@nextui-org/react'
 import React, { createContext, useContext, ReactNode, useState } from 'react'
 
+export type ModalVisible = 'reset' | 'login' | 'login-reset-pass' | undefined
+
 type AppContextType = {
   isFormSubmitted: boolean
   setIsFormSubmitted: React.Dispatch<React.SetStateAction<boolean>>
@@ -8,8 +10,10 @@ type AppContextType = {
   setConfirmedVote: React.Dispatch<React.SetStateAction<boolean>>
   shouldShowVerificationCode: boolean
   setShouldShowVerificationCode: React.Dispatch<React.SetStateAction<boolean>>
-  isOpenModalLogin: boolean
-  onOpenChangeModalLogin: () => void
+  modalVisible: ModalVisible
+  setModalVisible: React.Dispatch<React.SetStateAction<ModalVisible>>
+  shouldShowResetPassword: boolean
+  setShouldShowResetPassword: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
@@ -21,19 +25,21 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
   const [confirmedVote, setConfirmedVote] = useState<boolean>(false)
   const [shouldShowVerificationCode, setShouldShowVerificationCode] =
     useState(false)
+  const [shouldShowResetPassword, setShouldShowResetPassword] = useState(false)
 
-  const { isOpen: isOpenModalLogin, onOpenChange: onOpenChangeModalLogin } =
-    useDisclosure()
+  const [modalVisible, setModalVisible] = useState<ModalVisible>(undefined)
 
   const contextValue: AppContextType = {
-    isOpenModalLogin,
-    onOpenChangeModalLogin,
+    modalVisible,
+    setModalVisible,
     isFormSubmitted,
     setIsFormSubmitted,
     confirmedVote,
     setConfirmedVote,
     shouldShowVerificationCode,
     setShouldShowVerificationCode,
+    setShouldShowResetPassword,
+    shouldShowResetPassword,
   }
 
   return (

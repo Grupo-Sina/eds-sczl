@@ -20,6 +20,7 @@ export const AuthContextProvider: React.FC<{ children: ReactNode }> = ({
   const { 'eds-sclz:x-token': sessionKey } = parseCookies()
   const [phoneSendVerificationCode, setPhoneSendVerificationCode] = useState('')
   const [userIdVerificationCode, setUserIdVerificationCode] = useState('')
+
   const isAuthenticaded = !!sessionKey
 
   function handleAuthWithToken(acessToken: string) {
