@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -28,16 +28,16 @@ export default function FormComponent() {
   } = useForm<RegisterUserProps>({
     resolver: yupResolver(schemaRegisterUser),
     mode: 'onChange',
+    shouldFocusError: false,
   })
 
   const handleRegister = async (data: RegisterUserProps) => {
-    setLoading(true)
     const clearNumber = data.phone.replace(/\D/g, '')
     const formatPhoneNumber = clearNumber.startsWith('55')
       ? clearNumber
       : `55${clearNumber}`
+    setLoading(true)
 
-    data.phone = formatPhoneNumber
     const res = await registerUser(data)
 
     if (res?.data) {
