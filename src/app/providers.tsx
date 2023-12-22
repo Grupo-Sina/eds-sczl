@@ -1,21 +1,21 @@
-'use client'
+"use client";
 
-import { NextUIProvider } from '@nextui-org/react'
-import { AppContextProvider } from './context/AppContext'
-import { AuthContextProvider } from './context/AuthContext'
-import { Slide, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import dynamic from 'next/dynamic'
-import { usePathname } from 'next/navigation'
-import { APP_PUBLIC_ROUTES } from './routes/public-routes'
-const PublicRoute = dynamic(() => import('./routes/public-router'), {
+import { NextUIProvider } from "@nextui-org/react";
+import { AppContextProvider } from "./context/AppContext";
+import { AuthContextProvider } from "./context/AuthContext";
+import { Slide, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
+import { APP_PUBLIC_ROUTES } from "./routes/public-routes";
+const PublicRoute = dynamic(() => import("./routes/public-router"), {
   ssr: false,
-})
-const PrivateRoute = dynamic(() => import('./routes/private-router'), {
+});
+const PrivateRoute = dynamic(() => import("./routes/private-router"), {
   ssr: false,
-})
+});
 export function Providers({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
   return (
     <AppContextProvider>
       <AuthContextProvider>
@@ -29,7 +29,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
             draggable
             pauseOnHover
             transition={Slide}
-            theme={'colored'}
+            theme={"colored"}
           />
           {pathname && (
             <>
@@ -43,5 +43,5 @@ export function Providers({ children }: { children: React.ReactNode }) {
         </NextUIProvider>
       </AuthContextProvider>
     </AppContextProvider>
-  )
+  );
 }

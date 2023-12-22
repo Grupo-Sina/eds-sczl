@@ -1,25 +1,25 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Image from 'next/image'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { toast } from 'react-toastify'
-import escudozl from '../../../../public/escudozl.png'
-import { sendCodeResetPassword } from '../../api/user'
+import React, { useState } from "react";
+import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "react-toastify";
+import escudozl from "../../../../public/escudozl.png";
+import { sendCodeResetPassword } from "../../api/user";
 
-import { Button } from '@nextui-org/react'
+import { Button } from "@nextui-org/react";
 
-import { InputComponent } from '../InputComponent/Input'
-import { useAppContext } from '@/app/context/AppContext'
-import { useAuthContext } from '@/app/context/AuthContext'
-import { schemaSendCodeResetPassword } from '@/app/schemas/resetPassword'
+import { InputComponent } from "../InputComponent/Input";
+import { useAppContext } from "@/app/context/AppContext";
+import { useAuthContext } from "@/app/context/AuthContext";
+import { schemaSendCodeResetPassword } from "@/app/schemas/resetPassword";
 
 export default function FormResetPasswordComponent() {
-  const { setShouldShowResetPassword } = useAppContext()
+  const { setShouldShowResetPassword } = useAppContext();
   const { setPhoneSendVerificationCode, setUserIdVerificationCode } =
-    useAuthContext()
-  const [loading, setLoading] = useState(false)
+    useAuthContext();
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -27,27 +27,27 @@ export default function FormResetPasswordComponent() {
     formState: { errors, isDirty, isValid },
   } = useForm<SendCodeResetPasswordProps>({
     resolver: yupResolver(schemaSendCodeResetPassword),
-    mode: 'onChange',
+    mode: "onChange",
     shouldFocusError: false,
-  })
+  });
 
   const handleRegister = async (data: SendCodeResetPasswordProps) => {
-    setLoading(true)
-    const clearNumber = data.phone.replace(/\D/g, '')
-    const formatPhoneNumber = clearNumber.startsWith('55')
+    setLoading(true);
+    const clearNumber = data.phone.replace(/\D/g, "");
+    const formatPhoneNumber = clearNumber.startsWith("55")
       ? clearNumber
-      : `55${clearNumber}`
-    data.phone = formatPhoneNumber
-    const res = await sendCodeResetPassword(data)
+      : `55${clearNumber}`;
+    data.phone = formatPhoneNumber;
+    const res = await sendCodeResetPassword(data);
     if (res?.data) {
-      setPhoneSendVerificationCode(formatPhoneNumber)
-      setUserIdVerificationCode(res?.data.userId)
-      setShouldShowResetPassword(true)
+      setPhoneSendVerificationCode(formatPhoneNumber);
+      setUserIdVerificationCode(res?.data.userId);
+      setShouldShowResetPassword(true);
     } else if (res?.error) {
-      toast.error(res?.error)
+      toast.error(res?.error);
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <form onSubmit={handleSubmit(handleRegister)} method="post">
@@ -81,5 +81,5 @@ export default function FormResetPasswordComponent() {
         AVANÇAR
       </Button>
     </form>
-  )
+  );
 }

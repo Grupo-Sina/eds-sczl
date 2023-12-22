@@ -1,7 +1,7 @@
-import { useAppContext } from '@/app/context/AppContext'
-import ResetPassword from '../ResetPassword/ResetPassword'
-import FormResetPasswordComponent from '../FormResetPasswordComponent/FormResetPassword'
-import { Modal, ModalContent } from '@nextui-org/react'
+import { useAppContext } from "@/app/context/AppContext";
+import ResetPassword from "../ResetPassword/ResetPassword";
+import FormResetPasswordComponent from "../FormResetPasswordComponent/FormResetPassword";
+import { Modal, ModalContent } from "@nextui-org/react";
 
 export function ModalResetPassword() {
   const {
@@ -9,14 +9,14 @@ export function ModalResetPassword() {
     setShouldShowResetPassword,
     modalVisible,
     setModalVisible,
-  } = useAppContext()
+  } = useAppContext();
   return (
     <Modal
       scrollBehavior="outside"
-      isOpen={modalVisible === 'reset'}
+      isOpen={modalVisible === "reset"}
       onOpenChange={() => {
-        setModalVisible(undefined)
-        setShouldShowResetPassword(false)
+        setModalVisible(undefined);
+        setShouldShowResetPassword(false);
       }}
       className="md:max-w-[716px] p-[48px] bg-[#0F1768] text-white"
     >
@@ -28,5 +28,5 @@ export function ModalResetPassword() {
         )}
       </ModalContent>
     </Modal>
-  )
+  );
 }

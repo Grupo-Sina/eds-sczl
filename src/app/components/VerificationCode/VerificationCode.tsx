@@ -1,26 +1,26 @@
-'use client'
-import { Button } from '@nextui-org/react'
-import { useEffect, useState } from 'react'
-import { useForm, Controller } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import VerificationInput from 'react-verification-input'
-import { useAuthContext } from '@/app/context/AuthContext'
-import { resendCode, validateCode } from '@/app/api/user'
-import { toast } from 'react-toastify'
+"use client";
+import { Button } from "@nextui-org/react";
+import { useEffect, useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import VerificationInput from "react-verification-input";
+import { useAuthContext } from "@/app/context/AuthContext";
+import { resendCode, validateCode } from "@/app/api/user";
+import { toast } from "react-toastify";
 import {
   VerificationCodeFormProps,
   schema,
-} from '@/app/schemas/verificationCode'
+} from "@/app/schemas/verificationCode";
 
 export default function VerificationCode() {
-  const [timer, setTimer] = useState<number>(0)
-  const [areInputsDisabled, setAreInputsDisabled] = useState<boolean>(true)
-  const [loading, setLoading] = useState(false)
+  const [timer, setTimer] = useState<number>(0);
+  const [areInputsDisabled, setAreInputsDisabled] = useState<boolean>(true);
+  const [loading, setLoading] = useState(false);
   const {
     phoneSendVerificationCode,
     userIdVerificationCode,
     handleAuthWithToken,
-  } = useAuthContext()
+  } = useAuthContext();
 
   const {
     handleSubmit,
@@ -28,8 +28,8 @@ export default function VerificationCode() {
     control,
   } = useForm<VerificationCodeFormProps>({
     resolver: yupResolver(schema),
-    mode: 'onChange',
-  })
+    mode: "onChange",
+  });
 
   // const inputTextStyles = {
   //   input: {
@@ -41,76 +41,76 @@ export default function VerificationCode() {
   // }
 
   useEffect(() => {
-    startTimer()
-  }, [])
+    startTimer();
+  }, []);
 
   useEffect(() => {
     if (timer === 0) {
-      setAreInputsDisabled(false)
+      setAreInputsDisabled(false);
       // setIsButtonDisabled(!areAllInputsFilled())
     } else {
-      setAreInputsDisabled(true)
+      setAreInputsDisabled(true);
     }
-  }, [timer])
+  }, [timer]);
 
   const startTimer = () => {
-    const duration = 120
-    setTimer(duration)
-    setAreInputsDisabled(true)
+    const duration = 120;
+    setTimer(duration);
+    setAreInputsDisabled(true);
 
     const intervalId = setInterval(() => {
       setTimer((prevTime) => {
         if (prevTime === 0) {
-          clearInterval(intervalId)
-          setAreInputsDisabled(false)
+          clearInterval(intervalId);
+          setAreInputsDisabled(false);
           // setIsButtonDisabled(!areAllInputsFilled())
-          return 0
+          return 0;
         }
-        return prevTime - 1
-      })
-    }, 1000)
-  }
+        return prevTime - 1;
+      });
+    }, 1000);
+  };
 
   const phoneNumberMasked = () => {
     // const phoneSendVerificationCode = '5581996743217'
     return phoneSendVerificationCode
-      ? `(${phoneSendVerificationCode.slice(2, 4)})${'*'.repeat(
+      ? `(${phoneSendVerificationCode.slice(2, 4)})${"*".repeat(
           phoneSendVerificationCode.length - 8,
-        )}-${'*'.repeat(
+        )}-${"*".repeat(
           phoneSendVerificationCode.length - 11,
         )}${phoneSendVerificationCode.slice(-2)}`
-      : ''
-  }
+      : "";
+  };
 
   const handleResenSendCode = async () => {
     const res = await resendCode({
       userId: userIdVerificationCode,
-    })
-    console.log(res)
+    });
+    console.log(res);
     if (res?.data) {
-      toast.success('Código enviado com sucesso.')
-      startTimer()
+      toast.success("Código enviado com sucesso.");
+      startTimer();
     } else if (res?.error) {
-      toast.error(res?.error)
+      toast.error(res?.error);
     }
-  }
+  };
 
   const handleSendCode = async (data: VerificationCodeFormProps) => {
-    setLoading(true)
+    setLoading(true);
     const res = await validateCode({
       userId: userIdVerificationCode,
       code: data.code,
-    })
+    });
 
     if (res?.data) {
-      console.log(res.data)
-      handleAuthWithToken(res.data.access_token)
-      window.location.href = '/vote'
+      console.log(res.data);
+      handleAuthWithToken(res.data.access_token);
+      window.location.href = "/vote";
     } else if (res?.error) {
-      toast.error(res?.error)
+      toast.error(res?.error);
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <form
@@ -121,7 +121,7 @@ export default function VerificationCode() {
       <p className="text-[16px] font-medium leading-5 mb-4">Bilhete da Sorte</p>
       <h1 className="text-[28px] font-bold leading-8">CÓDIGO DE VERIFICAÇÃO</h1>
       <p className="my-6">
-        Insira abaixo o código de 4 dígitos que enviamos via SMS para{' '}
+        Insira abaixo o código de 4 dígitos que enviamos via SMS para{" "}
         {phoneNumberMasked()}.
       </p>
       <p className="text-[14px] mb-2">Código</p>
@@ -134,10 +134,10 @@ export default function VerificationCode() {
               length={4}
               {...field}
               classNames={{
-                container: 'container-input',
-                character: 'character-input',
-                characterInactive: 'character--inactive',
-                characterSelected: 'character--selected',
+                container: "container-input",
+                character: "character-input",
+                characterInactive: "character--inactive",
+                characterSelected: "character--selected",
               }}
             />
           )}
@@ -149,7 +149,7 @@ export default function VerificationCode() {
         type="submit"
         onClick={() => {
           if (!timer) {
-            startTimer()
+            startTimer();
           }
         }}
         className="w-full disabled:opacity-50 bg-[#00E46F] font-headingBold text-[16px] text-[#003B9C] font-extrabold leading-5"
@@ -168,7 +168,7 @@ export default function VerificationCode() {
             radius="full"
             variant="bordered"
             className={`${
-              areInputsDisabled && 'disabled:opacity-50'
+              areInputsDisabled && "disabled:opacity-50"
             } bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8`}
           >
             REENVIAR CÓDIGO
@@ -176,10 +176,10 @@ export default function VerificationCode() {
         </div>
         {timer !== 0 && (
           <h1 className="text-[28px] font-light leading-8">
-            {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, '0')}
+            {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, "0")}
           </h1>
         )}
       </div>
     </form>
-  )
+  );
 }

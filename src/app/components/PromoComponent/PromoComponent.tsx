@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import React from 'react'
+import React from "react";
 import {
   useDisclosure,
   Modal,
@@ -8,12 +8,12 @@ import {
   ModalHeader,
   ModalBody,
   Button,
-} from '@nextui-org/react'
-import Image from 'next/image'
-import escudozl from '../../../../public/escudozl.png'
+} from "@nextui-org/react";
+import Image from "next/image";
+import escudozl from "../../../../public/escudozl.png";
 
 export default function PromoComponent() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <div className=" mx-[28px] mb-4 z-20 w-[90%] md:max-w-[600px] desktop:max-w-[935px]">
@@ -49,7 +49,7 @@ export default function PromoComponent() {
           E
         </span>
         <span className="text-[56px] leading-[55px] text-white font-normal font-heading md:text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
-          {' '}
+          {" "}
         </span>
         <span className="text-[56px] leading-[55px] text-white font-bold font-headingBold md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           D
@@ -58,7 +58,7 @@ export default function PromoComponent() {
           A
         </span>
         <span className="text-[56px] leading-[55px] text-white font-normal font-heading md:text-7xl 2xl:text-[110px] 2xl:leading-[108px]">
-          {' '}
+          {" "}
         </span>
         <span className="text-[56px] leading-[55px] text-[#00E275] font-bold font-headingBold md:text-7xl desktop:text-[110px] desktop:leading-[108px]">
           S
@@ -81,19 +81,19 @@ export default function PromoComponent() {
       </h1>
       <p className="text-justify md:mx-0 text-white text-xl font-light mt-6 desktop:font-normal desktop:text-[32px] desktop:leading-[48px]">
         A Super Copa Zona Leste e a Esportes da Sorte estarão dando uma
-        inscrição <span className="text-[#00E275] font-bold">SEM TAXA</span>{' '}
+        inscrição <span className="text-[#00E275] font-bold">SEM TAXA</span>{" "}
         para o time mais votado!
       </p>
 
       <p className="text-justify md:mx-0 text-white text-xl font-light mt-6 desktop:font-normal desktop:text-[32px] desktop:leading-[48px]">
         E como aqui a parada é diferenciada, a equipe também indicará uma
-        instituição de caridade para receber o valor de{' '}
-        <span className="text-[#00E275] font-bold">R$10 mil.</span>{' '}
+        instituição de caridade para receber o valor de{" "}
+        <span className="text-[#00E275] font-bold">R$10 mil.</span>{" "}
       </p>
 
       <p className="text-justify md:mx-0 text-white text-xl font-light mt-6 desktop:font-normal desktop:text-[32px] desktop:leading-[48px]">
         Mostre que a torcida é pesada e ajude seu time a conquistar o lugar na
-        Super Copa Zona Leste!{' '}
+        Super Copa Zona Leste!{" "}
         <span className="font-semibold">Vote agora!</span>
       </p>
       <div className="space-x-4 mt-6 md:mx-0">
@@ -110,7 +110,7 @@ export default function PromoComponent() {
           onOpenChange={onOpenChange}
           className="flex flex-col gap-2 bg-[#0F1768] text-[#fff] p-[48px] md:max-w-[850px]"
           classNames={{
-            body: 'list-disc text-white',
+            body: "list-disc text-white",
           }}
         >
           <ModalContent>
@@ -151,5 +151,5 @@ export default function PromoComponent() {
         </Modal>
       </div>
     </div>
-  )
+  );
 }

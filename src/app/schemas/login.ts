@@ -1,23 +1,23 @@
-import * as yup from 'yup'
+import * as yup from "yup";
 
 export const schemaLogin = yup
   .object({
-    userName: yup.string().required('Campo Usuário é obrigatório.'),
-    password: yup.string().required('Campo Senha é obrigatório.'),
+    userName: yup.string().required("Campo Usuário é obrigatório."),
+    password: yup.string().required("Campo Senha é obrigatório."),
   })
-  .required()
+  .required();
 
 export const inputListLogin = [
   {
-    title: 'Usuário',
-    name: 'userName',
-    type: 'text',
+    title: "Usuário",
+    name: "userName",
+    type: "text",
     isRequired: true,
   },
   {
-    title: 'Senha',
-    name: 'password',
-    type: 'password',
+    title: "Senha",
+    name: "password",
+    type: "password",
     isRequired: true,
   },
-]
+];
