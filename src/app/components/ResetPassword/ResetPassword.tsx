@@ -1,30 +1,29 @@
-"use client";
-import { Button } from "@nextui-org/react";
-import { useEffect, useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import VerificationInput from "react-verification-input";
-import { useAuthContext } from "@/app/context/AuthContext";
-import { resendCode, resetPassword, validateCode } from "@/app/api/user";
-import { toast } from "react-toastify";
-import { VerificationCodeFormProps } from "@/app/schemas/verificationCode";
-import { inputList, schemaResetPassword } from "@/app/schemas/resetPassword";
-import { InputComponent } from "../InputComponent/Input";
-import { useAppContext } from "@/app/context/AppContext";
+'use client'
+import { Button } from '@nextui-org/react'
+import { useEffect, useState } from 'react'
+import { useForm, Controller } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import VerificationInput from 'react-verification-input'
+import { useAuthContext } from '@/app/context/AuthContext'
+import { resendCode, resetPassword, validateCode } from '@/app/api/user'
+import { toast } from 'react-toastify'
+import { VerificationCodeFormProps } from '@/app/schemas/verificationCode'
+import { inputList, schemaResetPassword } from '@/app/schemas/resetPassword'
+import { InputComponent } from '../InputComponent/Input'
+import { useAppContext } from '@/app/context/AppContext'
 
 export type ResetPasswordFormProps = {
-  code: string;
-  password: string;
-  confirmPassword: string;
-};
+  code: string
+  password: string
+  confirmPassword: string
+}
 
 export default function ResetPassword() {
-  const [timer, setTimer] = useState<number>(0);
-  const [areInputsDisabled, setAreInputsDisabled] = useState<boolean>(true);
-  const [loading, setLoading] = useState(false);
-  const { setModalVisible, setShouldShowResetPassword } = useAppContext();
-  const { phoneSendVerificationCode, userIdVerificationCode } =
-    useAuthContext();
+  const [timer, setTimer] = useState<number>(0)
+  const [areInputsDisabled, setAreInputsDisabled] = useState<boolean>(true)
+  const [loading, setLoading] = useState(false)
+  const { setModalVisible, setShouldShowResetPassword } = useAppContext()
+  const { phoneSendVerificationCode, userIdVerificationCode } = useAuthContext()
 
   const {
     handleSubmit,
@@ -33,81 +32,81 @@ export default function ResetPassword() {
     control,
   } = useForm<ResetPasswordFormProps>({
     resolver: yupResolver(schemaResetPassword),
-    mode: "onChange",
-  });
+    mode: 'onChange',
+  })
 
   useEffect(() => {
-    startTimer();
-  }, []);
+    startTimer()
+  }, [])
 
   useEffect(() => {
     if (timer === 0) {
-      setAreInputsDisabled(false);
+      setAreInputsDisabled(false)
       // setIsButtonDisabled(!areAllInputsFilled())
     } else {
-      setAreInputsDisabled(true);
+      setAreInputsDisabled(true)
     }
-  }, [timer]);
+  }, [timer])
 
   const startTimer = () => {
-    const duration = 120;
-    setTimer(duration);
-    setAreInputsDisabled(true);
+    const duration = 120
+    setTimer(duration)
+    setAreInputsDisabled(true)
 
     const intervalId = setInterval(() => {
       setTimer((prevTime) => {
         if (prevTime === 0) {
-          clearInterval(intervalId);
-          setAreInputsDisabled(false);
+          clearInterval(intervalId)
+          setAreInputsDisabled(false)
           // setIsButtonDisabled(!areAllInputsFilled())
-          return 0;
+          return 0
         }
-        return prevTime - 1;
-      });
-    }, 1000);
-  };
+        return prevTime - 1
+      })
+    }, 1000)
+  }
 
   const phoneNumberMasked = () => {
     // const phoneSendVerificationCode = '5581996743217'
     return phoneSendVerificationCode
-      ? `(${phoneSendVerificationCode.slice(2, 4)})${"*".repeat(
+      ? `(${phoneSendVerificationCode.slice(2, 4)})${'*'.repeat(
           phoneSendVerificationCode.length - 8,
-        )}-${"*".repeat(
+        )}-${'*'.repeat(
           phoneSendVerificationCode.length - 11,
         )}${phoneSendVerificationCode.slice(-2)}`
-      : "";
-  };
+      : ''
+  }
 
   const handleResenSendCode = async () => {
     const res = await resendCode({
       userId: userIdVerificationCode,
-    });
-    console.log(res);
+    })
+    console.log(res)
     if (res?.data) {
-      toast.success("Código enviado com sucesso.");
-      startTimer();
+      toast.success('Código enviado com sucesso.')
+      startTimer()
     } else if (res?.error) {
-      toast.error(res?.error);
+      toast.error(res?.error)
     }
-  };
+  }
 
   const handleResetPassword = async (data: ResetPasswordFormProps) => {
-    setLoading(true);
+    setLoading(true)
     const res = await resetPassword({
       userId: userIdVerificationCode,
       code: data.code,
       newPassword: data.password,
-    });
+    })
 
     if (res?.data) {
       // console.log(res.data)
-      setShouldShowResetPassword(false);
-      setModalVisible("login-reset-pass");
+      setShouldShowResetPassword(false)
+      setModalVisible('login-reset-pass')
     } else if (res?.error) {
-      toast.error(res?.error);
+      toast.error(res?.error)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   return (
     <div>
@@ -119,7 +118,7 @@ export default function ResetPassword() {
           CÓDIGO DE VERIFICAÇÃO
         </h1>
         <p className="my-6">
-          Insira abaixo o código de 4 dígitos que enviamos via SMS para{" "}
+          Insira abaixo o código de 4 dígitos que enviamos via SMS para{' '}
           {phoneNumberMasked()}.
         </p>
         <p className="text-[14px] mb-2">Código</p>
@@ -132,10 +131,10 @@ export default function ResetPassword() {
                 length={4}
                 {...field}
                 classNames={{
-                  container: "container-input",
-                  character: "character-input",
-                  characterInactive: "character--inactive",
-                  characterSelected: "character--selected",
+                  container: 'container-input',
+                  character: 'character-input',
+                  characterInactive: 'character--inactive',
+                  characterSelected: 'character--selected',
                 }}
               />
             )}
@@ -159,7 +158,7 @@ export default function ResetPassword() {
           type="submit"
           onClick={() => {
             if (!timer) {
-              startTimer();
+              startTimer()
             }
           }}
           className="w-full disabled:opacity-50 bg-[#00E46F] font-headingBold text-[16px] text-[#003B9C] font-extrabold leading-5"
@@ -178,7 +177,7 @@ export default function ResetPassword() {
               radius="full"
               variant="bordered"
               className={`${
-                areInputsDisabled && "disabled:opacity-50"
+                areInputsDisabled && 'disabled:opacity-50'
               } bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8`}
             >
               REENVIAR CÓDIGO
@@ -187,11 +186,11 @@ export default function ResetPassword() {
           {timer !== 0 && (
             <h1 className="text-[28px] font-light leading-8">
               {Math.floor(timer / 60)}:
-              {(timer % 60).toString().padStart(2, "0")}
+              {(timer % 60).toString().padStart(2, '0')}
             </h1>
           )}
         </div>
       </form>
     </div>
-  );
+  )
 }

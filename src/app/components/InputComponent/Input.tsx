@@ -1,28 +1,28 @@
-import { Input } from "@nextui-org/react";
-import { useState } from "react";
-import Image from "next/image";
-import phone from "../../../../public/phone.png";
+import { Input } from '@nextui-org/react'
+import { useState } from 'react'
+import Image from 'next/image'
+import phone from '../../../../public/phone.png'
 import {
   UseFormRegister,
   FieldErrorsImpl,
   Control,
   Controller,
-} from "react-hook-form";
-import InputMask from "react-input-mask";
-import { EyeSlashFilledIcon } from "../EyeSlashFilledIcon/EyeSlashFilledIcon";
-import { EyeFilledIcon } from "../EyeFilledIcon/EyeFilledIcon";
+} from 'react-hook-form'
+import InputMask from 'react-input-mask'
+import { EyeSlashFilledIcon } from '../EyeSlashFilledIcon/EyeSlashFilledIcon'
+import { EyeFilledIcon } from '../EyeFilledIcon/EyeFilledIcon'
 type InputComponentProps = {
-  title: string;
-  name: string;
-  type: string;
-  placeholder?: string;
-  register: UseFormRegister<any>;
-  errors: Partial<FieldErrorsImpl<any>>;
-  mask?: string;
-  disabled?: boolean;
-  control?: Control<any, any>;
-  isRequired?: boolean;
-};
+  title: string
+  name: string
+  type: string
+  placeholder?: string
+  register: UseFormRegister<any>
+  errors: Partial<FieldErrorsImpl<any>>
+  mask?: string
+  disabled?: boolean
+  control?: Control<any, any>
+  isRequired?: boolean
+}
 
 export function InputComponent({
   title,
@@ -35,9 +35,9 @@ export function InputComponent({
   control,
   isRequired,
 }: InputComponentProps) {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const toggleVisibility = () => setIsVisible(!isVisible);
-  const error = errors[name]?.message as string;
+  const [isVisible, setIsVisible] = useState<boolean>(false)
+  const toggleVisibility = () => setIsVisible(!isVisible)
+  const error = errors[name]?.message as string
   return (
     <>
       <label htmlFor={name} className="text-[#CCFFFFFF] text-sm mb-1 mt-2">
@@ -54,10 +54,10 @@ export function InputComponent({
                 labelPlacement="outside"
                 errorMessage={error}
                 isInvalid={!!error}
-                color={error ? "danger" : undefined}
-                variant={error ? "bordered" : undefined}
+                color={error ? 'danger' : undefined}
+                variant={error ? 'bordered' : undefined}
                 startContent={
-                  name === "phone" && <Image src={phone} alt="phone" />
+                  name === 'phone' && <Image src={phone} alt="phone" />
                 }
               />
             </InputMask>
@@ -66,15 +66,15 @@ export function InputComponent({
       ) : (
         <Input
           size="sm"
-          type={type === "password" ? (isVisible ? "text" : "password") : type}
+          type={type === 'password' ? (isVisible ? 'text' : 'password') : type}
           {...register(name)}
           labelPlacement="outside"
           errorMessage={error}
           isInvalid={!!error}
-          color={error ? "danger" : undefined}
-          variant={error ? "bordered" : undefined}
+          color={error ? 'danger' : undefined}
+          variant={error ? 'bordered' : undefined}
           endContent={
-            type === "password" && (
+            type === 'password' && (
               <button
                 className="bg-transparent focus:outline-none"
                 type="button"
@@ -91,5 +91,5 @@ export function InputComponent({
         />
       )}
     </>
-  );
+  )
 }

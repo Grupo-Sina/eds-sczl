@@ -1,25 +1,25 @@
-"use client";
+'use client'
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from "react-toastify";
-import escudozl from "../../../../public/escudozl.png";
-import { registerUser } from "../../api/user";
+import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { toast } from 'react-toastify'
+import escudozl from '../../../../public/escudozl.png'
+import { registerUser } from '../../api/user'
 
-import { Button } from "@nextui-org/react";
+import { Button } from '@nextui-org/react'
 
-import { inputList, schemaRegisterUser } from "@/app/schemas/register";
-import { InputComponent } from "../InputComponent/Input";
-import { useAppContext } from "@/app/context/AppContext";
-import { useAuthContext } from "@/app/context/AuthContext";
+import { inputList, schemaRegisterUser } from '@/app/schemas/register'
+import { InputComponent } from '../InputComponent/Input'
+import { useAppContext } from '@/app/context/AppContext'
+import { useAuthContext } from '@/app/context/AuthContext'
 
 export default function FormComponent() {
-  const { setShouldShowVerificationCode, setModalVisible } = useAppContext();
+  const { setShouldShowVerificationCode, setModalVisible } = useAppContext()
   const { setPhoneSendVerificationCode, setUserIdVerificationCode } =
-    useAuthContext();
-  const [loading, setLoading] = useState(false);
+    useAuthContext()
+  const [loading, setLoading] = useState(false)
   const {
     register,
     handleSubmit,
@@ -27,34 +27,34 @@ export default function FormComponent() {
     formState: { errors, isDirty, isValid },
   } = useForm<RegisterUserProps>({
     resolver: yupResolver(schemaRegisterUser) as any,
-    mode: "onChange",
+    mode: 'onChange',
     shouldFocusError: false,
-  });
+  })
 
   const handleRegister = async (data: RegisterUserProps) => {
-    const clearNumber = data.phone.replace(/\D/g, "");
-    const formatPhoneNumber = clearNumber.startsWith("55")
+    const clearNumber = data.phone.replace(/\D/g, '')
+    const formatPhoneNumber = clearNumber.startsWith('55')
       ? clearNumber
-      : `55${clearNumber}`;
-    setLoading(true);
+      : `55${clearNumber}`
+    setLoading(true)
 
-    const res = await registerUser(data);
+    const res = await registerUser(data)
 
     if (res?.data) {
-      setUserIdVerificationCode(res.data.userId);
-      setPhoneSendVerificationCode(formatPhoneNumber);
-      setShouldShowVerificationCode(true);
+      setUserIdVerificationCode(res.data.userId)
+      setPhoneSendVerificationCode(formatPhoneNumber)
+      setShouldShowVerificationCode(true)
     } else if (res?.error) {
-      toast.error(res?.error);
+      toast.error(res?.error)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   function generateMask(value: string) {
-    if (value === "phone") {
-      return "(99)99999-9999";
+    if (value === 'phone') {
+      return '(99)99999-9999'
     }
-    return undefined;
+    return undefined
   }
 
   return (
@@ -99,13 +99,13 @@ export default function FormComponent() {
         promoções e novidades.
       </p>
 
-      <hr style={{ borderTop: "1px solid #FFFFFF33" }} />
+      <hr style={{ borderTop: '1px solid #FFFFFF33' }} />
       <div className="flex justify-between mt-4">
         <div className="w-full md:w-[350px] text-left flex flex-col md:flex-row items-center md:space-x-4">
           <h2 className="text-xl font-bold w-full">Já é cadastrado?</h2>
           <Button
             type="button"
-            onClick={() => setModalVisible("login")}
+            onClick={() => setModalVisible('login')}
             radius="full"
             size="sm"
             variant="bordered"
@@ -123,5 +123,5 @@ export default function FormComponent() {
         />
       </div>
     </form>
-  );
+  )
 }

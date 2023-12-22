@@ -4,29 +4,29 @@ import {
   ModalBody,
   ModalContent,
   ModalHeader,
-} from "@nextui-org/react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
-import { inputListLogin, schemaLogin } from "@/app/schemas/login";
-import { InputComponent } from "../InputComponent/Input";
-import { login } from "@/app/api/user";
-import { toast } from "react-toastify";
-import { useAuthContext } from "@/app/context/AuthContext";
-import { useAppContext } from "@/app/context/AppContext";
-import successicon from "../../../../public/succesicon.svg";
-import Image from "next/image";
+} from '@nextui-org/react'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useState } from 'react'
+import { inputListLogin, schemaLogin } from '@/app/schemas/login'
+import { InputComponent } from '../InputComponent/Input'
+import { login } from '@/app/api/user'
+import { toast } from 'react-toastify'
+import { useAuthContext } from '@/app/context/AuthContext'
+import { useAppContext } from '@/app/context/AppContext'
+import successicon from '../../../../public/succesicon.svg'
+import Image from 'next/image'
 export default function ModalLogin() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const {
     handleAuthWithToken,
     setPhoneSendVerificationCode,
     setUserIdVerificationCode,
-  } = useAuthContext();
+  } = useAuthContext()
 
   const { modalVisible, setModalVisible, setShouldShowVerificationCode } =
-    useAppContext();
+    useAppContext()
 
   const {
     register,
@@ -35,40 +35,40 @@ export default function ModalLogin() {
     formState: { errors, isDirty, isValid },
   } = useForm<LoginProps>({
     resolver: yupResolver(schemaLogin),
-    mode: "onChange",
-  });
+    mode: 'onChange',
+  })
 
   const handleLogin = async (data: LoginProps) => {
-    setLoading(true);
-    const res = await login(data);
-    console.log(res);
+    setLoading(true)
+    const res = await login(data)
+    console.log(res)
     if (res?.data) {
       if (res?.data.access_token) {
-        handleAuthWithToken(res?.data.access_token);
-        window.location.href = "/vote";
+        handleAuthWithToken(res?.data.access_token)
+        window.location.href = '/vote'
       } else if (res?.data.phone && res?.data.userId) {
-        setUserIdVerificationCode(res?.data.userId);
-        setPhoneSendVerificationCode(res?.data.phone);
-        setModalVisible(undefined);
-        setShouldShowVerificationCode(true);
+        setUserIdVerificationCode(res?.data.userId)
+        setPhoneSendVerificationCode(res?.data.phone)
+        setModalVisible(undefined)
+        setShouldShowVerificationCode(true)
       }
     } else if (res?.error) {
-      toast.error(res?.error);
+      toast.error(res?.error)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   return (
     <Modal
       scrollBehavior="outside"
-      isOpen={modalVisible === "login" || modalVisible === "login-reset-pass"}
+      isOpen={modalVisible === 'login' || modalVisible === 'login-reset-pass'}
       onOpenChange={() => setModalVisible(undefined)}
       className="md:max-w-[716px] p-[48px] bg-[#0F1768] text-white"
     >
       <ModalContent className="w-[90%]">
         {() => (
           <>
-            {modalVisible === "login" && (
+            {modalVisible === 'login' && (
               <>
                 <ModalHeader className="text-[28px] flex flex-col">
                   <p className="text-[16px]">Bilhete da Sorte</p>
@@ -76,7 +76,7 @@ export default function ModalLogin() {
                 </ModalHeader>
               </>
             )}
-            {modalVisible === "login-reset-pass" && (
+            {modalVisible === 'login-reset-pass' && (
               <>
                 <ModalHeader className="text-[28px] flex flex-col gap-3">
                   <div className="flex flex-row gap-3">
@@ -114,13 +114,13 @@ export default function ModalLogin() {
                   LOGIN
                 </Button>
               </form>
-              {modalVisible === "login" && (
+              {modalVisible === 'login' && (
                 <>
                   <hr
                     style={{
-                      borderTop: "1px solid #FFFFFF33",
-                      marginTop: "1rem",
-                      marginBottom: "1rem",
+                      borderTop: '1px solid #FFFFFF33',
+                      marginTop: '1rem',
+                      marginBottom: '1rem',
                     }}
                   />
                   <div className="flex items-center space-x-4">
@@ -128,7 +128,7 @@ export default function ModalLogin() {
                       Esqueceu a senha?
                     </p>
                     <Button
-                      onClick={() => setModalVisible("reset")}
+                      onClick={() => setModalVisible('reset')}
                       radius="full"
                       variant="bordered"
                       className="font-headingBold bg-transparent border-[#00E46F] text-[16px] text-[#00E46F] font-bold py-3 px-8"
@@ -143,5 +143,5 @@ export default function ModalLogin() {
         )}
       </ModalContent>
     </Modal>
-  );
+  )
 }

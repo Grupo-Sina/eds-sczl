@@ -1,25 +1,25 @@
-import { usePathname, useRouter } from "next/navigation";
-import { ReactNode, useEffect } from "react";
-import { useAuthContext } from "../context/AuthContext";
+import { usePathname, useRouter } from 'next/navigation'
+import { ReactNode, useEffect } from 'react'
+import { useAuthContext } from '../context/AuthContext'
 
 type PublicRouteProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 const PublicRoute = ({ children }: PublicRouteProps) => {
-  const router = useRouter();
-  const { isAuthenticaded } = useAuthContext();
-  const pathname = usePathname();
+  const router = useRouter()
+  const { isAuthenticaded } = useAuthContext()
+  const pathname = usePathname()
   useEffect(() => {
     if (isAuthenticaded) {
-      router.push("/vote");
+      router.push('/vote')
     }
     // else if (pathname === '/') {
     //   router.push('/register')
     // }
-  }, [isAuthenticaded, router, pathname]);
+  }, [isAuthenticaded, router, pathname])
 
-  return <>{children}</>;
-};
+  return <>{children}</>
+}
 
-export default PublicRoute;
+export default PublicRoute
