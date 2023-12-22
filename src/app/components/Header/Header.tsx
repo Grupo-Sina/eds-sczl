@@ -17,7 +17,7 @@ import { useAuthContext } from '@/app/context/AuthContext'
 import { useAppContext } from '@/app/context/AppContext'
 
 export default function Header() {
-  const { onOpenChangeModalLogin } = useAppContext()
+  const { setModalVisible } = useAppContext()
   const { handleSignOut, isAuthenticaded } = useAuthContext()
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
@@ -57,7 +57,7 @@ export default function Header() {
           <NavbarMenuItem className="mt-10">
             <Link
               className="cursor-pointer text-xl font-extrabold text-white"
-              onClick={() => onOpenChangeModalLogin()}
+              onClick={() => setModalVisible('login')}
             >
               LOGIN
             </Link>
@@ -108,7 +108,7 @@ export default function Header() {
           </Button>
           <Button
             type="submit"
-            onClick={() => onOpenChangeModalLogin()}
+            onClick={() => setModalVisible('login')}
             radius="full"
             size="md"
             className="bg-[#00E46F] font-headingBold text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5"

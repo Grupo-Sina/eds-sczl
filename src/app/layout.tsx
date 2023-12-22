@@ -37,28 +37,26 @@ const RootLayout: React.FC<RootLayoutProps> = ({
       <body className="overflow-x-hidden">
         <AppContextProvider>
           <AuthContextProvider>
-            <Providers>
-              <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar
-                closeOnClick
-                rtl={false}
-                draggable
-                pauseOnHover
-                transition={Slide}
-                theme={'colored'}
-              />
-              {pathname && (
-                <>
-                  {APP_PUBLIC_ROUTES.includes(pathname) ? (
-                    <>{children}</>
-                  ) : (
-                    <PrivateRoute>{children}</PrivateRoute>
-                  )}
-                </>
-              )}
-            </Providers>
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar
+              closeOnClick
+              rtl={false}
+              draggable
+              pauseOnHover
+              transition={Slide}
+              theme={'colored'}
+            />
+            {pathname && (
+              <>
+                {APP_PUBLIC_ROUTES.includes(pathname) ? (
+                  <>{children}</>
+                ) : (
+                  <PrivateRoute>{children}</PrivateRoute>
+                )}
+              </>
+            )}
           </AuthContextProvider>
         </AppContextProvider>
       </body>

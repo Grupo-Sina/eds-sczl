@@ -16,8 +16,7 @@ import { useAppContext } from '@/app/context/AppContext'
 import { useAuthContext } from '@/app/context/AuthContext'
 
 export default function FormComponent() {
-  const { setShouldShowVerificationCode, onOpenChangeModalLogin } =
-    useAppContext()
+  const { setShouldShowVerificationCode, setModalVisible } = useAppContext()
   const { setPhoneSendVerificationCode, setUserIdVerificationCode } =
     useAuthContext()
   const [loading, setLoading] = useState(false)
@@ -106,7 +105,7 @@ export default function FormComponent() {
           <h2 className="text-xl font-bold w-full">Já é cadastrado?</h2>
           <Button
             type="button"
-            onClick={() => onOpenChangeModalLogin()}
+            onClick={() => setModalVisible('login')}
             radius="full"
             size="sm"
             variant="bordered"

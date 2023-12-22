@@ -14,3 +14,13 @@ declare interface LoginProps {
 declare interface VoteProps {
   name: string
 }
+
+declare interface SendCodeResetPasswordProps {
+  phone: string
+}
+
+declare interface ResetPasswordProps {
+  code: string
+  userId: string
+  newPassword: string
+}

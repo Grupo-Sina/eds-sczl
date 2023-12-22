@@ -14,21 +14,18 @@ import { login } from '@/app/api/user'
 import { toast } from 'react-toastify'
 import { useAuthContext } from '@/app/context/AuthContext'
 import { useAppContext } from '@/app/context/AppContext'
-
-type ModalLoginProps = {
-  isOpen: boolean
-  onOpenChange: () => void
-}
-
-export default function ModalLogin({ isOpen, onOpenChange }: ModalLoginProps) {
+import successicon from '../../../../public/succesicon.svg'
+import Image from 'next/image'
+export default function ModalLogin() {
   const [loading, setLoading] = useState(false)
+
   const {
     handleAuthWithToken,
     setPhoneSendVerificationCode,
     setUserIdVerificationCode,
   } = useAuthContext()
 
-  const { onOpenChangeModalLogin, setShouldShowVerificationCode } =
+  const { modalVisible, setModalVisible, setShouldShowVerificationCode } =
     useAppContext()
 
   const {
@@ -52,7 +49,7 @@ export default function ModalLogin({ isOpen, onOpenChange }: ModalLoginProps) {
       } else if (res?.data.phone && res?.data.userId) {
         setUserIdVerificationCode(res?.data.userId)
         setPhoneSendVerificationCode(res?.data.phone)
-        onOpenChangeModalLogin()
+        setModalVisible(undefined)
         setShouldShowVerificationCode(true)
       }
     } else if (res?.error) {
@@ -64,17 +61,36 @@ export default function ModalLogin({ isOpen, onOpenChange }: ModalLoginProps) {
   return (
     <Modal
       scrollBehavior="outside"
-      isOpen={isOpen}
-      onOpenChange={onOpenChange}
+      isOpen={modalVisible === 'login' || modalVisible === 'login-reset-pass'}
+      onOpenChange={() => setModalVisible(undefined)}
       className="md:max-w-[716px] p-[48px] bg-[#0F1768] text-white"
     >
       <ModalContent className="w-[90%]">
-        {(onClose) => (
+        {() => (
           <>
-            <p className="ml-6">Bilhete da Sorte</p>
-            <ModalHeader className="text-[28px]">
-              FAÇA LOGIN E VOTE!
-            </ModalHeader>
+            {modalVisible === 'login' && (
+              <>
+                <ModalHeader className="text-[28px] flex flex-col">
+                  <p className="text-[16px]">Bilhete da Sorte</p>
+                  <p className="text-[28px]">FAÇA LOGIN E VOTE!</p>
+                </ModalHeader>
+              </>
+            )}
+            {modalVisible === 'login-reset-pass' && (
+              <>
+                <ModalHeader className="text-[28px] flex flex-col gap-3">
+                  <div className="flex flex-row gap-3">
+                    <Image src={successicon} alt="successicon" />
+                    <p className="text-[28px]">SENHA REDEFINIDA COM SUCESSO!</p>
+                  </div>
+                  <p className="text-[14px]">
+                    Sua senha foi redefinida com sucesso, faça o login abaixo e
+                    vote agora mesmo!
+                  </p>
+                </ModalHeader>
+              </>
+            )}
+
             <ModalBody className="p-[24px]">
               <form onSubmit={handleSubmit(handleLogin)} method="post">
                 {inputListLogin.map((item, index) => (
@@ -98,24 +114,30 @@ export default function ModalLogin({ isOpen, onOpenChange }: ModalLoginProps) {
                   LOGIN
                 </Button>
               </form>
-
-              <hr
-                style={{
-                  borderTop: '1px solid #FFFFFF33',
-                  marginTop: '1rem',
-                  marginBottom: '1rem',
-                }}
-              />
-              <div className="flex items-center space-x-4">
-                <p className="text-[20px] font-semibold">Esqueceu a senha?</p>
-                <Button
-                  radius="full"
-                  variant="bordered"
-                  className="font-headingBold bg-transparent border-[#00E46F] text-[16px] text-[#00E46F] font-bold py-3 px-8"
-                >
-                  REDEFINIR SENHA
-                </Button>
-              </div>
+              {modalVisible === 'login' && (
+                <>
+                  <hr
+                    style={{
+                      borderTop: '1px solid #FFFFFF33',
+                      marginTop: '1rem',
+                      marginBottom: '1rem',
+                    }}
+                  />
+                  <div className="flex items-center space-x-4">
+                    <p className="text-[20px] font-semibold">
+                      Esqueceu a senha?
+                    </p>
+                    <Button
+                      onClick={() => setModalVisible('reset')}
+                      radius="full"
+                      variant="bordered"
+                      className="font-headingBold bg-transparent border-[#00E46F] text-[16px] text-[#00E46F] font-bold py-3 px-8"
+                    >
+                      REDEFINIR SENHA
+                    </Button>
+                  </div>
+                </>
+              )}
             </ModalBody>
           </>
         )}
