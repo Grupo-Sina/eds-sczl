@@ -166,13 +166,7 @@ export default function VoteFormComponent() {
                 <ModalBody>
                   <ul className="list-disc">
                     <li>
-                      A promoção vai contar com duas fases. A primeira, que
-                      ocorre dos dias 20 a 28 de dezembro, vai selecionar os 5
-                      (cinco) times mais mencionados para concorrerem ao prêmio
-                      final. Na segunda fase, que vai do dia 26 de dezembro até
-                      o dia 08 de janeiro, os 5 (cinco) times selecionados irão
-                      participar de mais uma votação popular para ver quem será
-                      o grande ganhador.
+                    A promoção vai contar com duas fases. A primeira, que segue até o dia 27 de dezembro, vai selecionar os 5 (cinco) times mais mencionados para irem para a fase final. Na segunda fase, que começa no dia 28 de dezembro e segue até o dia 8 de janeiro, os 5 (cinco) times selecionados vão participar de mais uma votação popular para ver quem ganha o grande prêmio.
                     </li>
                     <br />
                     <li>Você pode realizar apenas 1 (um) voto por dia.</li>
@@ -183,10 +177,7 @@ export default function VoteFormComponent() {
                     </li>
                     <br />
                     <li>
-                      O time vencedor ganhará uma inscrição (R$4.000,00) sem
-                      taxa na Super Copa Zona Leste e também indicará uma
-                      instituição de caridade para receber R$10.000,00 em cesta
-                      básica, para serem distribuídas pelo time.
+                    O time vencedor ganhará uma inscrição (R$4.000,00) sem taxa na Super Copa Zona Leste e também indicará uma instituição de caridade para receber R$10.000,00.
                     </li>
                   </ul>
                 </ModalBody>

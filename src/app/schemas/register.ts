@@ -26,6 +26,12 @@ export const inputList = [
     isRequired: true,
   },
   {
+    title: 'Email',
+    name: 'email',
+    type: 'text',
+    isRequired: false,
+  },
+  {
     title: 'Celular',
     name: 'phone',
     type: 'text',
@@ -48,11 +54,5 @@ export const inputList = [
     name: 'confirmPassword',
     type: 'password',
     isRequired: true,
-  },
-  {
-    title: 'Email',
-    name: 'email',
-    type: 'text',
-    isRequired: false,
   },
 ]
