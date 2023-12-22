@@ -4,6 +4,7 @@ declare interface RegisterUserProps {
   phone: string
   password: string
   confirmPassword: string
+  email?: string
 }
 
 declare interface LoginProps {

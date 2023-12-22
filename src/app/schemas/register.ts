@@ -14,6 +14,7 @@ export const schemaRegisterUser = yup
       .string()
       .required('A confirmação de senha é obrigatória.')
       .oneOf([yup.ref('password'), null], 'As senhas não coincidem.'),
+    email: yup.string().email('Insira um e-mail válido.'),
   })
   .required()
 
@@ -47,5 +48,11 @@ export const inputList = [
     name: 'confirmPassword',
     type: 'password',
     isRequired: true,
+  },
+  {
+    title: 'Email',
+    name: 'email',
+    type: 'text',
+    isRequired: false,
   },
 ]
