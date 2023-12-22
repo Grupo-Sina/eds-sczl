@@ -26,6 +26,12 @@ export const login = async (data: LoginProps) => {
 }
 
 export const registerUser = async (data: RegisterUserProps) => {
+  const clearNumber = data.phone.replace(/\D/g, '')
+  const formatPhoneNumber = clearNumber.startsWith('55')
+    ? clearNumber
+    : `55${clearNumber}`
+
+  data.phone = formatPhoneNumber
   try {
     const res = await api.post(`/accounts`, data)
     return { data: res.data }
