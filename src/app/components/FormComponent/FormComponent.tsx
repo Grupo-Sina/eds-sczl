@@ -26,12 +26,13 @@ export default function FormComponent() {
     control,
     formState: { errors, isDirty, isValid },
   } = useForm<RegisterUserProps>({
-    resolver: yupResolver(schemaRegisterUser) as any,
+    resolver: yupResolver(schemaRegisterUser),
     mode: 'onChange',
     shouldFocusError: false,
   })
 
   const handleRegister = async (data: RegisterUserProps) => {
+    console.log(data)
     const clearNumber = data.phone.replace(/\D/g, '')
     const formatPhoneNumber = clearNumber.startsWith('55')
       ? clearNumber
@@ -79,6 +80,7 @@ export default function FormComponent() {
             register={register}
             control={control}
             mask={generateMask(item.name)}
+            placeholder={item.placeholder}
           />
         ))}
       </div>

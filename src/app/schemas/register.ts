@@ -13,7 +13,7 @@ export const schemaRegisterUser = yup
     confirmPassword: yup
       .string()
       .required('A confirmação de senha é obrigatória.')
-      .oneOf([yup.ref('password'), null], 'As senhas não coincidem.'),
+      .oneOf([yup.ref('password')], 'As senhas não coincidem.'),
     email: yup.string().email('Insira um e-mail válido.'),
   })
   .required()
@@ -30,6 +30,14 @@ export const inputList = [
     name: 'phone',
     type: 'text',
     isRequired: true,
+    placeholder: '(DDD) 99999-9999',
+  },
+  {
+    title: 'Email',
+    name: 'email',
+    type: 'text',
+    isRequired: false,
+    placeholder: 'Preenchimento não obrigatório',
   },
   {
     title: 'Usuário',
@@ -48,11 +56,5 @@ export const inputList = [
     name: 'confirmPassword',
     type: 'password',
     isRequired: true,
-  },
-  {
-    title: 'Email',
-    name: 'email',
-    type: 'text',
-    isRequired: false,
   },
 ]

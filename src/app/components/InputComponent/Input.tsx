@@ -33,6 +33,7 @@ export function InputComponent({
   mask,
   disabled,
   control,
+  placeholder,
   isRequired,
 }: InputComponentProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -50,6 +51,7 @@ export function InputComponent({
           render={({ field }) => (
             <InputMask mask={mask} type="text" {...field} disabled={disabled}>
               <Input
+                placeholder={placeholder}
                 size="sm"
                 labelPlacement="outside"
                 errorMessage={error}
@@ -71,6 +73,7 @@ export function InputComponent({
           labelPlacement="outside"
           errorMessage={error}
           isInvalid={!!error}
+          placeholder={placeholder}
           color={error ? 'danger' : undefined}
           variant={error ? 'bordered' : undefined}
           endContent={
