@@ -183,9 +183,10 @@ export default function VoteFormComponent() {
                     </li>
                     <br />
                     <li>
-                      O time vencedor ganhará uma inscrição (R$4.000,00) sem
+                      O time vencedor ganhará uma inscrição (R$4.500,00) sem
                       taxa na Super Copa Zona Leste e também indicará uma
-                      instituição de caridade para receber R$10.000,00.
+                      instituição de caridade para receber R$10.000,00 em cestas
+                      básicas.
                     </li>
                   </ul>
                 </ModalBody>
