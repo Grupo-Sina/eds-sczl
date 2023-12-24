@@ -6,7 +6,6 @@ import { ModalResetPassword } from '@/app/components/ModalResetPassword/ModalRes
 import PromoComponent from '@/app/components/PromoComponent/PromoComponent'
 import VerificationCode from '@/app/components/VerificationCode/VerificationCode'
 import { useAppContext } from '@/app/context/AppContext'
-import { Metadata } from 'next'
 
 export default function Register() {
   const { shouldShowVerificationCode } = useAppContext()

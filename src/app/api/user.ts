@@ -30,10 +30,10 @@ export const registerUser = async (data: RegisterUserProps) => {
   const formatPhoneNumber = clearNumber.startsWith('55')
     ? clearNumber
     : `55${clearNumber}`
+  const payload = { ...data, phone: formatPhoneNumber }
 
-  data.phone = formatPhoneNumber
   try {
-    const res = await api.post(`/accounts`, data)
+    const res = await api.post(`/accounts`, payload)
     return { data: res.data }
   } catch (err) {
     if (err instanceof AxiosError) {

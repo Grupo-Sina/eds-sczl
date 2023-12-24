@@ -30,6 +30,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
             pauseOnHover
             transition={Slide}
             theme={'colored'}
+            limit={1}
           />
           {pathname && (
             <>
