@@ -32,12 +32,17 @@ export default function FormComponent() {
   })
 
   const handleRegister = async (data: RegisterUserProps) => {
-    console.log(data)
-    const clearNumber = data.phone.replace(/\D/g, '')
+    setLoading(true)
+
+    let clearNumber = data.phone
+    clearNumber = clearNumber.replace(/\D/g, '')
     const formatPhoneNumber = clearNumber.startsWith('55')
       ? clearNumber
       : `55${clearNumber}`
-    setLoading(true)
+
+    if (!data.email) {
+      delete data.email
+    }
 
     const res = await registerUser(data)
 

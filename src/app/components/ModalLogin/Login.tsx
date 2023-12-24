@@ -32,6 +32,7 @@ export default function ModalLogin() {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors, isDirty, isValid },
   } = useForm<LoginProps>({
     resolver: yupResolver(schemaLogin),
@@ -62,7 +63,10 @@ export default function ModalLogin() {
     <Modal
       scrollBehavior="outside"
       isOpen={modalVisible === 'login' || modalVisible === 'login-reset-pass'}
-      onOpenChange={() => setModalVisible(undefined)}
+      onOpenChange={() => {
+        setModalVisible(undefined)
+        reset()
+      }}
       className="md:max-w-[716px] p-[48px] bg-[#0F1768] text-white"
     >
       <ModalContent className="w-[90%]">
