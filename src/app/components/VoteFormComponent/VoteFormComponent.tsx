@@ -9,6 +9,7 @@ import {
   ModalHeader,
   ModalBody,
   useDisclosure,
+  Spinner,
 } from '@nextui-org/react'
 import { useState } from 'react'
 import successicon from '../../../../public/succesicon.svg'
@@ -125,7 +126,7 @@ export default function VoteFormComponent() {
         isDisabled={!isDirty || !isValid || loading || isVoteButtonDisabled}
         className="bg-[#00E46F] font-headingBold text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5 w-full my-4"
       >
-        VOTAR
+        VOTAR {loading && <Spinner size="sm" />}
       </Button>
       <Divider orientation="horizontal" className="mb-6 bg-[#FFFFFF33]" />
       <div className="flex space-x-4 items-center">
@@ -187,6 +188,13 @@ export default function VoteFormComponent() {
                       taxa na Super Copa Zona Leste e também indicará uma
                       instituição de caridade para receber R$10.000,00 em cestas
                       básicas.
+                    </li>
+                    <br />
+                    <li>
+                      O times que já realizaram a inscrição na Super Copa Zona
+                      Leste também podem participar do Bilhete da Sorte. Caso
+                      ganhe, o valor de R$4.500,00, pago no momento da
+                      inscrição, será enviado para a equipe vencedora.
                     </li>
                   </ul>
                 </ModalBody>

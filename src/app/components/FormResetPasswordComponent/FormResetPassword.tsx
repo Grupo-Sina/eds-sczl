@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 import escudozl from '../../../../public/escudozl.png'
 import { sendCodeResetPassword } from '../../api/user'
 
-import { Button } from '@nextui-org/react'
+import { Button, Spinner } from '@nextui-org/react'
 
 import { InputComponent } from '../InputComponent/Input'
 import { useAppContext } from '@/app/context/AppContext'
@@ -78,7 +78,7 @@ export default function FormResetPasswordComponent() {
         className={`bg-[#00E46F] disabled:opacity-50
          mt-6 text-[#003B9C] text-[16px] w-full font-headingBold font-extrabold py-[12px]`}
       >
-        AVANÇAR
+        AVANÇAR {loading && <Spinner size="sm" />}
       </Button>
     </form>
   )
