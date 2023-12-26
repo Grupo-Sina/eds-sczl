@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 import escudozl from '../../../../public/escudozl.png'
 import { registerUser } from '../../api/user'
 
-import { Button } from '@nextui-org/react'
+import { Button, Spinner } from '@nextui-org/react'
 
 import { inputList, schemaRegisterUser } from '@/app/schemas/register'
 import { InputComponent } from '../InputComponent/Input'
@@ -97,7 +97,7 @@ export default function FormComponent() {
         className={`bg-[#00E46F] disabled:opacity-50
          mt-6 text-[#003B9C] text-[16px] w-full font-headingBold font-extrabold py-[12px]`}
       >
-        CONCLUIR CADASTRO
+        CONCLUIR CADASTRO { loading && <Spinner size='sm' />} 
       </Button>
 
       <p className="my-4 text-[14px]">
