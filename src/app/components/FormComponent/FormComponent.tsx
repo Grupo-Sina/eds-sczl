@@ -97,7 +97,7 @@ export default function FormComponent() {
         className={`bg-[#00E46F] disabled:opacity-50
          mt-6 text-[#003B9C] text-[16px] w-full font-headingBold font-extrabold py-[12px]`}
       >
-        CONCLUIR CADASTRO { loading && <Spinner size='sm' />} 
+        CONCLUIR CADASTRO {loading && <Spinner size="sm" />}
       </Button>
 
       <p className="my-4 text-[14px]">

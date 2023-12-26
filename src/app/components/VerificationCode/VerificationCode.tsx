@@ -154,7 +154,7 @@ export default function VerificationCode() {
         }}
         className="w-full disabled:opacity-50 bg-[#00E46F] font-headingBold text-[16px] text-[#003B9C] font-extrabold leading-5"
       >
-        CONFIRMAR CÓDIGO { loading && <Spinner size='sm' /> }
+        CONFIRMAR CÓDIGO {loading && <Spinner size="sm" />}
       </Button>
       <hr className="mt-6 mb-6" />
       <div className="flex flex-col items-center justify-between space-y-2">

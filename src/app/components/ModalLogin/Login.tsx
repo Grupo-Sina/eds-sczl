@@ -18,7 +18,6 @@ import { useAppContext } from '@/app/context/AppContext'
 import successicon from '../../../../public/succesicon.svg'
 import Image from 'next/image'
 
-
 export default function ModalLogin() {
   const [loading, setLoading] = useState(false)
 
@@ -118,7 +117,7 @@ export default function ModalLogin() {
                   radius="full"
                   className="disabled:opacity-50 bg-[#00E46F] font-headingBold text-[#003B9C] text-center text-[16px] py-3 px-8 font-extrabold leading-5 mt-3 w-full"
                 >
-                  LOGIN { loading && <Spinner size='sm'/> }
+                  LOGIN {loading && <Spinner size="sm" />}
                 </Button>
               </form>
               {modalVisible === 'login' && (
