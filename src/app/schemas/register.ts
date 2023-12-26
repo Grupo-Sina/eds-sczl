@@ -9,7 +9,13 @@ export const schemaRegisterUser = yup
       .string()
       .required('Campo Celular é obrigatório.')
       .matches(phoneRegExp, 'Insira um telefone válido.'),
-    userName: yup.string().required('Campo Usuário é obrigatório.').matches(usernameRegexValidation, 'O formato válido para username são números, letras minúsculas, ponto e sublinhado.'),
+    userName: yup
+      .string()
+      .required('Campo Usuário é obrigatório.')
+      .matches(
+        usernameRegexValidation,
+        'O formato válido para username são números, letras minúsculas, ponto e sublinhado.',
+      ),
     password: yup.string().required('Campo Senha é obrigatório.'),
     confirmPassword: yup
       .string()
