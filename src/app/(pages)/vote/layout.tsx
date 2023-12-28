@@ -1,15 +1,26 @@
-import { Metadata } from 'next'
+import GoogleAnalytics from "@/app/components/GoogleAnalytics/GoogleAnalytics";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Votar',
+  title: "Votar",
   description:
-    'Vote no seu time na Esportes da Sorte Na Varzea, Esportes da Sorte, EDS, Super Copa Zona Leste',
-}
+    "Vote no seu time na Esportes da Sorte Na Varzea, Esportes da Sorte, EDS, Super Copa Zona Leste",
+};
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export default function LayoutVote({ children }: LayoutProps) {
-  return <>{children}</>
+const METRICS_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+
+export default function LayoutRegister({ children }: LayoutProps) {
+  return (
+    <>
+      <html lang="en">
+        <body>{METRICS_ID && <GoogleAnalytics ga_id={METRICS_ID} />}</body>
+      </html>
+      {children}
+    </>
+  );
 }
+4;
