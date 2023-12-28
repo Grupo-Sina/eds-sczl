@@ -1,8 +1,9 @@
 import { Providers } from './providers'
 import '@/app/styles/globals.css'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, Suspense } from 'react'
 
 import { Metadata } from 'next'
+import { FacebookPixelEvents } from './components/PixelEvent/PixelEvent'
 
 interface RootLayoutProps {
   children: ReactNode
@@ -23,6 +24,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     <html lang="pt-br">
       <body className="overflow-x-hidden">
         <Providers>{children}</Providers>
+        <Suspense fallback={null}>
+          <FacebookPixelEvents />
+        </Suspense>
       </body>
     </html>
   )
