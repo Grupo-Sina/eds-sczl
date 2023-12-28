@@ -1,20 +1,20 @@
-import Header from "@/app/components/Header/Header";
-import Footer from "@/app/components/Footer/Footer";
+import Header from '@/app/components/Header/Header'
+import Footer from '@/app/components/Footer/Footer'
 
-import Image from "next/image";
+import Image from 'next/image'
 
-import shirtgradienteffect from "../../../public/shirtgradienteffect.png";
-import gradienteffectleft from "../../../public/gradienteffectleft.png";
-import edsvectorleft from "../../../public/edsvectorleft.png";
-import edsvectorright from "../../../public/edsvectorright.png";
-import { Metadata } from "next";
-import GoogleAnalytics from "../components/GoogleAnalytics/GoogleAnalytics";
+import shirtgradienteffect from '../../../public/shirtgradienteffect.png'
+import gradienteffectleft from '../../../public/gradienteffectleft.png'
+import edsvectorleft from '../../../public/edsvectorleft.png'
+import edsvectorright from '../../../public/edsvectorright.png'
+import { Metadata } from 'next'
+import GoogleAnalytics from '../components/GoogleAnalytics/GoogleAnalytics'
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
-const METRICS_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+const METRICS_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
 
 export default function Home({ children }: LayoutProps) {
   return (
@@ -50,5 +50,5 @@ export default function Home({ children }: LayoutProps) {
         </div>
       </body>
     </html>
-  );
+  )
 }

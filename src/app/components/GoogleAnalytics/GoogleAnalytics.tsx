@@ -1,15 +1,15 @@
-import Script from "next/script";
+import Script from 'next/script'
 
 type AnalyticsTypeProps = {
-  ga_id: string;
-};
+  gaId: string
+}
 
-const GoogleAnalytics = ({ ga_id }: AnalyticsTypeProps) => (
+const GoogleAnalytics = ({ gaId }: AnalyticsTypeProps) => (
   <>
     <Script
       async
       src={`https://www.googletagmanager.com/gtag/js? 
-      id=${ga_id}`}
+      id=${gaId}`}
     ></Script>
     <Script
       id="google-analytics"
@@ -19,11 +19,11 @@ const GoogleAnalytics = ({ ga_id }: AnalyticsTypeProps) => (
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', '${ga_id}');
+          gtag('config', '${gaId}');
         `,
       }}
     ></Script>
   </>
-);
+)
 
-export default GoogleAnalytics;
+export default GoogleAnalytics
