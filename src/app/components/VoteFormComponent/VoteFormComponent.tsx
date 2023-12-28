@@ -191,7 +191,7 @@ export default function VoteFormComponent() {
                     </li>
                     <br />
                     <li>
-                      O times que já realizaram a inscrição na Super Copa Zona
+                      Os times que já realizaram a inscrição na Super Copa Zona
                       Leste também podem participar do Bilhete da Sorte. Caso
                       ganhe, o valor de R$4.500,00, pago no momento da
                       inscrição, será enviado para a equipe vencedora.
