@@ -20,7 +20,7 @@ export default function Home({ children }: LayoutProps) {
   return (
     <html lang="en">
       <body>
-        {METRICS_ID && <GoogleAnalytics ga_id={METRICS_ID} />}
+        {METRICS_ID && <GoogleAnalytics gaId={METRICS_ID} />}
         <div className="bg-[#1F3694] bg-center bg-cover min-h-screen w-screen bg-no-repeat flex flex-col justify-between overflow-x-hidden relative items-center">
           <Header />
           <Image

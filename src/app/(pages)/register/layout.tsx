@@ -17,7 +17,7 @@ export default function LayoutRegister({ children }: LayoutProps) {
   return (
     <>
       <html lang="en">
-        <body>{METRICS_ID && <GoogleAnalytics ga_id={METRICS_ID} />}</body>
+        <body>{METRICS_ID && <GoogleAnalytics gaId={METRICS_ID} />}</body>
       </html>
       {children}
     </>
