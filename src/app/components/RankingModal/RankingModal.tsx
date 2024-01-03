@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Modal,
   ModalContent,
@@ -7,10 +7,10 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
-} from "@nextui-org/react";
+} from '@nextui-org/react'
 
 export default function RankingModal() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-  return <div>RANKING MODAL</div>;
+  return <div>RANKING MODAL</div>
 }

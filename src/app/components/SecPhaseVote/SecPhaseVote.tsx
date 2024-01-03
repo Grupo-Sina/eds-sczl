@@ -1,70 +1,80 @@
-import { requestTeamsAndVotes } from "@/app/api/teams";
-import { Team, getTopTeams } from "@/app/utils/teams-and-votes";
-import { Button, Card, CardFooter, CardHeader, Modal, ModalBody, ModalContent, ModalHeader, Spinner, useDisclosure } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import { requestTeamsAndVotes } from '@/app/api/teams'
+import { Team, getTopTeams } from '@/app/utils/teams-and-votes'
+import {
+  Button,
+  Card,
+  CardFooter,
+  CardHeader,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  Spinner,
+  useDisclosure,
+} from '@nextui-org/react'
+import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 import trophy from '../../../../public/trophy.png'
 
 export default function SecPhaseVote() {
-
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [teams, setTeams] = useState<Team[]>([]);
-  const [topTeams, setTopTeams] = useState<Team[]>([]);
-  const [selectedTeam, setSelectedTeam] = useState<Team>();
-  const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const [teams, setTeams] = useState<Team[]>([])
+  const [topTeams, setTopTeams] = useState<Team[]>([])
+  const [selectedTeam, setSelectedTeam] = useState<Team>()
+  const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchingTeamsAndVotes = async () => {
       try {
-        const res = await requestTeamsAndVotes();
-        setTeams(res);
+        const res = await requestTeamsAndVotes()
+        setTeams(res)
       } catch (error) {
         throw new Error('Error fetching teams and votes: ' + error)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
-    fetchingTeamsAndVotes();
+    }
+    fetchingTeamsAndVotes()
     // setIsLoading(false);
-  }, []);
+  }, [])
 
   useEffect(() => {
-    const topFiveTeams = getTopTeams(teams, 5);
-    setTopTeams(topFiveTeams);
+    const topFiveTeams = getTopTeams(teams, 5)
+    setTopTeams(topFiveTeams)
     setIsLoading(false)
-  }, [teams]);
+  }, [teams])
 
   const handleChooseTeam = (
     e: React.FormEvent<HTMLButtonElement>,
-    team: Team
+    team: Team,
   ) => {
-    e.preventDefault();
-    setSelectedTeam(team);
-    setIsVoteDisabled(false);
-  };
+    e.preventDefault()
+    setSelectedTeam(team)
+    setIsVoteDisabled(false)
+  }
 
   const handleVote = (
     e: React.FormEvent<HTMLButtonElement>,
-    selectTeam: Team
+    selectTeam: Team,
   ) => {
-    setIsVoteDisabled(true);
-    console.log(`voce votou no time: ${selectTeam.name}`);
-  };
+    setIsVoteDisabled(true)
+    console.log(`voce votou no time: ${selectTeam.name}`)
+  }
 
-  const handleRanking = () => {};
+  const handleRanking = () => {}
 
   return (
     <>
-      <div className="flex flex-wrap space-x-4 my-4 bg-transparent justify-center">
+      <div className="flex gap-2 flex-wrap my-4 bg-transparent justify-center">
         {isLoading ? (
           <Spinner size="lg" className="flex justify-center" />
-        ) : ( 
+        ) : (
           topTeams.map((team) => (
             <Card
               isBlurred
               key={team.name}
-              className="w-[170px] h-[250px] flex-col justify-between bg-transparent border-solid border-white border-1 space-y-2"
+              className="max-w-[170px] min-w-[160px] h-[250px] flex-col justify-between bg-transparent border-solid border-white space-y-2"
             >
               <CardHeader className="flex justify-center">
                 <h1 className="text-center text-white">
@@ -124,7 +134,7 @@ export default function SecPhaseVote() {
 
                 <ModalBody>
                   <p className="text-[#9E9E9E] text-sm font-normal">
-                    {`Atualizado em: ${new Date().toLocaleString("pt-BR")}`}{" "}
+                    {`Atualizado em: ${new Date().toLocaleString('pt-BR')}`}{' '}
                   </p>
                   <div className="flex justify-between text-xs font-semibold">
                     <p>NOME DA EQUIPE</p>
@@ -132,19 +142,19 @@ export default function SecPhaseVote() {
                   </div>
                   <hr
                     style={{
-                      borderTop: "1px solid #FFFFFF33",
+                      borderTop: '1px solid #FFFFFF33',
                     }}
                   />
                   <ol className="text-xs font-normal">
                     {topTeams.map((team, index) => (
                       <React.Fragment key={index}>
                         <li className="flex justify-between py-2 mr-4">
-                          {index + 1}. {team.name.toUpperCase()}{" "}
+                          {index + 1}. {team.name.toUpperCase()}{' '}
                           <p>{team.amountVotes}</p>
                         </li>
                         <hr
                           style={{
-                            borderTop: "1px solid #FFFFFF33",
+                            borderTop: '1px solid #FFFFFF33',
                           }}
                         />
                       </React.Fragment>

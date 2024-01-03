@@ -1,6 +1,6 @@
 export default function SecPhasePromo() {
   return (
-    <div className="pl-[115px] flex-col flex-wrap w-[100%] desktop:pl-0">
+    <div className="md:pl-0 pl-28 flex-col flex-wrap  desktop:pl-0 w-[90%] md:max-w-[600px] desktop:max-w-[935px]">
       <h1 className="mt-[45px] desktop:mt-0">
         <span className="font-headingBold text-[68px]">C</span>
         <span className="font-headingLight text-[68px]">H</span>
@@ -39,13 +39,13 @@ export default function SecPhasePromo() {
         <span className="font-headingBold text-[112px] text-[#00E275]">E</span>
         <span className="font-headingLight text-[112px] text-[#00E275]">!</span>
       </h1>
-      <p className=" text-justify text-[22px] desktop:text-[28px] font-normal w-[870px] leading-[48px] mt-[-20px] pr-[100px]">
+      <p className=" text-justify text-[22px] desktop:text-[28px] font-normal leading-[48px] mt-[-20px] pr-[100px]">
         Os <span className="font-bold">5 times mais votados</span> avançaram
         para a última fase e agora você decide qual time irá ser o vencedor da
-        promoção!{" "}
-        <span className="font-bold">Escolha o seu time favorito e</span>{" "}
+        promoção!{' '}
+        <span className="font-bold">Escolha o seu time favorito e</span>{' '}
         <span className="font-bold text-[#00E275]">vote agora!</span>
       </p>
     </div>
-  );
+  )
 }
