@@ -81,7 +81,7 @@ export default function SecPhaseVote() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex gap-2 flex-wrap my-4 bg-transparent justify-center">
+      <div className="flex justify-around flex-wrap bg-transparent ">
         {isLoading ? (
           <Spinner size="lg" className="flex justify-center" />
         ) : (
@@ -89,7 +89,7 @@ export default function SecPhaseVote() {
             <Card
               isBlurred
               key={team.name}
-              className="max-w-[170px] min-w-[160px] h-[250px] flex-col justify-between bg-transparent border-solid border-white space-y-2"
+              className="max-w-[170px] min-w-[160px] h-[250px] flex-col justify-between bg-transparent border-solid border-white my-4"
             >
               <CardHeader className="flex justify-center">
                 <h1 className="text-center text-white">
@@ -111,7 +111,7 @@ export default function SecPhaseVote() {
           ))
         )}
       </div>
-      <div className="flex ml-[115px] space-x-4 my-8 desktop:ml-0">
+      <div className="flex space-x-4 my-8 justify-center xl:justify-start">
         <Button
           isDisabled={isVoteDisabled}
           radius="full"
