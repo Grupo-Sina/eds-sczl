@@ -3,6 +3,7 @@ import { Team, getTopTeams } from '@/app/utils/teams-and-votes'
 import {
   Button,
   Card,
+  CardBody,
   CardFooter,
   CardHeader,
   Modal,
@@ -15,9 +16,16 @@ import {
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import trophy from '../../../../public/trophy.png'
-import { toast } from 'react-toastify'
-import { useAppContext } from '@/app/context/AppContext'
 import { requestVote } from '@/app/api/vote'
+import { toast } from 'react-toastify'
+import { addDays, format } from 'date-fns'
+import { useAppContext } from '@/app/context/AppContext'
+
+function dataAvailable() {
+  const tomorrow = addDays(new Date(), 1)
+  const formatted = format(tomorrow, 'dd/MM/yyyy')
+  return formatted
+}
 
 export default function SecPhaseVote() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
@@ -73,7 +81,7 @@ export default function SecPhaseVote() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex gap-2 flex-wrap  my-4 bg-transparent justify-center">
+      <div className="flex gap-2 flex-wrap my-4 bg-transparent justify-center">
         {isLoading ? (
           <Spinner size="lg" className="flex justify-center" />
         ) : (
@@ -109,7 +117,7 @@ export default function SecPhaseVote() {
           radius="full"
           className="bg-[#00E46F] text-[#003B9C] text-[18px] font-headingExtraBold py-3 px-8"
           type="submit"
-          onClick={() => selectedTeam && handleVote({ name: selectedTeam })}
+          onClick={(e) => selectedTeam && handleVote({ name: selectedTeam })}
         >
           VOTAR
         </Button>
