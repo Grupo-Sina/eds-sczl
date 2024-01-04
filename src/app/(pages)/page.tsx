@@ -8,5 +8,9 @@ export const metadata: Metadata = {
 }
 
 export default function Index() {
-  return <Register />
+  return (
+    <div className="overflow-x-hidden">
+      <Register />
+    </div>
+  )
 }

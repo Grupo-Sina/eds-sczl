@@ -4,6 +4,7 @@ import React, { ReactNode, Suspense } from 'react'
 
 import { Metadata } from 'next'
 import { FacebookPixelEvents } from './components/PixelEvent/PixelEvent'
+import GoogleAnalytics from './components/GoogleAnalytics/GoogleAnalytics'
 
 interface RootLayoutProps {
   children: ReactNode
@@ -19,6 +20,8 @@ export const metadata: Metadata = {
   description: 'Esportes da Sorte, EDS, Super Copa Zona Leste',
 }
 
+const METRICS_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
+
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="pt-br">
@@ -26,6 +29,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         <Providers>{children}</Providers>
         <Suspense fallback={null}>
           <FacebookPixelEvents />
+          {METRICS_ID && <GoogleAnalytics gaId={METRICS_ID} />}
         </Suspense>
       </body>
     </html>
