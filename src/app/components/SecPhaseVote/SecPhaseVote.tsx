@@ -6,10 +6,6 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalHeader,
   Spinner,
   useDisclosure,
 } from '@nextui-org/react'
@@ -22,16 +18,38 @@ import { addDays, format } from 'date-fns'
 import { useAppContext } from '@/app/context/AppContext'
 import VoteButtons from '../VoteButtons/VoteButtons'
 import { usePathname } from 'next/navigation'
-
-function dataAvailable() {
-  const tomorrow = addDays(new Date(), 1)
-  const formatted = format(tomorrow, 'dd/MM/yyyy')
-  return formatted
-}
+import ScorpionsCrest from '../../../../public/teams/scorpions.png'
+import ImperioCrest from '../../../../public/teams/imperio.png'
+import BarrocaCrest from '../../../../public/teams/barroca.png'
+import RibeiraCrest from '../../../../public/teams/ribeira.png'
+import CelestCrest from '../../../../public/teams/celeste.png'
 
 type SecPhaseVote = {
   isPageVote?: boolean
 }
+
+const teamsList = [
+  {
+    name: 'forte da ribeira fc',
+    crest: RibeiraCrest,
+  },
+  {
+    name: 'celeste fc',
+    crest: CelestCrest,
+  },
+  {
+    name: 'imperio city',
+    crest: ImperioCrest,
+  },
+  {
+    name: 'scorpions',
+    crest: ScorpionsCrest,
+  },
+  {
+    name: 'barroca',
+    crest: BarrocaCrest,
+  },
+]
 
 export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
@@ -42,6 +60,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   const {
     confirmedVote,
     setConfirmedVote,
+    selectedTeam,
     setSelectedTeam,
     setIsVoteDisabled,
   } = useAppContext()
@@ -69,27 +88,9 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
     setIsLoading(false)
   }, [teams])
 
-  const handleChooseTeam = (
-    e: React.FormEvent<HTMLButtonElement>,
-    team: string,
-  ) => {
-    e.preventDefault()
+  const handleChooseTeam = (team: string) => {
     setSelectedTeam(team)
     setIsVoteDisabled(false)
-  }
-
-  const handleVote = async (data: VoteProps) => {
-    setIsLoading(true)
-    const res = await requestVote(data)
-
-    if (res?.data) {
-      setIsVoteDisabled(true)
-      setConfirmedVote(true)
-      setIsVoteDisabled(true)
-    } else if (res?.error) {
-      toast.error(res?.error)
-    }
-    setIsLoading(false)
   }
 
   return (
@@ -104,22 +105,36 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
         ) : (
           topTeams.map((team) => (
             <Card
-              isBlurred
+              isPressable
+              onClick={() => handleChooseTeam(team.name)}
               key={team.name}
-              className="max-w-[170px] min-w-[160px] h-[250px] flex-col justify-between bg-transparent border-solid border-white my-4"
+              className={`bg-[#1F3694] border-1 bg-opacity-10 max-w-[170px] min-w-[160px] h-[260px] flex-col justify-between bg-transparent border-solid border-white my-4 ${
+                selectedTeam === team.name && 'border-2 bg-black'
+              }`}
             >
               <CardHeader className="flex justify-center">
                 <h1 className="text-center text-white">
-                  {team.name.toUpperCase()}
+                  {team.name === 'forte da ribeira fc'
+                    ? 'F. DA RIBEIRA FC'
+                    : team.name.toUpperCase()}
                 </h1>
               </CardHeader>
+              <CardBody>
+                {teamsList.map((item, index) => (
+                  <div key={index} className="flex items-center justify-center">
+                    {item.name === team.name && (
+                      <Image src={item.crest} alt={team.name} height={121} />
+                    )}
+                  </div>
+                ))}
+              </CardBody>
               <CardFooter className="flex justify-center">
                 <Button
                   variant="bordered"
                   radius="full"
                   className="border-[#00E46F] text-[#00E46F] text-[16px] font-headingExtraBold py-3 px-8"
                   type="submit"
-                  onClick={(e) => handleChooseTeam(e, team.name)}
+                  onClick={() => handleChooseTeam(team.name)}
                   isDisabled={confirmedVote}
                 >
                   ESCOLHER
