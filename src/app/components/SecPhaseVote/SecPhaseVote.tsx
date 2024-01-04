@@ -1,5 +1,5 @@
-import { requestTeamsAndVotes } from "@/app/api/teams";
-import { Team, getTopTeams } from "@/app/utils/teams-and-votes";
+import { requestTeamsAndVotes } from '@/app/api/teams'
+import { Team, getTopTeams } from '@/app/utils/teams-and-votes'
 import {
   Button,
   Card,
@@ -12,7 +12,6 @@ import {
   ModalHeader,
   Spinner,
   useDisclosure,
-
 } from '@nextui-org/react'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
@@ -24,11 +23,10 @@ import { useAppContext } from '@/app/context/AppContext'
 import VoteButtons from '../VoteButtons/VoteButtons'
 import { usePathname } from 'next/navigation'
 
-
 function dataAvailable() {
-  const tomorrow = addDays(new Date(), 1);
-  const formatted = format(tomorrow, "dd/MM/yyyy");
-  return formatted;
+  const tomorrow = addDays(new Date(), 1)
+  const formatted = format(tomorrow, 'dd/MM/yyyy')
+  return formatted
 }
 
 type SecPhaseVote = {
@@ -36,7 +34,6 @@ type SecPhaseVote = {
 }
 
 export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
-
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
   const [teams, setTeams] = useState<Team[]>([])
@@ -55,45 +52,45 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   useEffect(() => {
     const fetchingTeamsAndVotes = async () => {
       try {
-        const res = await requestTeamsAndVotes();
-        setTeams(res);
+        const res = await requestTeamsAndVotes()
+        setTeams(res)
       } catch (error) {
-        throw new Error("Error fetching teams and votes: " + error);
+        throw new Error('Error fetching teams and votes: ' + error)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
-    fetchingTeamsAndVotes();
-  }, []);
+    }
+    fetchingTeamsAndVotes()
+  }, [])
 
   useEffect(() => {
-    const topFiveTeams = getTopTeams(teams, 5);
-    setTopTeams(topFiveTeams);
-    setIsLoading(false);
-  }, [teams]);
+    const topFiveTeams = getTopTeams(teams, 5)
+    setTopTeams(topFiveTeams)
+    setIsLoading(false)
+  }, [teams])
 
   const handleChooseTeam = (
     e: React.FormEvent<HTMLButtonElement>,
-    team: string
+    team: string,
   ) => {
-    e.preventDefault();
-    setSelectedTeam(team);
-    setIsVoteDisabled(false);
-  };
+    e.preventDefault()
+    setSelectedTeam(team)
+    setIsVoteDisabled(false)
+  }
 
   const handleVote = async (data: VoteProps) => {
-    setIsLoading(true);
-    const res = await requestVote(data);
+    setIsLoading(true)
+    const res = await requestVote(data)
 
     if (res?.data) {
-      setIsVoteDisabled(true);
-      setConfirmedVote(true);
-      setIsVoteDisabled(true);
+      setIsVoteDisabled(true)
+      setConfirmedVote(true)
+      setIsVoteDisabled(true)
     } else if (res?.error) {
-      toast.error(res?.error);
+      toast.error(res?.error)
     }
-    setIsLoading(false);
-  };
+    setIsLoading(false)
+  }
 
   return (
     <div className={`flex flex-col ${isPageVote && 'items-center'}`}>
@@ -133,9 +130,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
         )}
       </div>
 
-
-      { pathname === "/vote" && <VoteButtons />  }
-
+      {pathname === '/vote' && <VoteButtons />}
 
       {/* {confirmedVote ? (
           <h2 className="text-[16px] font-semibold leading-6">
@@ -217,5 +212,5 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
         </Modal>
       </div> */}
     </div>
-  );
+  )
 }
