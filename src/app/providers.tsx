@@ -16,6 +16,7 @@ const PrivateRoute = dynamic(() => import('./routes/private-router'), {
 })
 export function Providers({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
+
   return (
     <AppContextProvider>
       <AuthContextProvider>

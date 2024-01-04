@@ -12,9 +12,10 @@ const PrivateRoute = ({ children }: PrivateRouteProps) => {
 
   useEffect(() => {
     if (!isAuthenticaded) {
-      router.push('/register')
+      // router.push('/register')
     }
   }, [isAuthenticaded, router])
+
   if (!isAuthenticaded) {
     return null
   }
