@@ -20,6 +20,8 @@ import { requestVote } from '@/app/api/vote'
 import { toast } from 'react-toastify'
 import { addDays, format } from 'date-fns'
 import { useAppContext } from '@/app/context/AppContext'
+import VoteButtons from '../VoteButtons/VoteButtons'
+import { usePathname } from 'next/navigation'
 
 function dataAvailable() {
   const tomorrow = addDays(new Date(), 1)
@@ -33,12 +35,19 @@ type SecPhaseVote = {
 
 export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
+
   const [teams, setTeams] = useState<Team[]>([])
   const [topTeams, setTopTeams] = useState<Team[]>([])
-  const [selectedTeam, setSelectedTeam] = useState<string>()
-  const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const { confirmedVote, setConfirmedVote } = useAppContext()
+  const {
+    confirmedVote,
+    setConfirmedVote,
+    setSelectedTeam,
+    setIsVoteDisabled,
+  } = useAppContext()
+
+  const pathname = usePathname()
+  console.log(pathname)
 
   useEffect(() => {
     const fetchingTeamsAndVotes = async () => {
@@ -111,6 +120,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
                   className="border-[#00E46F] text-[#00E46F] text-[16px] font-headingExtraBold py-3 px-8"
                   type="submit"
                   onClick={(e) => handleChooseTeam(e, team.name)}
+                  isDisabled={confirmedVote}
                 >
                   ESCOLHER
                 </Button>
@@ -119,75 +129,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
           ))
         )}
       </div>
-      <div className="flex space-x-4 my-8 justify-center xl:justify-start">
-        <Button
-          isDisabled={isVoteDisabled}
-          radius="full"
-          className="bg-[#00E46F] text-[#003B9C] text-[18px] font-headingExtraBold py-3 px-8"
-          type="submit"
-          onClick={(e) => selectedTeam && handleVote({ name: selectedTeam })}
-        >
-          VOTAR
-        </Button>
-
-        <Button
-          variant="bordered"
-          radius="full"
-          className="border-[#00E46F] text-[#00E46F] text-[18px] font-headingExtraBold py-3 px-8"
-          type="submit"
-          onPress={onOpen}
-        >
-          VER RANKING
-        </Button>
-        <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="w-full">
-          <ModalContent className="bg-[#0F1768] p-12 max-w-3xl">
-            {(onClose) => (
-              <>
-                <ModalHeader className="">
-                  <Image
-                    src={trophy}
-                    alt="trophy"
-                    className="mr-2 w-[28px] h-[28px]"
-                  />
-                  <p className="text-2xl font-bold">
-                    CONFERE COMO ESTÁ O RANKING ATÉ AGORA!
-                  </p>
-                </ModalHeader>
-
-                <ModalBody>
-                  <p className="text-[#9E9E9E] text-sm font-normal">
-                    {`Atualizado em: ${new Date().toLocaleString('pt-BR')}`}{' '}
-                  </p>
-                  <div className="flex justify-between text-xs font-semibold">
-                    <p>NOME DA EQUIPE</p>
-                    <p>VOTOS</p>
-                  </div>
-                  <hr
-                    style={{
-                      borderTop: '1px solid #FFFFFF33',
-                    }}
-                  />
-                  <ol className="text-xs font-normal">
-                    {topTeams.map((team, index) => (
-                      <React.Fragment key={index}>
-                        <li className="flex justify-between py-2 mr-4">
-                          {index + 1}. {team.name.toUpperCase()}{' '}
-                          <p>{team.amountVotes}</p>
-                        </li>
-                        <hr
-                          style={{
-                            borderTop: '1px solid #FFFFFF33',
-                          }}
-                        />
-                      </React.Fragment>
-                    ))}
-                  </ol>
-                </ModalBody>
-              </>
-            )}
-          </ModalContent>
-        </Modal>
-      </div>
+      {pathname === '/vote' && <VoteButtons />}
     </div>
   )
 }

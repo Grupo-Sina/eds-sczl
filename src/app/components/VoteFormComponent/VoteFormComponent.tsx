@@ -22,6 +22,7 @@ import { schemaVote } from '@/app/schemas/vote'
 import { addDays, format } from 'date-fns'
 import { requestVote } from '@/app/api/vote'
 import { toast } from 'react-toastify'
+import VerRegrasModal from '../VerRegrasModal/VerRegasModal'
 
 export default function VoteFormComponent() {
   const [isTeamFocused, setIsTeamFocused] = useState<boolean>(false)
@@ -149,6 +150,7 @@ export default function VoteFormComponent() {
         >
           VER REGRAS
         </Button>
+        {/* <VerRegrasModal /> */}
         <Modal
           isOpen={isOpen}
           onOpenChange={onOpenChange}

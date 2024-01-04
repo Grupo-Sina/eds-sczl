@@ -1,6 +1,6 @@
 'use client'
 
-import SecPhasePromo from '@/app/components/SecPhasePromo/SecPhasePromo'
+import SecPhasePromo from '../../components/SecPhasePromo/SecPhasePromo'
 import SecPhaseVote from '@/app/components/SecPhaseVote/SecPhaseVote'
 
 export default function CreateVote() {
