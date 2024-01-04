@@ -29,7 +29,11 @@ function dataAvailable() {
   return formatted;
 }
 
-export default function SecPhaseVote() {
+type SecPhaseVote = {
+  isPageVote?: boolean
+}
+
+export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   const [teams, setTeams] = useState<Team[]>([]);
   const [topTeams, setTopTeams] = useState<Team[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -82,8 +86,12 @@ export default function SecPhaseVote() {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-around flex-wrap bg-transparent ">
+    <div className={`flex flex-col ${isPageVote && 'items-center'}`}>
+      <div
+        className={`flex justify-around flex-wrap ${
+          isPageVote && 'md:gap-4'
+        } bg-transparent`}
+      >
         {isLoading ? (
           <Spinner size="lg" className="flex justify-center" />
         ) : (

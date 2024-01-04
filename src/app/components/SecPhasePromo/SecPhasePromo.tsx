@@ -39,7 +39,7 @@ export default function SecPhasePromo() {
         <span className="font-headingBold text-[112px] text-[#00E275]">E</span>
         <span className="font-headingLight text-[112px] text-[#00E275]">!</span>
       </h1>
-      <p className="text-white text-justify text-[22px] desktop:text-[28px] font-normal leading-[48px] mt-[-20px]">
+      <p className="text-white text-center text-[22px] desktop:text-[28px] font-normal leading-[48px] mt-[-20px]">
         Os <span className="font-bold">5 times mais votados</span> avançaram
         para a última fase e agora você decide qual time irá ser o vencedor da
         promoção!{' '}
