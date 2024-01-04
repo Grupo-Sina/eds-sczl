@@ -67,7 +67,7 @@ export default function FormComponent() {
     <form
       onSubmit={handleSubmit(handleRegister)}
       method="post"
-      className="w-[90%] z-20 my-8 p-[28px] rounded-[16px]  bg-[#0F1768] text-[#fff] md:max-w-[650px] shadow-xl h-auto"
+      className="w-[90%] z-20 my-8 p-[28px] rounded-[16px]  bg-[#0F1768] text-[#fff] md:max-w-[500px] shadow-xl h-auto"
     >
       <p className="text-[16px] font-medium leading-[19px]">Bilhete da Sorte</p>
       <h1 className="#00E275 text-[22px] font-bold leading-8 mt-2 desktop:text-[28px] desktop:leading-[33px]">
