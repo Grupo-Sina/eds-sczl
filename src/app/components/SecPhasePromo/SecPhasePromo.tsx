@@ -1,4 +1,8 @@
+import { usePathname } from 'next/navigation'
+
 export default function SecPhasePromo() {
+  const pathname = usePathname()
+
   return (
     <div className="desktop:pl-0 w-full max-w-[935px] text-nowrap">
       <h1 className="mt-[45px] desktop:mt-0 text-white">
@@ -39,12 +43,18 @@ export default function SecPhasePromo() {
         <span className="font-headingBold text-[112px] text-[#00E275]">E</span>
         <span className="font-headingLight text-[112px] text-[#00E275]">!</span>
       </h1>
-      <p className="text-white text-center text-[22px] desktop:text-[28px] font-normal leading-[48px] mt-[-20px]">
+      <p
+        className={`text-white text-[22px] desktop:text-[28px] font-normal leading-[48px] mt-[-20px] ${
+          pathname === '/register' ? 'text-left' : 'text-center'
+        }`}
+      >
         Os <span className="font-bold">5 times mais votados</span> avançaram
         para a última fase e agora você decide qual time irá ser o vencedor da
         promoção!{' '}
-        <span className="font-bold">Escolha o seu time favorito e</span>{' '}
-        <span className="font-bold text-[#00E275]">vote agora!</span>
+        <span className="font-bold">Escolha o seu time favorito, </span>{' '}
+        <span className="font-bold text-[#00E275]">
+          faça o login e vote agora!
+        </span>
       </p>
     </div>
   )
