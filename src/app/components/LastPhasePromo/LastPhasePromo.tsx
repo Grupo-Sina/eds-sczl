@@ -1,7 +1,3 @@
-export default function LastPhasePromo () {
-  return (
-    <div>
-
-    </div>
-  )
+export default function LastPhasePromo() {
+  return <div></div>
 }

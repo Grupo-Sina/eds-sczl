@@ -39,12 +39,12 @@ export default function SecPhaseVote() {
   useEffect(() => {
     const fetchingTeamsAndVotes = async () => {
       try {
-        const res = await requestTeamsAndVotes();
-        setTeams(res);
+        const res = await requestTeamsAndVotes()
+        setTeams(res)
       } catch (error) {
         throw new Error("Error fetching teams and votes: " + error);
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     };
     fetchingTeamsAndVotes();
@@ -52,19 +52,19 @@ export default function SecPhaseVote() {
   }, []);
 
   useEffect(() => {
-    const topFiveTeams = getTopTeams(teams, 5);
-    setTopTeams(topFiveTeams);
-    setIsLoading(false);
-  }, [teams]);
+    const topFiveTeams = getTopTeams(teams, 5)
+    setTopTeams(topFiveTeams)
+    setIsLoading(false)
+  }, [teams])
 
   const handleChooseTeam = (
     e: React.FormEvent<HTMLButtonElement>,
     team: string
   ) => {
-    e.preventDefault();
-    setSelectedTeam(team);
-    setIsVoteDisabled(false);
-  };
+    e.preventDefault()
+    setSelectedTeam(team)
+    setIsVoteDisabled(false)
+  }
 
 
   const handleVote = async (data: VoteProps) => {
@@ -81,11 +81,11 @@ export default function SecPhaseVote() {
     setIsLoading(false);
   };
 
-  const handleRanking = () => {};
+  const handleRanking = () => {}
 
   return (
     <>
-      <div className="flex flex-wrap space-x-4 my-4 bg-transparent justify-center">
+      <div className="flex gap-2 flex-wrap my-4 bg-transparent justify-center">
         {isLoading ? (
           <Spinner size="lg" className="flex justify-center" />
         ) : (
@@ -265,7 +265,7 @@ export default function SecPhaseVote() {
 
                 <ModalBody>
                   <p className="text-[#9E9E9E] text-sm font-normal">
-                    {`Atualizado em: ${new Date().toLocaleString("pt-BR")}`}{" "}
+                    {`Atualizado em: ${new Date().toLocaleString('pt-BR')}`}{' '}
                   </p>
                   <div className="flex justify-between text-xs font-semibold">
                     <p>NOME DA EQUIPE</p>
@@ -273,19 +273,19 @@ export default function SecPhaseVote() {
                   </div>
                   <hr
                     style={{
-                      borderTop: "1px solid #FFFFFF33",
+                      borderTop: '1px solid #FFFFFF33',
                     }}
                   />
                   <ol className="text-xs font-normal">
                     {topTeams.map((team, index) => (
                       <React.Fragment key={index}>
                         <li className="flex justify-between py-2 mr-4">
-                          {index + 1}. {team.name.toUpperCase()}{" "}
+                          {index + 1}. {team.name.toUpperCase()}{' '}
                           <p>{team.amountVotes}</p>
                         </li>
                         <hr
                           style={{
-                            borderTop: "1px solid #FFFFFF33",
+                            borderTop: '1px solid #FFFFFF33',
                           }}
                         />
                       </React.Fragment>

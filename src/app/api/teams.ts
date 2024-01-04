@@ -1,5 +1,5 @@
-import { api } from "../services/api";
-import { AxiosError } from "axios"; 
+import { api } from '../services/api'
+import { AxiosError } from 'axios'
 
 export const requestTeamsAndVotes = async () => {
   try {
