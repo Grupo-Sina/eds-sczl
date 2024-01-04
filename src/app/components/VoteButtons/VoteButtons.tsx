@@ -102,7 +102,11 @@ export default function VoteButtons() {
         >
           VER RANKING
         </Button>
-        <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="w-full">
+        <Modal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          className="w-full"
+        >
           <ModalContent className="bg-[#0F1768] p-12 max-w-3xl">
             {(onClose) => (
               <>
