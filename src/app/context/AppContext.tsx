@@ -32,8 +32,13 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
   const [shouldShowResetPassword, setShouldShowResetPassword] = useState(false)
 
   const [modalVisible, setModalVisible] = useState<ModalVisible>(undefined)
+<<<<<<< HEAD
   const [selectedTeam, setSelectedTeam] = useState<string>();
   const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true);
+=======
+  const [selectedTeam, setSelectedTeam] = useState<string>()
+  const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true)
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
 
   const contextValue: AppContextType = {
     modalVisible,
@@ -49,7 +54,11 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
     selectedTeam,
     setSelectedTeam,
     isVoteDisabled,
+<<<<<<< HEAD
     setIsVoteDisabled
+=======
+    setIsVoteDisabled,
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
   }
 
   return (

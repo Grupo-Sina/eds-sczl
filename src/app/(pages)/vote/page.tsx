@@ -1,6 +1,10 @@
 'use client'
 
+<<<<<<< HEAD
 import SecPhasePromo from '../../components/SecPhasePromo/SecPhasePromo';
+=======
+import SecPhasePromo from '../../components/SecPhasePromo/SecPhasePromo'
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
 import SecPhaseVote from '@/app/components/SecPhaseVote/SecPhaseVote'
 import SuccessVoteComponent from '@/app/components/SuccessVoteComponent/SucessVoteComponent'
 import VoteFormComponent from '@/app/components/VoteFormComponent/VoteFormComponent'

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Button } from "@nextui-org/react";
+=======
+import { Button } from '@nextui-org/react'
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
 
 export default function InitialButtons() {
   return (
@@ -22,5 +26,9 @@ export default function InitialButtons() {
         VER RANKING
       </Button>
     </div>
+<<<<<<< HEAD
   );
+=======
+  )
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
 }

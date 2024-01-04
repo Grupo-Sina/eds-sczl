@@ -12,6 +12,7 @@ import {
   ModalHeader,
   Spinner,
   useDisclosure,
+<<<<<<< HEAD
 } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
@@ -22,6 +23,18 @@ import { addDays, format } from "date-fns";
 import { useAppContext } from "@/app/context/AppContext";
 import VoteButtons from "../VoteButtons/VoteButtons";
 import { usePathname } from "next/navigation";
+=======
+} from '@nextui-org/react'
+import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
+import trophy from '../../../../public/trophy.png'
+import { requestVote } from '@/app/api/vote'
+import { toast } from 'react-toastify'
+import { addDays, format } from 'date-fns'
+import { useAppContext } from '@/app/context/AppContext'
+import VoteButtons from '../VoteButtons/VoteButtons'
+import { usePathname } from 'next/navigation'
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
 
 function dataAvailable() {
   const tomorrow = addDays(new Date(), 1);
@@ -34,11 +47,24 @@ type SecPhaseVote = {
 }
 
 export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
+<<<<<<< HEAD
   const [teams, setTeams] = useState<Team[]>([]);
   const [topTeams, setTopTeams] = useState<Team[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { confirmedVote, setConfirmedVote, setSelectedTeam, setIsVoteDisabled } = useAppContext();
   
+=======
+  const [teams, setTeams] = useState<Team[]>([])
+  const [topTeams, setTopTeams] = useState<Team[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const {
+    confirmedVote,
+    setConfirmedVote,
+    setSelectedTeam,
+    setIsVoteDisabled,
+  } = useAppContext()
+
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
   const pathname = usePathname()
   console.log(pathname)
 
@@ -123,7 +149,11 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
         )}
       </div>
 
+<<<<<<< HEAD
       { pathname === "/vote" && <VoteButtons />  }
+=======
+      {pathname === '/vote' && <VoteButtons />}
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
 
       {/* {confirmedVote ? (
           <h2 className="text-[16px] font-semibold leading-6">

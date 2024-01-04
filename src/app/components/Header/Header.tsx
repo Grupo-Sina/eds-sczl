@@ -40,6 +40,7 @@ export default function Header() {
 
       {isAuthenticaded ? (
         <>
+<<<<<<< HEAD
           
           <NavbarMenu
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.40)' }}
@@ -56,16 +57,39 @@ export default function Header() {
           {/* <VerRegrasModal /> */}
           <p>AQUI CARAI</p>
           <NavbarMenuItem className="mt-10">
+=======
+          <NavbarMenu
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.40)' }}
+            className="bg-[#1F3694] w-full"
+          >
+            {/* <NavbarMenuItem className="mt-10">
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
             <Link
               className="font-headingBold cursor-pointer text-xl font-extrabold text-white"
-              onClick={() => handleSignOut()}
+              onPress={onOpen}
             >
-              SAIR
+              VER REGRAS
             </Link>
+<<<<<<< HEAD
           </NavbarMenuItem>
         </NavbarMenu>
         </>
         
+=======
+          </NavbarMenuItem> */}
+            {/* <VerRegrasModal /> */}
+            <p>AQUI CARAI</p>
+            <NavbarMenuItem className="mt-10">
+              <Link
+                className="font-headingBold cursor-pointer text-xl font-extrabold text-white"
+                onClick={() => handleSignOut()}
+              >
+                SAIR
+              </Link>
+            </NavbarMenuItem>
+          </NavbarMenu>
+        </>
+>>>>>>> 7348c82 (fix: merging main int local branch, resolving conflicts and fixing buttons and layout)
       ) : (
         <NavbarMenu
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.40)' }}
