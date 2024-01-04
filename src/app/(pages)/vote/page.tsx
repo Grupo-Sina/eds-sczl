@@ -16,7 +16,7 @@ export default function CreateVote() {
   const isMobile = width < 768
 
   return (
-    <div className="z-20 w-full items-center flex flex-col md:flex-row md:justify-evenly">
+    <div className="z-20 p-4 px-20">
       <SecPhasePromo />
       <SecPhaseVote />
     </div>
