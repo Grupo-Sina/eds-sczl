@@ -1,5 +1,5 @@
-import { requestTeamsAndVotes } from "@/app/api/teams";
-import { Team, getTopTeams } from "@/app/utils/teams-and-votes";
+import { requestTeamsAndVotes } from '@/app/api/teams'
+import { Team, getTopTeams } from '@/app/utils/teams-and-votes'
 import {
   Button,
   Card,
@@ -12,29 +12,29 @@ import {
   ModalHeader,
   Spinner,
   useDisclosure,
-} from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import trophy from "../../../../public/trophy.png";
-import { requestVote } from "@/app/api/vote";
-import { toast } from "react-toastify";
-import { addDays, format } from "date-fns";
-import { useAppContext } from "@/app/context/AppContext";
+} from '@nextui-org/react'
+import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
+import trophy from '../../../../public/trophy.png'
+import { requestVote } from '@/app/api/vote'
+import { toast } from 'react-toastify'
+import { addDays, format } from 'date-fns'
+import { useAppContext } from '@/app/context/AppContext'
 
 function dataAvailable() {
-  const tomorrow = addDays(new Date(), 1);
-  const formatted = format(tomorrow, "dd/MM/yyyy");
-  return formatted;
+  const tomorrow = addDays(new Date(), 1)
+  const formatted = format(tomorrow, 'dd/MM/yyyy')
+  return formatted
 }
 
 export default function SecPhaseVote() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [teams, setTeams] = useState<Team[]>([]);
-  const [topTeams, setTopTeams] = useState<Team[]>([]);
-  const [selectedTeam, setSelectedTeam] = useState<string>();
-  const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const {confirmedVote, setConfirmedVote} = useAppContext()
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const [teams, setTeams] = useState<Team[]>([])
+  const [topTeams, setTopTeams] = useState<Team[]>([])
+  const [selectedTeam, setSelectedTeam] = useState<string>()
+  const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const { confirmedVote, setConfirmedVote } = useAppContext()
 
   useEffect(() => {
     const fetchingTeamsAndVotes = async () => {
@@ -42,14 +42,13 @@ export default function SecPhaseVote() {
         const res = await requestTeamsAndVotes()
         setTeams(res)
       } catch (error) {
-        throw new Error("Error fetching teams and votes: " + error);
+        throw new Error('Error fetching teams and votes: ' + error)
       } finally {
         setIsLoading(false)
       }
-    };
-    fetchingTeamsAndVotes();
-
-  }, []);
+    }
+    fetchingTeamsAndVotes()
+  }, [])
 
   useEffect(() => {
     const topFiveTeams = getTopTeams(teams, 5)
@@ -59,29 +58,26 @@ export default function SecPhaseVote() {
 
   const handleChooseTeam = (
     e: React.FormEvent<HTMLButtonElement>,
-    team: string
+    team: string,
   ) => {
     e.preventDefault()
     setSelectedTeam(team)
     setIsVoteDisabled(false)
   }
 
-
   const handleVote = async (data: VoteProps) => {
-    setIsLoading(true);
-    const res = await requestVote(data);
+    setIsLoading(true)
+    const res = await requestVote(data)
 
     if (res?.data) {
-      setIsVoteDisabled(true);
+      setIsVoteDisabled(true)
       setConfirmedVote(true)
-      setIsVoteDisabled(true);
+      setIsVoteDisabled(true)
     } else if (res?.error) {
-      toast.error(res?.error);
+      toast.error(res?.error)
     }
-    setIsLoading(false);
-  };
-
-  const handleRanking = () => {}
+    setIsLoading(false)
+  }
 
   return (
     <>
@@ -107,7 +103,7 @@ export default function SecPhaseVote() {
                   radius="full"
                   className="border-[#00E46F] text-[#00E46F] text-[16px] font-headingExtraBold py-3 px-8"
                   type="submit"
-                  onClick={(e) => handleChooseTeam(e, "FORTE DA RIBEIRA FC")}
+                  onClick={(e) => handleChooseTeam(e, 'FORTE DA RIBEIRA FC')}
                   // onClick={() => {}}
                 >
                   ESCOLHER
@@ -131,7 +127,7 @@ export default function SecPhaseVote() {
                   radius="full"
                   className="border-[#00E46F] text-[#00E46F] text-[16px] font-headingExtraBold py-3 px-8"
                   type="submit"
-                  onClick={(e) => handleChooseTeam(e, "IMPERIO CITY")}
+                  onClick={(e) => handleChooseTeam(e, 'IMPERIO CITY')}
                   // onClick={() => {}}
                 >
                   ESCOLHER
@@ -155,7 +151,7 @@ export default function SecPhaseVote() {
                   radius="full"
                   className="border-[#00E46F] text-[#00E46F] text-[16px] font-headingExtraBold py-3 px-8"
                   type="submit"
-                  onClick={(e) => handleChooseTeam(e, "CELESTE FC")}
+                  onClick={(e) => handleChooseTeam(e, 'CELESTE FC')}
                   // onClick={() => {}}
                 >
                   ESCOLHER
@@ -179,7 +175,7 @@ export default function SecPhaseVote() {
                   radius="full"
                   className="border-[#00E46F] text-[#00E46F] text-[16px] font-headingExtraBold py-3 px-8"
                   type="submit"
-                  onClick={(e) => handleChooseTeam(e, "BARROCA")}
+                  onClick={(e) => handleChooseTeam(e, 'BARROCA')}
                   // onClick={() => {}}
                 >
                   ESCOLHER
@@ -203,7 +199,7 @@ export default function SecPhaseVote() {
                   radius="full"
                   className="border-[#00E46F] text-[#00E46F] text-[16px] font-headingExtraBold py-3 px-8"
                   type="submit"
-                  onClick={(e) => handleChooseTeam(e, "SCORPIONS")}
+                  onClick={(e) => handleChooseTeam(e, 'SCORPIONS')}
                   // onClick={() => {}}
                 >
                   ESCOLHER
@@ -218,7 +214,7 @@ export default function SecPhaseVote() {
       </div>
       {confirmedVote ? (
         <h2 className="text-[16px] font-semibold leading-6">
-          Próximo voto disponível em{" "}
+          Próximo voto disponível em{' '}
           <span className="text-[#00E46F]">{`${dataAvailable()} às 00:00`}</span>
         </h2>
       ) : (
@@ -243,7 +239,6 @@ export default function SecPhaseVote() {
           radius="full"
           className="border-[#00E46F] text-[#00E46F] text-[18px] font-headingExtraBold py-3 px-8"
           type="submit"
-          onClick={handleRanking}
           onPress={onOpen}
         >
           VER RANKING
@@ -298,5 +293,5 @@ export default function SecPhaseVote() {
         </Modal>
       </div>
     </>
-  );
+  )
 }
