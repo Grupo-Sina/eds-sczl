@@ -14,6 +14,10 @@ type AppContextType = {
   setModalVisible: React.Dispatch<React.SetStateAction<ModalVisible>>
   shouldShowResetPassword: boolean
   setShouldShowResetPassword: React.Dispatch<React.SetStateAction<boolean>>
+  selectedTeam?: string
+  setSelectedTeam: React.Dispatch<React.SetStateAction<string | undefined>>
+  isVoteDisabled: boolean
+  setIsVoteDisabled: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
@@ -28,6 +32,8 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
   const [shouldShowResetPassword, setShouldShowResetPassword] = useState(false)
 
   const [modalVisible, setModalVisible] = useState<ModalVisible>(undefined)
+  const [selectedTeam, setSelectedTeam] = useState<string>();
+  const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true);
 
   const contextValue: AppContextType = {
     modalVisible,
@@ -40,6 +46,10 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
     setShouldShowVerificationCode,
     setShouldShowResetPassword,
     shouldShowResetPassword,
+    selectedTeam,
+    setSelectedTeam,
+    isVoteDisabled,
+    setIsVoteDisabled
   }
 
   return (

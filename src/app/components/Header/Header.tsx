@@ -8,6 +8,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Link,
+  useDisclosure,
 } from '@nextui-org/react'
 import Image from 'next/image'
 import edsnavarzealogo from '../../../../public/edsnavarzealogo.png'
@@ -15,11 +16,13 @@ import escudozl from '../../../../public/escudozl.png'
 import { useAuthContext } from '@/app/context/AuthContext'
 
 import { useAppContext } from '@/app/context/AppContext'
+import VerRegrasModal from '../VerRegrasModal/VerRegasModal'
 
 export default function Header() {
   const { setModalVisible } = useAppContext()
   const { handleSignOut, isAuthenticaded } = useAuthContext()
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
   return (
     <Navbar
@@ -36,10 +39,22 @@ export default function Header() {
       />
 
       {isAuthenticaded ? (
-        <NavbarMenu
+        <>
+          
+          <NavbarMenu
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.40)' }}
           className="bg-[#1F3694] w-full"
         >
+          {/* <NavbarMenuItem className="mt-10">
+            <Link
+              className="font-headingBold cursor-pointer text-xl font-extrabold text-white"
+              onPress={onOpen}
+            >
+              VER REGRAS
+            </Link>
+          </NavbarMenuItem> */}
+          {/* <VerRegrasModal /> */}
+          <p>AQUI CARAI</p>
           <NavbarMenuItem className="mt-10">
             <Link
               className="font-headingBold cursor-pointer text-xl font-extrabold text-white"
@@ -49,6 +64,8 @@ export default function Header() {
             </Link>
           </NavbarMenuItem>
         </NavbarMenu>
+        </>
+        
       ) : (
         <NavbarMenu
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.40)' }}
