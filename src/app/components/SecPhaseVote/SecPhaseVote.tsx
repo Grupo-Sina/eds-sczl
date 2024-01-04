@@ -66,10 +66,10 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   } = useAppContext()
 
   const pathname = usePathname()
-  console.log(pathname)
 
   useEffect(() => {
     const fetchingTeamsAndVotes = async () => {
+      setIsLoading(true)
       try {
         const res = await requestTeamsAndVotes()
         setTeams(res)
@@ -121,7 +121,10 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
               </CardHeader>
               <CardBody>
                 {teamsList.map((item, index) => (
-                  <div key={index} className="flex items-center justify-center">
+                  <div
+                    key={index}
+                    className="flex items-center justify-center overflow-y-hidden"
+                  >
                     {item.name === team.name && (
                       <Image src={item.crest} alt={team.name} height={121} />
                     )}

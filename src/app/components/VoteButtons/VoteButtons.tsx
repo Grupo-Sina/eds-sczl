@@ -72,14 +72,10 @@ export default function VoteButtons() {
 
   return (
     <>
-      {confirmedVote ? (
+      {confirmedVote && (
         <h2 className="text-[16px] font-semibold leading-6">
           Próximo voto disponível em{' '}
           <span className="text-[#00E46F]">{`${dataAvailable()} às 00:00`}</span>
-        </h2>
-      ) : (
-        <h2 className="text-[16px] font-semibold leading-6">
-          Confira as regras!
         </h2>
       )}
       <div className="flex space-x-4 my-8 justify-center xl:justify-start">
@@ -112,7 +108,7 @@ export default function VoteButtons() {
                     alt="trophy"
                     className="mr-2 w-[28px] h-[28px]"
                   />
-                  <p className="text-2xl font-bold">
+                  <p className="text-2xl font-bold text-white">
                     CONFERE COMO ESTÁ O RANKING ATÉ AGORA!
                   </p>
                 </ModalHeader>
@@ -121,7 +117,7 @@ export default function VoteButtons() {
                   <p className="text-[#9E9E9E] text-sm font-normal">
                     {`Atualizado em: ${new Date().toLocaleString('pt-BR')}`}{' '}
                   </p>
-                  <div className="flex justify-between text-xs font-semibold">
+                  <div className="flex justify-between text-xs font-semibold text-white">
                     <p>NOME DA EQUIPE</p>
                     <p>VOTOS</p>
                   </div>
@@ -130,7 +126,7 @@ export default function VoteButtons() {
                       borderTop: '1px solid #FFFFFF33',
                     }}
                   />
-                  <ol className="text-xs font-normal">
+                  <ol className="text-xs font-normal text-white">
                     {topTeams.map((team, index) => (
                       <React.Fragment key={index}>
                         <li className="flex justify-between py-2 mr-4">
