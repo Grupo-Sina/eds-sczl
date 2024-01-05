@@ -66,6 +66,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   } = useAppContext()
 
   const pathname = usePathname()
+  const isRegisterPage = pathname === '/register'
 
   useEffect(() => {
     const fetchingTeamsAndVotes = async () => {
@@ -83,6 +84,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   }, [])
 
   useEffect(() => {
+    setIsLoading(true)
     const topFiveTeams = getTopTeams(teams, 5)
     setTopTeams(topFiveTeams)
     setIsLoading(false)
@@ -94,9 +96,9 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   }
 
   return (
-    <div className={`flex flex-col ${isPageVote && 'items-center'}`}>
+    <div className={`w-full flex flex-col ${isPageVote && 'items-center'}`}>
       <div
-        className={`flex justify-around flex-wrap ${
+        className={`p-5 flex justify-around flex-wrap ${
           isPageVote && 'md:gap-4'
         } bg-transparent`}
       >
@@ -105,6 +107,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
         ) : (
           topTeams.map((team) => (
             <Card
+              isDisabled={!!isRegisterPage}
               isPressable
               onClick={() => handleChooseTeam(team.name)}
               key={team.name}

@@ -2,7 +2,7 @@ import { Button } from '@nextui-org/react'
 
 export default function InitialButtons() {
   return (
-    <div className="flex space-x-4 mt-8 md:my-8 justify-center xl:justify-start">
+    <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 mt-8 md:my-8 justify-center xl:justify-start">
       <Button
         isDisabled={true}
         radius="full"
