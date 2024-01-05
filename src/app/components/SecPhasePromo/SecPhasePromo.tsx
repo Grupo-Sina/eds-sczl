@@ -6,9 +6,19 @@ export default function SecPhasePromo() {
 
   const { width } = useWindowSize()
 
+  const isVoteRoute = pathname === '/vote'
+
   return (
     <div className="desktop:pl-0 w-full max-w-[935px]">
-      <h1 className="mt-[45px] text-center sm:text-left desktop:mt-0 text-white text-wrap">
+      <h1
+        className={`
+          mt-[45px]
+          ${isVoteRoute ? 'text-center' : 'text-center sm:text-left'}
+          desktop:mt-0
+          text-white
+          text-wrap
+        `}
+      >
         <span className="font-headingBold text-[48px] sm:text-[68px]">C</span>
         <span className="font-headingLight text-[48px] sm:text-[68px]">H</span>
         <span className="font-headingExtraBold text-[48px] sm:text-[68px]">
@@ -37,7 +47,13 @@ export default function SecPhasePromo() {
         <span className="font-headingBold text-[48px] sm:text-[68px]">D</span>
         <span className="font-headingLight text-[48px] sm:text-[68px]">A</span>
       </h1>
-      <h1 className="sm:mt-[-40px] text-center sm:text-left mt-0">
+      <h1
+        className={`
+          sm:mt-[-40px]
+          ${isVoteRoute ? 'text-center' : 'text-center sm:text-left'}
+          mt-0
+        `}
+      >
         <span className="font-headingLight text-[80px] sm:text-[112px] text-[#00E275]">
           {' '}
         </span>

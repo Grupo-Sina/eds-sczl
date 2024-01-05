@@ -13,10 +13,9 @@ const PublicRoute = ({ children }: PublicRouteProps) => {
   useEffect(() => {
     if (isAuthenticaded) {
       router.push('/vote')
+    } else if (pathname === '/') {
+      router.push('/register')
     }
-    // else if (pathname === '/') {
-    //   router.push('/register')
-    // }
   }, [isAuthenticaded, router, pathname])
 
   return <>{children}</>
