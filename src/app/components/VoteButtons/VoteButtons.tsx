@@ -73,16 +73,16 @@ export default function VoteButtons() {
   return (
     <>
       {confirmedVote && (
-        <h2 className="text-[16px] font-semibold leading-6">
+        <h2 className="text-white text-[16px] font-semibold leading-6">
           Próximo voto disponível em{' '}
           <span className="text-[#00E46F]">{`${dataAvailable()} às 00:00`}</span>
         </h2>
       )}
-      <div className="flex space-x-4 my-8 justify-center xl:justify-start">
+      <div className="w-screen flex-col sm:flex-row space-y-3 sm:space-y-0 space-x-0 sm:space-x-4 my-8 justify-center xl:justify-start">
         <Button
           isDisabled={isVoteDisabled}
           radius="full"
-          className="bg-[#00E46F] text-[#003B9C] text-[18px] font-headingExtraBold py-3 px-8"
+          className="w-[90%] sm:w-auto bg-[#00E46F] text-[#003B9C] text-[18px] font-headingExtraBold py-3 px-8"
           type="submit"
           onClick={(e) => selectedTeam && handleVote({ name: selectedTeam })}
         >
@@ -92,7 +92,7 @@ export default function VoteButtons() {
         <Button
           variant="bordered"
           radius="full"
-          className="border-[#00E46F] text-[#00E46F] text-[18px] font-headingExtraBold py-3 px-8"
+          className="w-[90%] sm:w-auto border-[#00E46F] text-[#00E46F] text-[18px] font-headingExtraBold py-3 px-8"
           type="submit"
           onPress={onOpen}
         >

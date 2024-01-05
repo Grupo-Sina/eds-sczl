@@ -29,7 +29,7 @@ export default function Register() {
 
   return (
     <div className="flex flex-col md:flex-row gap-2 items-center w-full justify-evenly md:pr-10">
-      <div className=" flex flex-col p-4 px-20">
+      <div className="flex flex-col p-4 px-20">
         <SecPhasePromo />
         <SecPhaseVote />
         <InitialButtons />

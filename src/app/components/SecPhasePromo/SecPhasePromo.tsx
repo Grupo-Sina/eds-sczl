@@ -9,7 +9,7 @@ export default function SecPhasePromo() {
   const isVoteRoute = pathname === '/vote'
 
   return (
-    <div className="desktop:pl-0 w-full max-w-[935px]">
+    <div className={`w-full max-w-[935px] ${isVoteRoute && 'mx-auto'}`}>
       <h1
         className={`
           mt-[45px]
@@ -17,6 +17,7 @@ export default function SecPhasePromo() {
           desktop:mt-0
           text-white
           text-wrap
+        
         `}
       >
         <span className="font-headingBold text-[48px] sm:text-[68px]">C</span>
@@ -95,7 +96,7 @@ export default function SecPhasePromo() {
         </span>
       </h1>
       <p
-        className={`text-white sm:my-3 text-[22px] desktop:text-[28px] font-normal leading-[48px] ${
+        className={`p-6 text-white sm:my-3 text-[22px] desktop:text-[28px] font-normal leading-[48px] ${
           pathname === '/register' && width > 640 ? 'text-left' : 'text-center'
         }`}
       >
