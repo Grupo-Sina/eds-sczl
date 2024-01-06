@@ -80,7 +80,7 @@ export default function VoteButtons() {
       )}
       <div className="w-screen flex-col sm:flex-row space-y-3 sm:space-y-0 space-x-0 sm:space-x-4 my-8 justify-center xl:justify-start">
         <Button
-          isDisabled={isVoteDisabled}
+          isDisabled={true}
           radius="full"
           className="w-[90%] sm:w-auto bg-[#00E46F] text-[#003B9C] text-[18px] font-headingExtraBold py-3 px-8"
           type="submit"
