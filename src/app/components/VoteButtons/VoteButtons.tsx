@@ -95,6 +95,7 @@ export default function VoteButtons() {
           className="w-[90%] sm:w-auto border-[#00E46F] text-[#00E46F] text-[18px] font-headingExtraBold py-3 px-8"
           type="submit"
           onPress={onOpen}
+          isDisabled={true}
         >
           VER RANKING
         </Button>
