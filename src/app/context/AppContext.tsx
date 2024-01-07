@@ -1,6 +1,12 @@
 import { useDisclosure } from '@nextui-org/react'
 import { usePathname } from 'next/navigation'
-import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react'
+import React, {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from 'react'
 
 export type ModalVisible = 'reset' | 'login' | 'login-reset-pass' | undefined
 
@@ -44,7 +50,7 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     setIsCardsDisabled(pathname !== '/vote')
-  },[pathname])
+  }, [pathname])
 
   const contextValue: AppContextType = {
     modalVisible,
@@ -62,7 +68,7 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
     isVoteDisabled,
     setIsVoteDisabled,
     isCardsDisabled,
-    setIsCardsDisabled
+    setIsCardsDisabled,
   }
 
   return (

@@ -1,9 +1,9 @@
-import Image from "next/image";
-import edsfooterlogo from "../../../../public/edsfooterlogo.png";
-import twitterlogo from "../../../../public/twitterlogo.png";
-import youtubelogo from "../../../../public/youtubelogo.png";
-import instalogo from "../../../../public/instalogo.png";
-import Link from "next/link";
+import Image from 'next/image'
+import edsfooterlogo from '../../../../public/edsfooterlogo.png'
+import twitterlogo from '../../../../public/twitterlogo.png'
+import youtubelogo from '../../../../public/youtubelogo.png'
+import instalogo from '../../../../public/instalogo.png'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -48,5 +48,5 @@ export default function Footer() {
         </Link>
       </div>
     </footer>
-  );
+  )
 }

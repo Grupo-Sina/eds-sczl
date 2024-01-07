@@ -9,11 +9,19 @@ export default function SecPhasePromo() {
   const isVoteRoute = pathname === '/vote'
 
   return (
-    <div className={`w-screen md:w-full z-20 max-w-[935px] ${isVoteRoute && 'mx-auto'}`}>
+    <div
+      className={`w-screen md:w-full z-20 max-w-[935px] ${
+        isVoteRoute && 'mx-auto'
+      }`}
+    >
       <h1
         className={`
           mt-[25px]
-          ${isVoteRoute || width < 767 ? 'text-center' : 'text-center sm:text-left'}
+          ${
+            isVoteRoute || width < 767
+              ? 'text-center'
+              : 'text-center sm:text-left'
+          }
           desktop:mt-0
           text-white
           text-wrap
@@ -50,7 +58,11 @@ export default function SecPhasePromo() {
       <h1
         className={`
           sm:mt-[-40px]
-          ${isVoteRoute || width < 767 ? 'text-center' : 'text-center sm:text-left'}
+          ${
+            isVoteRoute || width < 767
+              ? 'text-center'
+              : 'text-center sm:text-left'
+          }
           mt-0
         `}
       >

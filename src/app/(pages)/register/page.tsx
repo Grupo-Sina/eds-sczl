@@ -31,7 +31,11 @@ export default function Register() {
   return (
     <div className="flex flex-col md:flex-row gap-2 items-center w-full justify-evenly md:pr-10 ">
       <div className="flex flex-col p-4 px-20 ">
-        <Image src={escudozl} alt='escudo zl' className='flex md:hidden w-[50px] h-[60px] mx-auto mt-8'/>
+        <Image
+          src={escudozl}
+          alt="escudo zl"
+          className="flex md:hidden w-[50px] h-[60px] mx-auto mt-8"
+        />
         <SecPhasePromo />
         <SecPhaseVote />
         <InitialButtons />
