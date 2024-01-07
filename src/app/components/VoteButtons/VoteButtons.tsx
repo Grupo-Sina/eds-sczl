@@ -27,6 +27,8 @@ export default function VoteButtons() {
     isVoteDisabled,
     setIsVoteDisabled,
     confirmedVote,
+    isCardsDisabled,
+    setIsCardsDisabled,
   } = useAppContext()
 
   const dataAvailable = () => {
@@ -42,8 +44,6 @@ export default function VoteButtons() {
         setTeams(res)
       } catch (error) {
         throw new Error('Error fetching teams and votes: ' + error)
-      } finally {
-        setIsLoading(false)
       }
     }
     fetchingTeamsAndVotes()
@@ -63,9 +63,11 @@ export default function VoteButtons() {
       setIsVoteDisabled(true)
       setConfirmedVote(true)
       setIsVoteDisabled(true)
+      setIsCardsDisabled(true)
     } else if (res?.error) {
       toast.error(res?.error)
       setIsVoteDisabled(true)
+      setIsCardsDisabled(true)
     }
     setIsLoading(false)
   }
@@ -78,9 +80,9 @@ export default function VoteButtons() {
           <span className="text-[#00E46F]">{`${dataAvailable()} às 00:00`}</span>
         </h2>
       )}
-      <div className="w-screen flex-col sm:flex-row space-y-3 sm:space-y-0 space-x-0 sm:space-x-4 my-8 justify-center xl:justify-start">
+      <div className="w-screen flex-col sm:flex-row space-y-4 sm:space-y-0 space-x-0 sm:space-x-4 my-8 justify-center xl:justify-start">
         <Button
-          isDisabled={isVoteDisabled}
+          isDisabled={confirmedVote || isCardsDisabled}
           radius="full"
           className="w-[90%] sm:w-auto bg-[#00E46F] text-[#003B9C] text-[18px] font-headingExtraBold py-3 px-8"
           type="submit"

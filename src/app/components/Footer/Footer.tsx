@@ -3,6 +3,7 @@ import edsfooterlogo from '../../../../public/edsfooterlogo.png'
 import twitterlogo from '../../../../public/twitterlogo.png'
 import youtubelogo from '../../../../public/youtubelogo.png'
 import instalogo from '../../../../public/instalogo.png'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -12,17 +13,39 @@ export default function Footer() {
       <p className="text-[#fff]">@2023 Copyright - Esportedasorte</p>
 
       <div className="flex items-center gap-[16px] mt-4 mb-4">
-        <Image
-          src={twitterlogo}
-          alt="twitterlogo"
-          className="h-[32px] w-[32px]"
-        />
-        <Image
-          src={youtubelogo}
-          alt="youtubelogo"
-          className="h-[32px] w-[32px]"
-        />
-        <Image src={instalogo} alt="instalogo" className="h-[32px] w-[32px]" />
+        <Link
+          href="https://twitter.com/EsportesDaSorte"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={twitterlogo}
+            alt="twitterlogo"
+            className="h-[32px] w-[32px]"
+          />
+        </Link>
+        <Link
+          href="https://www.youtube.com/@esportesdasorteoficial"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={youtubelogo}
+            alt="youtubelogo"
+            className="h-[32px] w-[32px]"
+          />
+        </Link>
+        <Link
+          href="https://www.instagram.com/esportesdasorte/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={instalogo}
+            alt="instalogo"
+            className="h-[32px] w-[32px]"
+          />
+        </Link>
       </div>
     </footer>
   )
