@@ -9,15 +9,14 @@ export default function SecPhasePromo() {
   const isVoteRoute = pathname === '/vote'
 
   return (
-    <div className={`w-full max-w-[935px] ${isVoteRoute && 'mx-auto'}`}>
+    <div className={`w-screen md:w-full z-20 max-w-[935px] ${isVoteRoute && 'mx-auto'}`}>
       <h1
         className={`
-          mt-[45px]
-          ${isVoteRoute ? 'text-center' : 'text-center sm:text-left'}
+          mt-[25px]
+          ${isVoteRoute || width < 767 ? 'text-center' : 'text-center sm:text-left'}
           desktop:mt-0
           text-white
           text-wrap
-        
         `}
       >
         <span className="font-headingBold text-[48px] sm:text-[68px]">C</span>
@@ -51,7 +50,7 @@ export default function SecPhasePromo() {
       <h1
         className={`
           sm:mt-[-40px]
-          ${isVoteRoute ? 'text-center' : 'text-center sm:text-left'}
+          ${isVoteRoute || width < 767 ? 'text-center' : 'text-center sm:text-left'}
           mt-0
         `}
       >
@@ -96,8 +95,8 @@ export default function SecPhasePromo() {
         </span>
       </h1>
       <p
-        className={`p-6 text-white sm:my-3 text-[22px] desktop:text-[28px] font-normal leading-[48px] ${
-          pathname === '/register' && width > 640 ? 'text-left' : 'text-center'
+        className={`mx-6 md:mx-0 text-white text-[18px] sm:my-3 sm:text-[22px] desktop:text-[28px] font-normal leading-[27px] sm:leading-[48px] ${
+          pathname === '/register' && width > 767 ? 'text-left' : 'text-center'
         }`}
       >
         Os <span className="font-bold">5 times mais votados</span> avançaram

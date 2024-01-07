@@ -1,5 +1,6 @@
 import { useDisclosure } from '@nextui-org/react'
-import React, { createContext, useContext, ReactNode, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react'
 
 export type ModalVisible = 'reset' | 'login' | 'login-reset-pass' | undefined
 
@@ -18,6 +19,8 @@ type AppContextType = {
   setSelectedTeam: React.Dispatch<React.SetStateAction<string | undefined>>
   isVoteDisabled: boolean
   setIsVoteDisabled: React.Dispatch<React.SetStateAction<boolean>>
+  isCardsDisabled: boolean
+  setIsCardsDisabled: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
@@ -35,6 +38,13 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
 
   const [selectedTeam, setSelectedTeam] = useState<string>()
   const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true)
+  const [isCardsDisabled, setIsCardsDisabled] = useState<boolean>(true)
+
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setIsCardsDisabled(pathname !== '/vote')
+  },[pathname])
 
   const contextValue: AppContextType = {
     modalVisible,
@@ -51,6 +61,8 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
     setSelectedTeam,
     isVoteDisabled,
     setIsVoteDisabled,
+    isCardsDisabled,
+    setIsCardsDisabled
   }
 
   return (

@@ -57,12 +57,14 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   const [teams, setTeams] = useState<Team[]>([])
   const [topTeams, setTopTeams] = useState<Team[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
+
   const {
     confirmedVote,
     setConfirmedVote,
     selectedTeam,
     setSelectedTeam,
     setIsVoteDisabled,
+    isCardsDisabled,
   } = useAppContext()
 
   const pathname = usePathname()
@@ -96,9 +98,9 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   }
 
   return (
-    <div className={`w-full flex flex-col ${isPageVote && 'items-center'}`}>
+    <div className={`w-full flex flex-col ${isPageVote && 'items-center '}`}>
       <div
-        className={`p-5 flex justify-around flex-wrap ${
+        className={`p-5 md:p-0 flex justify-around flex-wrap ${
           isPageVote && 'md:gap-4'
         } bg-transparent`}
       >
@@ -107,7 +109,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
         ) : (
           topTeams.map((team) => (
             <Card
-              isDisabled={!!isRegisterPage}
+              isDisabled={isCardsDisabled || confirmedVote}
               isPressable
               onClick={() => handleChooseTeam(team.name)}
               key={team.name}
@@ -141,7 +143,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
                   className="border-[#00E46F] text-[#00E46F] text-[16px] font-headingExtraBold py-3 px-8"
                   type="submit"
                   onClick={() => handleChooseTeam(team.name)}
-                  isDisabled={confirmedVote}
+                  isDisabled={isCardsDisabled || confirmedVote}
                 >
                   ESCOLHER
                 </Button>
