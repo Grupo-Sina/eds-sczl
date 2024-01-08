@@ -100,7 +100,7 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   return (
     <div className={`w-full flex flex-col ${isPageVote && 'items-center '}`}>
       <div
-        className={`p-5 md:p-0 flex justify-around flex-wrap ${
+        className={`p-8 md:p-0 flex justify-between flex-wrap ${
           isPageVote && 'md:gap-4'
         } bg-transparent`}
       >
