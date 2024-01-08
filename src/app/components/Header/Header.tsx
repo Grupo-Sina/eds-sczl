@@ -136,15 +136,15 @@ export default function Header() {
                         segue até o dia 27 de dezembro, vai selecionar os 5
                         (cinco) times mais mencionados para irem para a fase
                         final. Na segunda fase, que começa no dia 28 de dezembro
-                        e segue até o dia 8 de janeiro, os 5 (cinco) times
-                        selecionados vão participar de mais uma votação popular
-                        para ver quem ganha o grande prêmio.
+                        e segue até às 19h do dia 9 de janeiro, os 5 (cinco)
+                        times selecionados vão participar de mais uma votação
+                        popular para ver quem ganha o grande prêmio.
                       </li>
                       <br />
                       <li>Você pode realizar apenas 1 (um) voto por dia.</li>
                       <br />
                       <li>
-                        O resultado final será divulgado no dia 08 de janeiro de
+                        O resultado final será divulgado no dia 10 de janeiro de
                         2024.
                       </li>
                       <br />
