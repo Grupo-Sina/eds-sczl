@@ -23,6 +23,7 @@ import ImperioCrest from '../../../../public/teams/imperio.png'
 import BarrocaCrest from '../../../../public/teams/barroca.png'
 import RibeiraCrest from '../../../../public/teams/ribeira.png'
 import CelestCrest from '../../../../public/teams/celeste.png'
+import useWindowSize from '@/app/utils/useWindowHook'
 
 type SecPhaseVote = {
   isPageVote?: boolean
@@ -67,6 +68,8 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
     isCardsDisabled,
   } = useAppContext()
 
+  const { width } = useWindowSize()
+
   const pathname = usePathname()
   const isRegisterPage = pathname === '/register'
 
@@ -100,9 +103,9 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
   return (
     <div className={`w-full flex flex-col ${isPageVote && 'items-center '}`}>
       <div
-        className={`p-8 md:p-0 flex justify-between flex-wrap ${
-          isPageVote && 'md:gap-4'
-        } bg-transparent`}
+        className={`${
+          width < 383 ? 'justify-center' : 'justify-between'
+        } p-8 md:p-0 flex flex-wrap ${isPageVote && 'md:gap-4'} bg-transparent`}
       >
         {isLoading ? (
           <Spinner size="lg" className="flex justify-center" />
