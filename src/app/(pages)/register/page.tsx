@@ -24,13 +24,14 @@ import trophy from '../../../../public/trophy.png'
 import { Team } from '@/app/utils/teams-and-votes'
 import InitialButtons from '@/app/components/InitialButtons/InitialButtons'
 import escudozl from '../../../../public/escudozl.png'
+import ChampionPromo from '@/app/components/ChampionPromo/ChampionPromo'
 
 export default function Register() {
   const { shouldShowVerificationCode } = useAppContext()
 
   return (
     <div className="flex flex-col md:flex-row gap-2 items-center w-full justify-evenly md:pr-10 ">
-      <div className="flex flex-col p-4 px-20 ">
+      <div className="flex flex-col p-4 px-20 overflox-x-hidden">
         <Image
           src={escudozl}
           alt="escudo zl"
@@ -39,6 +40,7 @@ export default function Register() {
         <SecPhasePromo />
         <SecPhaseVote />
         <InitialButtons />
+        {/* <ChampionPromo /> */}
       </div>
       {shouldShowVerificationCode ? <VerificationCode /> : <FormComponent />}
       <ModalLogin />

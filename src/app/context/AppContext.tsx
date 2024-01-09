@@ -7,6 +7,7 @@ import React, {
   useState,
   useEffect,
 } from 'react'
+import { Team } from '../utils/teams-and-votes'
 
 export type ModalVisible = 'reset' | 'login' | 'login-reset-pass' | undefined
 
@@ -27,6 +28,10 @@ type AppContextType = {
   setIsVoteDisabled: React.Dispatch<React.SetStateAction<boolean>>
   isCardsDisabled: boolean
   setIsCardsDisabled: React.Dispatch<React.SetStateAction<boolean>>
+  teams: Team[]
+  setTeams: React.Dispatch<React.SetStateAction<Team[]>>
+  topTeams: Team[]
+  setTopTeams: React.Dispatch<React.SetStateAction<Team[]>>
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
@@ -45,6 +50,8 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
   const [selectedTeam, setSelectedTeam] = useState<string>()
   const [isVoteDisabled, setIsVoteDisabled] = useState<boolean>(true)
   const [isCardsDisabled, setIsCardsDisabled] = useState<boolean>(true)
+  const [teams, setTeams] = useState<Team[]>([])
+  const [topTeams, setTopTeams] = useState<Team[]>([])
 
   const pathname = usePathname()
 
@@ -69,6 +76,10 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({
     setIsVoteDisabled,
     isCardsDisabled,
     setIsCardsDisabled,
+    teams,
+    setTeams,
+    topTeams,
+    setTopTeams,
   }
 
   return (
