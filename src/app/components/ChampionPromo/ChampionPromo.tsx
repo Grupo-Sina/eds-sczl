@@ -11,6 +11,7 @@ import Image from 'next/image'
 import trophy from '../../../../public/trophy.png'
 import { Team, getTopTeams } from '@/app/utils/teams-and-votes'
 import { requestTeamsAndVotes } from '@/app/api/teams'
+import championlogo from '../../../../public/championlogo.png'
 
 export default function ChampionPromo() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
@@ -41,117 +42,122 @@ export default function ChampionPromo() {
   return (
     <div className="px-12 md:px-0 w-screen md:w-full mt-8 md:mt-0">
       <h1 className="text-center md:text-left">
-        <span className="text-[52px] font-headingBold lg:text-[80px]">O</span>
-        <span className="text-[52px] font-heading lg:text-[80px]"> </span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]">F</span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]">.</span>
-        <span className="text-[52px] font-heading lg:text-[80px]"> </span>
-        <span className="text-[52px] font-headingBold lg:text-[80px]">D</span>
-        <span className="text-[52px] font-heading lg:text-[80px]">A</span>
-        <span className="text-[52px] font-heading lg:text-[80px]"> </span>
-        <span className="text-[52px] font-headingBold lg:text-[80px]">R</span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]">I</span>
-        <span className="text-[52px] font-headingThin lg:text-[80px]">B</span>
-        <span className="text-[52px] font-headingExtraBold lg:text-[80px]">
+        <span className="text-[52px] font-headingBold md:text-[80px]">O</span>
+        <span className="text-[52px] font-heading md:text-[80px]"> </span>
+        {/* <span className="text-[52px] font-headingLight md:text-[80px]">F</span>
+        <span className="text-[52px] font-headingLight md:text-[80px]">.</span>
+        <span className="text-[52px] font-heading md:text-[80px]"> </span>
+        <span className="text-[52px] font-headingBold md:text-[80px]">D</span>
+        <span className="text-[52px] font-heading md:text-[80px]">A</span>
+        <span className="text-[52px] font-heading md:text-[80px]"> </span> */}
+        <span className="text-[52px] font-headingBold md:text-[80px]">C</span>
+        <span className="text-[52px] font-headingLight md:text-[80px]">E</span>
+        <span className="text-[52px] font-headingThin md:text-[80px]">L</span>
+        <span className="text-[52px] font-headingExtraBold md:text-[80px]">
           E
         </span>
-        <span className="text-[52px] font-headingBold lg:text-[80px]">I</span>
-        <span className="text-[52px] font-headingHeavy lg:text-[80px]">R</span>
-        <span className="text-[52px] font-headingThin lg:text-[80px]">A</span>
-        <span className="text-[52px] font-heading lg:text-[80px]"> </span>
-        <span className="text-[52px] font-headingExtraBold lg:text-[80px]">
+        <span className="text-[52px] font-headingBold md:text-[80px]">S</span>
+        <span className="text-[52px] font-headingHeavy md:text-[80px]">T</span>
+        <span className="text-[52px] font-headingThin md:text-[80px]">E</span>
+        <span className="text-[52px] font-heading md:text-[80px]"> </span>
+        <span className="text-[52px] font-headingExtraBold md:text-[80px]">
           F
         </span>
-        <span className="text-[52px] font-heading lg:text-[80px]">C</span>
-        <span className="text-[52px] font-heading lg:text-[80px]"> </span>
-        <span className="text-[52px] font-headingBold lg:text-[80px] ">É</span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]"> </span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]">O</span>
-        <span className="text-[52px] font-heading lg:text-[80px]"> </span>
-        <span className="text-[52px] font-headingExtraBold lg:text-[80px]">
+        <span className="text-[52px] font-heading md:text-[80px]">C</span>
+        <span className="text-[52px] font-heading md:text-[80px]"> </span>
+        <span className="text-[52px] font-headingBold md:text-[80px] ">É</span>
+        <span className="text-[52px] font-headingLight md:text-[80px]"> </span>
+        <span className="text-[52px] font-headingLight md:text-[80px]">O</span>
+        <span className="text-[52px] font-heading md:text-[80px]"> </span>
+        <span className="text-[52px] font-headingExtraBold md:text-[80px]">
           G
         </span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]">R</span>
-        <span className="text-[52px] font-headingBold lg:text-[80px]">A</span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]">N</span>
-        <span className="text-[52px] font-headingExtraBold lg:text-[80px]">
+        <span className="text-[52px] font-headingLight md:text-[80px]">R</span>
+        <span className="text-[52px] font-headingBold md:text-[80px]">A</span>
+        <span className="text-[52px] font-headingLight md:text-[80px]">N</span>
+        <span className="text-[52px] font-headingExtraBold md:text-[80px]">
           D
         </span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]">E</span>
+        <span className="text-[52px] font-headingLight md:text-[80px]">E</span>
       </h1>
 
       <h1 className="text-center md:text-left">
-        <span className="text-[52px] font-heading lg:text-[80px]">V</span>
-        <span className="text-[52px] font-heading lg:text-[80px]">E</span>
-        <span className="text-[52px] font-heading lg:text-[80px]">N</span>
-        <span className="text-[52px] font-heading lg:text-[80px]">C</span>
-        <span className="text-[52px] font-heading lg:text-[80px]">E</span>
-        <span className="text-[52px] font-heading lg:text-[80px]">D</span>
-        <span className="text-[52px] font-heading lg:text-[80px]">O</span>
-        <span className="text-[52px] font-heading lg:text-[80px]">R</span>
-        <span className="text-[52px] font-heading lg:text-[80px]"> </span>
-        <span className="text-[52px] font-headingBold lg:text-[80px]">D</span>
-        <span className="text-[52px] font-headingLight lg:text-[80px]">O</span>
-        <span className="text-[52px] font-heading lg:text-[80px]"> </span>
-        <span className="text-[52px] text-[#00E275] font-bold font-headingBold lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] font-heading md:text-[80px]">V</span>
+        <span className="text-[52px] font-heading md:text-[80px]">E</span>
+        <span className="text-[52px] font-heading md:text-[80px]">N</span>
+        <span className="text-[52px] font-heading md:text-[80px]">C</span>
+        <span className="text-[52px] font-heading md:text-[80px]">E</span>
+        <span className="text-[52px] font-heading md:text-[80px]">D</span>
+        <span className="text-[52px] font-heading md:text-[80px]">O</span>
+        <span className="text-[52px] font-heading md:text-[80px]">R</span>
+        <span className="text-[52px] font-heading md:text-[80px]"> </span>
+        <span className="text-[52px] font-headingBold md:text-[80px]">D</span>
+        <span className="text-[52px] font-headingLight md:text-[80px]">O</span>
+        <span className="text-[52px] font-heading md:text-[80px]"> </span>
+        <span className="text-[52px] text-[#00E275] font-bold font-headingBold md:text-[80px] desktop:leading-[108px]">
           B
         </span>
-        <span className="text-[52px] text-[#00E275] font-extralight font-headingExtraLight lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-extralight font-headingExtraLight md:text-[80px] desktop:leading-[108px]">
           I
         </span>
-        <span className="text-[52px] text-[#00E275] font-extrabold font-headingExtraBold lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-extrabold font-headingExtraBold md:text-[80px] desktop:leading-[108px]">
           L
         </span>
-        <span className="text-[52px] text-[#00E275] font-black font-headingHeavy lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-black font-headingHeavy md:text-[80px] desktop:leading-[108px]">
           H
         </span>
-        <span className="text-[52px] text-[#00E275] font-normal font-headingLight lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-normal font-headingLight md:text-[80px] desktop:leading-[108px]">
           E
         </span>
-        <span className="text-[52px] text-[#00E275] font-bold font-headingBold lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-bold font-headingBold md:text-[80px] desktop:leading-[108px]">
           T
         </span>
-        <span className="text-[52px] text-[#00E275] font-normal font-headingLight lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-normal font-headingLight md:text-[80px] desktop:leading-[108px]">
           E
         </span>
-        <span className="text-[52px] text-[#00E275] font-normal font-heading lg:text-[80px] 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-normal font-heading md:text-[80px] 2xl:text-[110px] 2xl:leading-[108px]">
           {' '}
         </span>
-        <span className="text-[52px] text-[#00E275] font-bold font-headingBold lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-bold font-headingBold md:text-[80px] desktop:leading-[108px]">
           D
         </span>
-        <span className="text-[52px] text-[#00E275] font-normal font-headingHeavy lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-normal font-headingHeavy md:text-[80px] desktop:leading-[108px]">
           A
         </span>
-        <span className="text-[52px] text-[#00E275] font-normal font-heading lg:text-[80px] 2xl:text-[110px] 2xl:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-normal font-heading md:text-[80px] 2xl:text-[110px] 2xl:leading-[108px]">
           {' '}
         </span>
-        <span className="text-[52px] text-[#00E275] font-bold font-headingBold lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-bold font-headingBold md:text-[80px] desktop:leading-[108px]">
           S
         </span>
-        <span className="text-[52px] text-[#00E275] font-normal font-heading lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-normal font-heading md:text-[80px] desktop:leading-[108px]">
           O
         </span>
-        <span className="text-[52px] text-[#00E275] font-extrabold font-headingBold lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-extrabold font-headingBold md:text-[80px] desktop:leading-[108px]">
           R
         </span>
-        <span className="text-[52px] text-[#00E275] font-extrabold font-headingExtraBold lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-extrabold font-headingExtraBold md:text-[80px] desktop:leading-[108px]">
           T
         </span>
-        <span className="text-[52px] text-[#00E275] font-normal font-heading lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-[#00E275] font-normal font-heading md:text-[80px] desktop:leading-[108px]">
           E
         </span>
-        <span className="text-[52px] text-white font-normal font-heading lg:text-[80px] desktop:leading-[108px]">
+        <span className="text-[52px] text-white font-normal font-heading md:text-[80px] desktop:leading-[108px]">
           !
         </span>
       </h1>
-      <p className="text-center md:text-left py-5 text-white text-[18px] lg:text-[32px] font-normal">
+      <p className="text-center md:text-left py-5 text-white text-[18px] sm:text-[28px] desktop:text-[32px] font-normal">
         A equipe foi a diferenciada que ganhou uma inscrição gratuita na{' '}
         <span className="font-semibold">Super Copa Zona Leste 2024</span> e
         ainda levou mais{' '}
         <span className="font-semibold text-[#00E275]">R$10.000,00</span> para
         serem doados à uma instituição parceira!
       </p>
+      <Image
+        src={championlogo}
+        alt="championlogo"
+        className="flex md:hidden mx-auto mb-6 w-[40%] md:mb-0 max-w-[258px] max-h-[182px] md:max-w-[601px] md:max-h-[425px]"
+      />
       <h1 className="text-center md:text-left">
         <span className="text-[32px] lg:text-[48px] font-headingBold">C</span>
         <span className="text-[32px] lg:text-[48px] font-heading">O</span>

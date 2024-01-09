@@ -32,7 +32,7 @@ export default function Header() {
     <Navbar
       maxWidth="full"
       onMenuOpenChange={setIsMenuOpen}
-      className="h-[94px] bg-[#0F1768] relative flex justify-evenly space-x-4 md:space-x-0"
+      className="h-[94px] w-full bg-[#0F1768] relative flex"
       classNames={{
         wrapper: 'justify-between lg:mx-[90px]',
       }}
@@ -81,11 +81,11 @@ export default function Header() {
               LOGIN
             </Link>
           </NavbarMenuItem>
-          <NavbarMenuItem>
+          {/* <NavbarMenuItem>
             <Link className="cursor-pointer text-xl font-extrabold text-white  hover:bg-[#0F1768] rounded-full w-full p-4">
               CADASTRE-SE
             </Link>
-          </NavbarMenuItem>
+          </NavbarMenuItem> */}
         </NavbarMenu>
       )}
 
@@ -180,14 +180,14 @@ export default function Header() {
         </div>
       ) : (
         <div className="hidden md:flex md:space-x-4 ">
-          <Button
+          {/* <Button
             radius="full"
             size="md"
             className="bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
             variant="bordered"
           >
             CADASTRE-SE
-          </Button>
+          </Button> */}
           <Button
             type="submit"
             onClick={() => setModalVisible('login')}

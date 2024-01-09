@@ -25,24 +25,34 @@ import { Team } from '@/app/utils/teams-and-votes'
 import InitialButtons from '@/app/components/InitialButtons/InitialButtons'
 import escudozl from '../../../../public/escudozl.png'
 import ChampionPromo from '@/app/components/ChampionPromo/ChampionPromo'
+import championlogo from '../../../../public/championlogo.png'
 
 export default function Register() {
   const { shouldShowVerificationCode } = useAppContext()
 
   return (
-    <div className="flex flex-col md:flex-row gap-2 items-center w-full justify-evenly md:pr-10 ">
-      <div className="flex flex-col p-4 px-20 overflox-x-hidden">
-        <Image
+    <div className="z-20 flex flex-col md:flex-row items-center w-full justify-evenly">
+      <div className=" md:w-[60%] flex flex-col p-4 px-20 overflox-x-hidden">
+        {/* <Image
           src={escudozl}
           alt="escudo zl"
           className="flex md:hidden w-[50px] h-[60px] mx-auto mt-8"
-        />
-        <SecPhasePromo />
+        /> */}
+        {/* <SecPhasePromo />
         <SecPhaseVote />
-        <InitialButtons />
-        {/* <ChampionPromo /> */}
+        <InitialButtons /> */}
+        <ChampionPromo />
       </div>
-      {shouldShowVerificationCode ? <VerificationCode /> : <FormComponent />}
+      {/* <Image src={championlogo} alt="championlogo" /> */}
+      {shouldShowVerificationCode ? (
+        <VerificationCode />
+      ) : (
+        <Image
+          src={championlogo}
+          alt="championlogo"
+          className="hidden md:flex sm:mb-6 sm:w-[40%] md:mb-0 max-w-[258px] max-h-[182px] md:max-w-[601px] md:max-h-[425px]"
+        />
+      )}
       <ModalLogin />
       <ModalResetPassword />
     </div>
