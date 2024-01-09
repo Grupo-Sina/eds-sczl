@@ -112,7 +112,8 @@ export default function SecPhaseVote({ isPageVote }: SecPhaseVote) {
         ) : (
           topTeams.map((team) => (
             <Card
-              isDisabled={isCardsDisabled || confirmedVote}
+              // isDisabled={isCardsDisabled || confirmedVote}
+              isDisabled={true}
               isPressable
               onClick={() => handleChooseTeam(team.name)}
               key={team.name}
