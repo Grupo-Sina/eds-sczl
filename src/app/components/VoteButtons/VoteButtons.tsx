@@ -50,6 +50,7 @@ export default function VoteButtons() {
   }, [])
 
   useEffect(() => {
+    setIsLoading(true)
     const topFiveTeams = getTopTeams(teams, 5)
     setTopTeams(topFiveTeams)
     setIsLoading(false)
