@@ -44,12 +44,6 @@ export default function ChampionPromo() {
       <h1 className="text-center md:text-left">
         <span className="text-[52px] font-headingBold md:text-[80px]">O</span>
         <span className="text-[52px] font-heading md:text-[80px]"> </span>
-        {/* <span className="text-[52px] font-headingLight md:text-[80px]">F</span>
-        <span className="text-[52px] font-headingLight md:text-[80px]">.</span>
-        <span className="text-[52px] font-heading md:text-[80px]"> </span>
-        <span className="text-[52px] font-headingBold md:text-[80px]">D</span>
-        <span className="text-[52px] font-heading md:text-[80px]">A</span>
-        <span className="text-[52px] font-heading md:text-[80px]"> </span> */}
         <span className="text-[52px] font-headingBold md:text-[80px]">C</span>
         <span className="text-[52px] font-headingLight md:text-[80px]">E</span>
         <span className="text-[52px] font-headingThin md:text-[80px]">L</span>
@@ -197,7 +191,7 @@ export default function ChampionPromo() {
       <Button
         radius="full"
         size="md"
-        className="my-5 w-full md:w-auto flex bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[18px] desktop:text-[24px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
+        className="my-5 w-full md:w-auto flex bg-[#1F3694;] font-headingBold border-solid border-[#00E46F] text-[18px] desktop:text-[24px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
         variant="bordered"
         onPress={onOpen}
       >

@@ -33,17 +33,8 @@ export default function Register() {
   return (
     <div className="z-20 flex flex-col md:flex-row items-center w-full justify-evenly">
       <div className=" md:w-[60%] flex flex-col p-4 px-20 overflox-x-hidden">
-        {/* <Image
-          src={escudozl}
-          alt="escudo zl"
-          className="flex md:hidden w-[50px] h-[60px] mx-auto mt-8"
-        /> */}
-        {/* <SecPhasePromo />
-        <SecPhaseVote />
-        <InitialButtons /> */}
         <ChampionPromo />
       </div>
-      {/* <Image src={championlogo} alt="championlogo" /> */}
       {shouldShowVerificationCode ? (
         <VerificationCode />
       ) : (

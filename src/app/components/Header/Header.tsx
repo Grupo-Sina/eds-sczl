@@ -81,11 +81,6 @@ export default function Header() {
               LOGIN
             </Link>
           </NavbarMenuItem>
-          {/* <NavbarMenuItem>
-            <Link className="cursor-pointer text-xl font-extrabold text-white  hover:bg-[#0F1768] rounded-full w-full p-4">
-              CADASTRE-SE
-            </Link>
-          </NavbarMenuItem> */}
         </NavbarMenu>
       )}
 
