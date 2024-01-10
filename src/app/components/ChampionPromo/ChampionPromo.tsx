@@ -6,38 +6,41 @@ import {
   ModalHeader,
   useDisclosure,
 } from '@nextui-org/react'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import trophy from '../../../../public/trophy.png'
-import { Team, getTopTeams } from '@/app/utils/teams-and-votes'
-import { requestTeamsAndVotes } from '@/app/api/teams'
 import championlogo from '../../../../public/championlogo.png'
+
+type FinalRankingTeams = {
+  team: string
+  votes: number
+}
 
 export default function ChampionPromo() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-  const [teams, setTeams] = useState<Team[]>([])
-  const [topTeams, setTopTeams] = useState<Team[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-
-  useEffect(() => {
-    const fetchingTeamsAndVotes = async () => {
-      try {
-        const res = await requestTeamsAndVotes()
-        setTeams(res)
-      } catch (error) {
-        throw new Error('Error fetching teams and votes: ' + error)
-      }
-    }
-    fetchingTeamsAndVotes()
-  }, [])
-
-  useEffect(() => {
-    setIsLoading(true)
-    const topFiveTeams = getTopTeams(teams, 5)
-    setTopTeams(topFiveTeams)
-    setIsLoading(false)
-  }, [teams])
+  const finalRankingTeams: FinalRankingTeams[] = [
+    {
+      team: 'CELESTE FC',
+      votes: 2530,
+    },
+    {
+      team: 'FORTE DA RIBEIRA FC',
+      votes: 2484,
+    },
+    {
+      team: 'SCORPIONS',
+      votes: 96,
+    },
+    {
+      team: 'BARROCA',
+      votes: 88,
+    },
+    {
+      team: 'IMPERIO CITY',
+      votes: 87,
+    },
+  ]
 
   return (
     <div className="px-12 md:px-0 w-screen md:w-full mt-8 md:mt-0">
@@ -214,7 +217,7 @@ export default function ChampionPromo() {
 
               <ModalBody>
                 <p className="text-[#9E9E9E] text-sm font-normal">
-                  {`Atualizado em: ${new Date().toLocaleString('pt-BR')}`}{' '}
+                  {`Atualizado em: 09/01/2024 às 19:00:00`}{' '}
                 </p>
                 <div className="flex justify-between text-xs font-semibold text-white">
                   <p>NOME DA EQUIPE</p>
@@ -226,11 +229,11 @@ export default function ChampionPromo() {
                   }}
                 />
                 <ol className="text-xs font-normal text-white">
-                  {topTeams.map((team, index) => (
+                  {finalRankingTeams.map((team, index) => (
                     <React.Fragment key={index}>
                       <li className="flex justify-between py-2 mr-4">
-                        {index + 1}. {team.name.toUpperCase()}{' '}
-                        <p>{team.amountVotes}</p>
+                        {index + 1}. {team.team.toUpperCase()}{' '}
+                        <p>{team.votes}</p>
                       </li>
                       <hr
                         style={{

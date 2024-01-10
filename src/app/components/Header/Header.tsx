@@ -44,10 +44,7 @@ export default function Header() {
 
       {isAuthenticaded ? (
         <>
-          <NavbarMenu
-            // style={{ backgroundColor: "rgba(0, 0, 0, 0.40)" }}
-            className="bg-[#1F3694] w-full"
-          >
+          <NavbarMenu className="bg-[#1F3694] w-full">
             <NavbarMenuItem className="mt-10 relative overflow-hidden">
               <Link
                 className="cursor-pointer text-xl font-extrabold text-white hover:bg-[#0F1768] rounded-full w-full p-4"
@@ -69,10 +66,7 @@ export default function Header() {
           </NavbarMenu>
         </>
       ) : (
-        <NavbarMenu
-          // style={{ backgroundColor: "rgba(0, 0, 0, 0.40)" }}
-          className="bg-[#1F3694] w-full"
-        >
+        <NavbarMenu className="bg-[#1F3694] w-full">
           <NavbarMenuItem className="mt-10">
             <Link
               className="cursor-pointer text-xl font-extrabold text-white  hover:bg-[#0F1768] rounded-full w-full p-4"
@@ -95,7 +89,13 @@ export default function Header() {
       <Image
         src={edsnavarzealogo}
         alt="header logo eds na varzea"
-        className="mx-auto md:mx-0"
+        className="mx-auto md:mx-0 shrink"
+      />
+
+      <Image
+        src={escudozl}
+        alt="escudozl"
+        className="flex min-w-[39px] min-h-[45px] w-[39px] h-auto overflow-x-hidden md:hidden"
       />
 
       {isAuthenticaded ? (
@@ -175,14 +175,6 @@ export default function Header() {
         </div>
       ) : (
         <div className="hidden md:flex md:space-x-4 ">
-          {/* <Button
-            radius="full"
-            size="md"
-            className="bg-[#0F1768] font-headingBold border-solid border-[#00E46F] text-[16px] font-extrabold leading-5 text-center text-[#00E46F] py-3 px-8"
-            variant="bordered"
-          >
-            CADASTRE-SE
-          </Button> */}
           <Button
             type="submit"
             onClick={() => setModalVisible('login')}
